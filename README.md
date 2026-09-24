@@ -1,7 +1,14 @@
 # Grimoire de l'aventurier
 
 Site D&D 5e (règles 2024) : les espèces et les 12 classes, en français.
-Une seule page, tout le contenu est dans `docs/index.html`.
+Une seule page, tout le contenu est dans `docs/index.html` ; les illustrations sont dans `docs/img/`.
+
+Les illustrations sont des œuvres du domaine public ou sous licence libre (Wikimedia Commons),
+choisies pour évoquer chaque espèce et chaque classe. La liste complète avec les auteurs et les licences
+est dans le pied de page du site (« Crédits des illustrations »).
+
+La refonte graphique et les images ont été assemblées avec Claude Code : les sources de travail
+(recherche Commons, script d'assemblage) ne sont pas dans le dépôt, seul le site final l'est.
 
 ## En ligne
 

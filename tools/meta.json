@@ -191,10 +191,10 @@
 "pos": "50% 25%"
 },
 "rodeur": {
-"t": "Robin Hood",
+"t": "Robin Hood et ses compagnons (détail)",
 "a": "N. C. Wyeth",
 "y": "1917",
-"pos": "50% 25%"
+"pos": "50% 40%"
 },
 "ensorceleur": {
 "t": "The Sorceress",
@@ -306,5 +306,11 @@
 "a": "John William Waterhouse",
 "y": "1888",
 "pos": "45% 40%"
+},
+"clerc": {
+"t": "Pierre l'Ermite prêchant la croisade",
+"a": "Gustave Doré",
+"y": "1877",
+"pos": "55% 55%"
 }
 }

@@ -2565,6 +2565,16 @@
    "h": 1069,
    "file": "img/clerc-4.jpg",
    "err": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss "
+  },
+  {
+   "title": "File:Gustave Doré - Peter the Hermit Preaching the Crusade.jpg",
+   "desc": "https://commons.wikimedia.org/wiki/File:Gustave_Dor%C3%A9_-_Peter_the_Hermit_Preaching_the_Crusade.jpg",
+   "artist": "Gustave Doré",
+   "license": "Public domain",
+   "w": 791,
+   "h": 1006,
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/16/Gustave_Dor%C3%A9_-_Peter_the_Hermit_Preaching_the_Crusade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "file": "img/clerc-5.jpg"
   }
  ],
  "druide": [

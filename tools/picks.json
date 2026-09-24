@@ -37,7 +37,7 @@
 "druide": 1,
 "guerrier": 0,
 "moine": 6,
-"rodeur": 0,
+"rodeur": 2,
 "ensorceleur": 2,
 "occultiste": 1,
 "magicien": 0,
@@ -62,5 +62,6 @@
 "lupin": 1,
 "gobelin": 2,
 "hobgobelin": 0,
-"demi-elfe": 6
+"demi-elfe": 6,
+"clerc": 5
 }

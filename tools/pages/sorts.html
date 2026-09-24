@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sorts · Grimoire de l'aventurier</title>
+<meta name="description" content="Les 339 sorts du SRD 5.2.1 de D&D 2024 en français : filtres par niveau, école, classe, concentration et rituel, avec le texte complet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 58 18v28L32 60 6 46V18z' fill='%23d4af37'/%3E%3Cpath d='M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14' stroke='%231a1424' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.lvl.min{font-size:11px;letter-spacing:.06em}
+.gh{margin-top:34px}
+.gh:first-child{margin-top:0}
+.sheet-body .cls{display:flex;flex-wrap:wrap;gap:6px}
+.mat{font-style:italic;color:var(--ink-3)}
+</style>
+</head>
+<body data-page="sorts">
+<nav class="site" aria-label="Sections du site">
+  <div class="wrap site-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 58 18v28L32 60 6 46V18z" fill="currentColor"/><path d="M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14" stroke="var(--bg)" stroke-width="3" fill="none"/></svg>Grimoire</a>
+    <a href="index.html" data-page="index">Espèces &amp; classes</a>
+    <a href="sorts.html" data-page="sorts">Sorts</a>
+    <a href="equipement.html" data-page="equipement">Équipement</a>
+    <a href="objets.html" data-page="objets">Objets magiques</a>
+    <a href="creation.html" data-page="creation">Créer un personnage</a>
+  </div>
+</nav>
+<header class="hero small">
+  <div class="hero-art" aria-hidden="true"><img src="img/hexblood.jpg" alt="" style="object-position:50% 30%"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">D&amp;D 5e · règles 2024 · SRD 5.2.1 en français</div>
+    <h1>Les sorts</h1>
+    <svg class="flourish" viewBox="0 0 400 24" aria-hidden="true"><path d="M8 12h150M242 12h150" stroke="currentColor" stroke-width="1.2"/><path d="M200 3l9 9-9 9-9-9z" fill="currentColor"/><path d="M178 12l6-4 6 4-6 4zM210 12l6-4 6 4-6 4z" fill="currentColor" opacity=".7"/><circle cx="8" cy="12" r="2" fill="currentColor"/><circle cx="392" cy="12" r="2" fill="currentColor"/></svg>
+    <p class="lede">Les 339 sorts du Document de référence 5.2.1, du sort mineur au 9<sup>e</sup> niveau, avec leur texte complet. Filtre par niveau, école ou classe, puis clique sur un sort pour ouvrir sa fiche.</p>
+  </div>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Filtres">
+  <div class="wrap bar-in">
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="Chercher un sort, un effet, une école…" aria-label="Chercher"></label>
+    <div class="chips" id="chips-niv">
+      <button class="chip" data-n="all" aria-pressed="true">Tous</button>
+      <button class="chip" data-n="0" aria-pressed="false">Mineurs</button>
+      <button class="chip" data-n="1" aria-pressed="false">1</button><button class="chip" data-n="2" aria-pressed="false">2</button><button class="chip" data-n="3" aria-pressed="false">3</button><button class="chip" data-n="4" aria-pressed="false">4</button><button class="chip" data-n="5" aria-pressed="false">5</button><button class="chip" data-n="6" aria-pressed="false">6</button><button class="chip" data-n="7" aria-pressed="false">7</button><button class="chip" data-n="8" aria-pressed="false">8</button><button class="chip" data-n="9" aria-pressed="false">9</button>
+    </div>
+    <select class="sel" id="ecole" aria-label="École"><option value="all">Toutes les écoles</option></select>
+    <select class="sel" id="classe" aria-label="Classe"><option value="all">Toutes les classes</option></select>
+    <div class="chips">
+      <button class="chip" id="f-conc" aria-pressed="false" title="Sorts qui demandent la Concentration">Concentration</button>
+      <button class="chip" id="f-rit" aria-pressed="false" title="Sorts qui peuvent être lancés en rituel">Rituel</button>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="note">
+    <b>2024</b>
+    <p>Le SRD contient <strong>339 sorts</strong> sur les quelque 390 du Manuel des Joueurs 2024 : les grands classiques y sont, quelques sorts propres au Manuel n'y figurent pas. Les distances sont en mètres, comme dans la version française officielle. Un sort marqué <strong>C</strong> demande la Concentration, un sort marqué <strong>R</strong> peut être lancé en rituel.</p>
+  </div>
+  <p class="count" id="count"></p>
+  <main id="list" class="list" aria-live="polite"></main>
+  <footer>
+    <p>Cette œuvre inclut du matériel issu du System Reference Document 5.2.1 (« SRD 5.2.1 ») de Wizards of the Coast LLC, disponible à l'adresse <a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener">https://www.dndbeyond.com/srd</a>. Le SRD 5.2.1 est régi par la Licence Creative Commons Attribution 4.0 International, disponible à l'adresse <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0/legalcode</a>.</p>
+    <p>Texte des sorts : traduction française officielle du SRD 5.2.1. Site non officiel, sans lien avec Wizards of the Coast. Illustration de bannière : <i>Le Cercle magique</i>, John William Waterhouse (1886), domaine public.</p>
+  </footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
+
+<script>
+/*__DATA:sorts__*/
+const S=DATA.sorts;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+S.forEach(s=>{s.k=norm([s.nom,s.ecole,s.classes.join(' '),s.temps,s.duree,s.desc.join(' ')].join(' '))});
+const ECOLES=[...new Set(S.map(s=>s.ecole))].sort((a,b)=>a.localeCompare(b,'fr'));
+const CLASSES=[...new Set(S.flatMap(s=>s.classes))].sort((a,b)=>a.localeCompare(b,'fr'));
+const selE=document.getElementById('ecole'),selC=document.getElementById('classe');
+ECOLES.forEach(e=>selE.insertAdjacentHTML('beforeend',`<option value="${esc(e)}">${esc(e)}</option>`));
+CLASSES.forEach(c=>selC.insertAdjacentHTML('beforeend',`<option value="${esc(c)}">${esc(c)}</option>`));
+const st={q:'',niv:'all',ecole:'all',classe:'all',conc:false,rit:false};
+const list=document.getElementById('list'),count=document.getElementById('count'),q=document.getElementById('q');
+const nivLabel=n=>n===0?'Sort mineur':n+(n===1?'er':'e')+' niveau';
+const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
+const short=s=>{let t=s.temps.replace(/^action/,'Action').replace(/^1 minute/,'1 min').replace(/^10 minutes/,'10 min');if(t.length>28)t=t.slice(0,26)+'…';return t};
+function render(){
+  const t=norm(st.q.trim());
+  const rows=S.filter(s=>(st.niv==='all'||s.niveau===+st.niv)&&(st.ecole==='all'||s.ecole===st.ecole)&&(st.classe==='all'||s.classes.includes(st.classe))&&(!st.conc||s.concentration)&&(!st.rit||s.rituel)&&(!t||s.k.includes(t)));
+  rows.sort((a,b)=>a.niveau-b.niveau||a.nom.localeCompare(b.nom,'fr'));
+  count.textContent=rows.length===S.length?`${S.length} sorts`:`${rows.length} sort${rows.length>1?'s':''} sur ${S.length}`;
+  let html='',cur=null;
+  for(const s of rows){
+    if(s.niveau!==cur){cur=s.niveau;html+=`<h2 class="gh">${nivLabel(cur)}<span>${rows.filter(x=>x.niveau===cur).length}</span></h2>`}
+    html+=`<button class="row" data-id="${s.id}">
+      <span class="lvl${s.niveau===0?' min':''}">${s.niveau===0?'MIN':s.niveau}<small>${s.niveau===0?'':'NIV'}</small></span>
+      <span><h3>${esc(s.nom)}</h3><div class="det">${esc(s.ecole)} · ${esc(short(s))} · ${esc(s.portee)} <span class="cls">· ${esc(s.classes.join(', '))}</span></div></span>
+      <span class="marks">${s.concentration?'<span class="mark c" title="Concentration">C</span>':''}${s.rituel?'<span class="mark r" title="Rituel">R</span>':''}</span></button>`;
+  }
+  list.innerHTML=html||`<p class="empty">Aucun sort ne correspond à ces filtres.</p>`;
+}
+function para(p){const m=p.match(/^\*\*(.+?)\*\*\s*(.*)$/s);if(m)return `<p><b>${esc(m[1])}</b> ${esc(m[2])}</p>`;return `<p>${esc(p)}</p>`}
+const flourish='<svg class="flourish small" viewBox="0 0 160 16" aria-hidden="true"><path d="M0 8h60M100 8h60" stroke="currentColor" stroke-width="1"/><path d="M80 2l6 6-6 6-6-6z" fill="currentColor"/></svg>';
+const dlg=document.getElementById('dlg'),body=document.getElementById('dlg-body');
+function openItem(id){
+  const s=S.find(x=>x.id===id); if(!s)return;
+  const comp=s.composantes.replace(/\(([^)]*)\)/,'<span class="mat">($1)</span>');
+  body.innerHTML=`<article class="sheet one">
+    <button class="close" aria-label="Fermer">×</button>
+    <div class="sheet-body">
+      <header class="sheet-h"><div class="eyebrow">${esc(nivLabel(s.niveau))} · ${esc(s.ecole)}${s.rituel?' · rituel':''}</div><h2 id="dlg-title">${esc(s.nom)}</h2>${flourish}</header>
+      <dl class="stats fit"><div class="stat"><dt>Temps d'incantation</dt><dd>${esc(cap(s.temps))}</dd></div><div class="stat"><dt>Portée</dt><dd>${esc(cap(s.portee))}</dd></div><div class="stat"><dt>Composantes</dt><dd>${comp}</dd></div><div class="stat"><dt>Durée</dt><dd>${esc(cap(s.duree))}</dd></div></dl>
+      <section class="prose">${s.desc.map(para).join('')}</section>
+      <section><h4>Classes</h4><div class="cls">${s.classes.map(c=>`<span class="tag a">${esc(c)}</span>`).join('')}</div></section>
+    </div></article>`;
+  body.querySelector('.close').onclick=()=>dlg.close();
+  if(!dlg.open)dlg.showModal(); dlg.scrollTop=0;
+  history.replaceState(null,'','#'+id);
+}
+dlg.addEventListener('close',()=>{if(location.hash)history.replaceState(null,'',location.pathname)});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+list.addEventListener('click',e=>{const r=e.target.closest('.row');if(r)openItem(r.dataset.id)});
+q.addEventListener('input',()=>{st.q=q.value;render()});
+document.getElementById('chips-niv').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st.niv=b.dataset.n;b.parentNode.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));render()});
+selE.onchange=()=>{st.ecole=selE.value;render()}; selC.onchange=()=>{st.classe=selC.value;render()};
+for(const [id,key] of [['f-conc','conc'],['f-rit','rit']]){const b=document.getElementById(id);b.onclick=()=>{st[key]=!st[key];b.setAttribute('aria-pressed',st[key]);render()}}
+// thème
+const root=document.documentElement;
+try{const th=localStorage.getItem('gda-theme');if(th==='light'||th==='dark')root.dataset.theme=th}catch(e){}
+document.getElementById('theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');const next=cur==='light'?'dark':'light';root.dataset.theme=next;try{localStorage.setItem('gda-theme',next)}catch(e){}};
+const PC=new URLSearchParams(location.search).get('classe');if(PC&&CLASSES.includes(PC)){st.classe=PC;selC.value=PC}
+render();
+const h=location.hash.slice(1); if(h&&S.some(s=>s.id===h))openItem(h);
+</script>
+</body>
+</html>

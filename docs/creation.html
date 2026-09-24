@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Créer un personnage · Grimoire de l'aventurier</title>
+<meta name="description" content="Guide et créateur de personnage pour D&D 5e (règles 2024) : classe, historique, espèce, caractéristiques, fiche calculée et imprimable.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 58 18v28L32 60 6 46V18z' fill='%23d4af37'/%3E%3Cpath d='M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14' stroke='%231a1424' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start;margin-top:22px}
+@media (max-width:980px){.layout{grid-template-columns:1fr}.aside{position:static!important}}
+.aside{position:sticky;top:78px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,3vw,28px) 26px;margin-top:20px;scroll-margin-top:90px;box-shadow:var(--shadow)}
+.step h2{font:700 clamp(20px,2.6vw,26px)/1.15 var(--display);margin:0 0 4px;display:flex;align-items:center;gap:12px;color:var(--ink)}
+.step h2 .num{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1424;font:900 16px var(--display)}
+.step .help{margin:0 0 14px;color:var(--ink-2);font-size:16.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.pick{all:unset;box-sizing:border-box;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:12px 12px 10px;background:var(--surface-2);display:grid;gap:4px;transition:border-color .15s,transform .15s}
+.pick:hover{border-color:var(--gold-3);transform:translateY(-1px)}
+.pick[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 18px rgba(212,175,55,.2);background:var(--surface-3)}
+.pick b{font:700 16px/1.15 var(--display);color:var(--ink)}
+.pick i{font:700 10px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.pick small{color:var(--ink-2);font-size:14px}
+.detail{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:12px}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;padding:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.kv div{background:var(--surface-2);padding:10px 12px;box-shadow:0 0 0 1px var(--line)}
+.kv dt{font:700 10.5px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.kv dd{margin:4px 0 0;font-size:16px;color:var(--ink)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 8px;font:600 15px var(--body);background:var(--surface-2);cursor:pointer}
+.checks label:has(input:checked){border-color:var(--gold);background:var(--gold-soft);color:var(--ink)}
+.checks label:has(input:disabled){opacity:.5;cursor:not-allowed}
+.checks input{accent-color:var(--gold)}
+label.f{display:grid;gap:4px;font:700 11px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+label.f input,label.f select,label.f textarea{font:600 16px var(--body);padding:9px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);letter-spacing:0;text-transform:none}
+label.f textarea{min-height:80px;resize:vertical}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.abil{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+.ab{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface-2);text-align:center;display:grid;gap:4px}
+.ab b{font:700 12px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.ab select,.ab input{font:700 20px var(--display);text-align:center;padding:6px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.ab .tot{font:900 30px/1 var(--fancy);color:var(--ink)}
+.ab .mod{font:700 13px var(--display);color:var(--ink-2)}
+.ab .bonus{font:600 13px var(--body);color:var(--teal);min-height:16px}
+.warn{color:var(--crimson);font-weight:700;font-size:15px}
+.ok{color:var(--teal);font-weight:700;font-size:15px}
+.btn{font:700 12px var(--display);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold-3);background:var(--surface);color:var(--gold);padding:10px 14px;border-radius:10px;cursor:pointer}
+.btn:hover{background:var(--gold);color:#1a1424}
+.btn.primary{background:var(--gold);color:#1a1424}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.summ{background:var(--surface);border:1px solid var(--gold-3);border-radius:16px;padding:16px 18px;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}
+.summ h3{font:900 20px/1.1 var(--fancy);margin:0;color:var(--ink);text-wrap:balance}
+.summ .sub2{font:700 11px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 10px}
+.summ .big{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+.summ .big div{text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 4px;background:var(--surface-2)}
+.summ .big b{display:block;font:900 22px/1 var(--fancy);color:var(--ink)}
+.summ .big span{font:700 10px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.summ .mini{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:6px}
+.summ .mini div{text-align:center;font:700 11px var(--display);color:var(--ink-3)}
+.summ .mini b{display:block;font:700 15px var(--display);color:var(--ink)}
+/* fiche */
+.fiche{background:var(--surface);border:1px solid var(--gold-3);border-radius:18px;padding:26px clamp(16px,3vw,34px) 30px;margin-top:20px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold-3)}
+.fiche h2{font:900 clamp(28px,4vw,40px)/1.05 var(--fancy);margin:0;color:var(--ink)}
+.fiche .eyebrow{margin-bottom:6px}
+.fiche h4{font:700 14px var(--display);letter-spacing:.14em;text-transform:uppercase;margin:22px 0 10px;color:var(--gold);display:flex;align-items:center;gap:12px}
+.fiche h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-3),transparent)}
+.fiche .abil .ab{background:var(--surface-2)}
+.fiche .stats{margin-top:14px}
+.skl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 16px;font-size:16px}
+.skl div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding:3px 0}
+.skl .p{color:var(--gold);font-weight:700}
+.skl .m{font:700 15px var(--display);color:var(--ink)}
+.fiche ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:16.5px}
+.fiche ul li{margin-bottom:4px}
+.fiche ul b{color:var(--ink)}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots span{border:1px solid var(--gold-3);border-radius:8px;padding:6px 10px;font:700 13px var(--display);color:var(--ink)}
+.slots span small{color:var(--ink-3);letter-spacing:.06em}
+body[data-print] nav.site,body[data-print] .hero,body[data-print] .bar,body[data-print] .layout,body[data-print] .note,body[data-print] footer{display:none}
+@media print{
+  nav.site,.hero,.bar,.layout>*:not(.fiche-wrap),.btns,footer,.note,.theme{display:none!important}
+  body{background:#fff;color:#111;font-size:13px}
+  body::before,body::after{display:none}
+  .layout{display:block}
+  .fiche{box-shadow:none;border:1px solid #999;margin:0;padding:12px 16px;color:#111;background:#fff}
+  .fiche h2,.fiche .ab .tot,.fiche .skl .m,.fiche ul b{color:#111}
+  .fiche .ab{background:#fff;border-color:#bbb}
+  .kv div{background:#fff;box-shadow:0 0 0 1px #ccc}
+}
+</style>
+</head>
+<body data-page="creation">
+<nav class="site" aria-label="Sections du site">
+  <div class="wrap site-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 58 18v28L32 60 6 46V18z" fill="currentColor"/><path d="M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14" stroke="var(--bg)" stroke-width="3" fill="none"/></svg>Grimoire</a>
+    <a href="index.html" data-page="index">Espèces &amp; classes</a>
+    <a href="sorts.html" data-page="sorts">Sorts</a>
+    <a href="equipement.html" data-page="equipement">Équipement</a>
+    <a href="objets.html" data-page="objets">Objets magiques</a>
+    <a href="creation.html" data-page="creation">Créer un personnage</a>
+  </div>
+</nav>
+<header class="hero small">
+  <div class="hero-art" aria-hidden="true"><img src="img/humain.jpg" alt="" style="object-position:50% 40%"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">D&amp;D 5e · règles 2024 · création de personnage</div>
+    <h1>Créer un personnage</h1>
+    <svg class="flourish" viewBox="0 0 400 24" aria-hidden="true"><path d="M8 12h150M242 12h150" stroke="currentColor" stroke-width="1.2"/><path d="M200 3l9 9-9 9-9-9z" fill="currentColor"/><path d="M178 12l6-4 6 4-6 4zM210 12l6-4 6 4-6 4z" fill="currentColor" opacity=".7"/><circle cx="8" cy="12" r="2" fill="currentColor"/><circle cx="392" cy="12" r="2" fill="currentColor"/></svg>
+    <p class="lede">Six étapes, dans l'ordre du Manuel des Joueurs 2024 : la classe, l'historique, l'espèce, les caractéristiques, les détails, puis la fiche calculée que tu peux imprimer ou enregistrer. Tout se sauvegarde dans ton navigateur au fur et à mesure.</p>
+  </div>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Étapes">
+  <div class="wrap bar-in">
+    <div class="chips" id="steps">
+      <a class="chip" href="#s1">1 · Classe</a><a class="chip" href="#s2">2 · Historique</a><a class="chip" href="#s3">3 · Espèce</a><a class="chip" href="#s4">4 · Caractéristiques</a><a class="chip" href="#s5">5 · Détails</a><a class="chip" href="#s6">6 · Fiche</a>
+    </div>
+    <div class="chips" style="margin-left:auto">
+      <button class="chip" id="b-demo" title="Remplit un exemple : un guerrier humain soldat">Exemple</button>
+      <button class="chip" id="b-reset">Réinitialiser</button>
+      <button class="chip" id="b-save">Enregistrer</button>
+      <button class="chip" id="b-load">Charger</button>
+      <button class="chip" id="b-print">Imprimer</button>
+    </div>
+    <input type="file" id="file" accept="application/json" hidden>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="note">
+    <b>2024</b>
+    <p>Dans les règles 2024, ce sont les <strong>historiques</strong> qui donnent les bonus de caractéristiques (+2 et +1, ou +1/+1/+1) et un <strong>don d'origine</strong>. L'espèce n'apporte que ses traits. Les points de vie au niveau 1 valent le maximum du dé de vie plus le modificateur de Constitution. Les données de classes et d'historiques marqués SRD viennent du Document de référence 5.2.1 ; les douze autres historiques sont résumés d'après le Manuel des Joueurs.</p>
+  </div>
+
+  <div class="layout">
+  <div>
+    <section class="step" id="s1">
+      <h2><span class="num">1</span>Choisis une classe</h2>
+      <p class="help">La classe définit ta vocation : dé de vie, jets de sauvegarde, armes, armures, compétences et équipement de départ. Choisis aussi le niveau du personnage.</p>
+      <div class="grid2" style="margin-bottom:12px"><label class="f">Niveau du personnage<select id="lvl"></select></label></div>
+      <div class="cards" id="classes"></div>
+      <div class="detail" id="cls-detail" hidden></div>
+    </section>
+
+    <section class="step" id="s2">
+      <h2><span class="num">2</span>Choisis un historique</h2>
+      <p class="help">L'historique raconte d'où tu viens. Il donne trois caractéristiques à améliorer, un don d'origine, deux compétences, un outil et de l'équipement.</p>
+      <div class="cards" id="bgs"></div>
+      <div class="detail" id="bg-detail" hidden></div>
+    </section>
+
+    <section class="step" id="s3">
+      <h2><span class="num">3</span>Choisis une espèce</h2>
+      <p class="help">L'espèce apporte sa taille, sa vitesse, sa vision et ses traits. Les fiches complètes sont sur la page <a href="index.html">Espèces &amp; classes</a>.</p>
+      <div class="grid2"><label class="f">Espèce<select id="sp"></select></label><label class="f" id="sp-var-wrap" hidden>Lignée / variante<input id="sp-var" placeholder="ex. Haut-elfe, Drow…"></label></div>
+      <div class="detail" id="sp-detail" hidden></div>
+    </section>
+
+    <section class="step" id="s4">
+      <h2><span class="num">4</span>Détermine tes caractéristiques</h2>
+      <p class="help">Génère six valeurs, attribue-les, puis applique les bonus de ton historique. Le tableau standard (15, 14, 13, 12, 10, 8) est la méthode la plus simple ; l'achat par points donne 27 points à dépenser entre 8 et 15.</p>
+      <div class="checks" id="methods">
+        <label><input type="radio" name="method" value="standard" checked>Tableau standard</label>
+        <label><input type="radio" name="method" value="points">Achat par points (27)</label>
+        <label><input type="radio" name="method" value="manuel">Saisie manuelle (dés)</label>
+      </div>
+      <div class="btns"><button class="btn" id="b-std">Valeurs conseillées pour la classe</button><button class="btn" id="b-roll">Lancer 4d6 (garder les 3 meilleurs)</button></div>
+      <div class="abil" id="abil"></div>
+      <p id="abil-msg" style="margin:10px 0 0"></p>
+      <div class="detail" id="bg-bonus" hidden></div>
+    </section>
+
+    <section class="step" id="s5">
+      <h2><span class="num">5</span>Les détails</h2>
+      <p class="help">Nom, alignement, langues, armure portée et équipement. L'armure sert au calcul de la classe d'armure.</p>
+      <div class="grid2">
+        <label class="f">Nom du personnage<input id="nom" placeholder="ex. Brennan Oakshield"></label>
+        <label class="f">Alignement<select id="align"></select></label>
+        <label class="f">Deuxième langue<select id="lang1"></select></label>
+        <label class="f">Troisième langue<select id="lang2"></select></label>
+        <label class="f">Armure portée<select id="armor"></select></label>
+        <label class="f">Bouclier<select id="shield"><option value="0">Non</option><option value="1">Oui (+2 CA)</option></select></label>
+      </div>
+      <div class="grid2" style="margin-top:12px">
+        <label class="f">Équipement<textarea id="equip" placeholder="Équipement de départ de la classe et de l'historique…"></textarea></label>
+        <label class="f">Apparence, personnalité, histoire<textarea id="notes" placeholder="Qui t'a élevé ? Que cherches-tu ?"></textarea></label>
+      </div>
+    </section>
+
+    <section class="step" id="s6">
+      <h2><span class="num">6</span>La fiche</h2>
+      <p class="help">Tout est calculé à partir de tes choix : modificateurs, points de vie, classe d'armure, jets de sauvegarde, compétences, sorts. Utilise « Imprimer » pour une version papier.</p>
+      <div class="btns"><button class="btn primary" id="b-print2">Imprimer la fiche</button><button class="btn" id="b-save2">Enregistrer en JSON</button></div>
+    </section>
+  </div>
+
+  <aside class="aside">
+    <div class="summ" id="summ"></div>
+  </aside>
+  </div>
+
+  <div class="fiche-wrap"><article class="fiche" id="fiche"></article></div>
+
+  <footer>
+    <p>Cette œuvre inclut du matériel issu du System Reference Document 5.2.1 (« SRD 5.2.1 ») de Wizards of the Coast LLC, disponible à l'adresse <a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener">https://www.dndbeyond.com/srd</a>. Le SRD 5.2.1 est régi par la Licence Creative Commons Attribution 4.0 International, disponible à l'adresse <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0/legalcode</a>.</p>
+    <p>Les tables de classes, les quatre historiques et les quatre dons marqués SRD reprennent la traduction française officielle du SRD 5.2.1. Les autres historiques, dons et espèces sont des résumés en nos propres mots. Site non officiel, sans lien avec Wizards of the Coast. Illustration de bannière : <i>Le Chevalier à la croisée des chemins</i>, Viktor Vasnetsov (1882), domaine public.</p>
+  </footer>
+</div>
+
+<script>
+const ESPECES=[
+{id:"aasimar",nom:"Aasimar",en:"Aasimar",taille:"M ou P",vitesse:"9 m",vision:"18 m",
+ resume:"Mortels portant une étincelle céleste, liés aux plans supérieurs et souvent guidés par un gardien divin.",
+ traits:[
+  ["Résistance céleste","Résistance aux dégâts nécrotiques et radiants."],
+  ["Vision dans le noir","18 m."],
+  ["Mains guérisseuses","Action magique : soigne une créature touchée d'autant de d4 que ton bonus de maîtrise. 1 fois par repos long."],
+  ["Porteur de lumière","Tu connais le sort mineur Lumière (Charisme)."],
+  ["Révélation céleste (niv. 3)","Action bonus, 1 minute, 1 fois par repos long. Une fois par tour, dégâts supplémentaires égaux à ton bonus de maîtrise. Trois formes : Ailes célestes (vol), Rayonnement intérieur (lumière et dégâts radiants autour de toi), Voile nécrotique (les ennemis proches peuvent être effrayés)."]
+ ],pairs:["Paladin","Clerc","Occultiste","Ensorceleur"]},
+{id:"drakeide",nom:"Drakéide",en:"Dragonborn",taille:"M",vitesse:"9 m",vision:"18 m",
+ resume:"Descendants des dragons, fiers et imposants, qui portent dans leur sang l'élément de leur ancêtre.",
+ traits:[
+  ["Ascendance draconique","Choisis un dragon : noir ou cuivre (acide), bleu ou bronze (foudre), airain, or ou rouge (feu), vert (poison), argent ou blanc (froid)."],
+  ["Souffle","Remplace une attaque : cône de 4,5 m ou ligne de 9 m, 1d10 dégâts de ton type (2d10 niv. 5, 3d10 niv. 11, 4d10 niv. 17). Utilisations = bonus de maîtrise par repos long."],
+  ["Résistance aux dégâts","Résistance au type de dégâts de ton ascendance."],
+  ["Vision dans le noir","18 m."],
+  ["Vol draconique (niv. 5)","Action bonus : des ailes spectrales te donnent une vitesse de vol égale à ta vitesse pendant 10 minutes. 1 fois par repos long."]
+ ],pairs:["Paladin","Guerrier","Ensorceleur","Barbare"]},
+{id:"nain",nom:"Nain",en:"Dwarf",taille:"M",vitesse:"9 m",vision:"36 m",
+ resume:"Peuple robuste né de la pierre et de la forge, endurant, têtu et fidèle à ses clans.",
+ traits:[
+  ["Vision dans le noir","36 m, la meilleure portée des espèces du manuel."],
+  ["Résilience naine","Résistance aux dégâts de poison et avantage aux jets de sauvegarde contre l'état empoisonné."],
+  ["Robustesse naine","+1 point de vie maximum par niveau."],
+  ["Connaissance de la pierre","Action bonus : perception des vibrations sur 18 m pendant 10 minutes, sur une surface de pierre. Utilisations = bonus de maîtrise par repos long."]
+ ],pairs:["Clerc","Guerrier","Barbare","Paladin"]},
+{id:"elfe",nom:"Elfe",en:"Elf",taille:"M",vitesse:"9 m",vision:"18 m",
+ resume:"Êtres gracieux au sang féerique, qui ne dorment pas mais entrent en transe.",
+ traits:[
+  ["Lignée elfique","Drow : vision dans le noir 36 m, Lumières dansantes, puis Lueurs féeriques (niv. 3) et Ténèbres (niv. 5). Haut-elfe : Prestidigitation (échangeable), puis Détection de la magie et Foulée brumeuse. Elfe sylvestre : vitesse 10,5 m, Druidisme, puis Grande foulée et Passage sans trace."],
+  ["Ascendance féerique","Avantage aux jets de sauvegarde contre l'état charmé."],
+  ["Sens aiguisés","Maîtrise de Perspicacité, Perception ou Survie (au choix)."],
+  ["Transe","Un repos long ne prend que 4 heures, en restant conscient."],
+  ["Vision dans le noir","18 m (36 m pour les drows)."]
+ ],pairs:["Rôdeur","Magicien","Roublard","Druide"]},
+{id:"gnome",nom:"Gnome",en:"Gnome",taille:"P",vitesse:"9 m",vision:"18 m",
+ resume:"Petits inventeurs curieux et malicieux, à l'esprit très difficile à manipuler.",
+ traits:[
+  ["Ruse gnome","Avantage aux jets de sauvegarde d'Intelligence, de Sagesse et de Charisme."],
+  ["Lignée gnome","Gnome des forêts : Illusion mineure et Communication avec les animaux (bonus de maîtrise fois par repos long). Gnome des roches : Réparation et Prestidigitation, et fabrication de petits mécanismes."],
+  ["Vision dans le noir","18 m."]
+ ],pairs:["Magicien","Occultiste","Roublard","Barde"]},
+{id:"goliath",nom:"Goliath",en:"Goliath",taille:"M",vitesse:"10,5 m",vision:"—",
+ resume:"Descendants lointains des géants, taillés pour les sommets et la compétition.",
+ traits:[
+  ["Ascendance de géant","Un pouvoir au choix, bonus de maîtrise fois par repos long. Nuages : téléportation de 9 m. Feu : +1d10 feu. Givre : +1d6 froid et −3 m de vitesse. Colline : renverse la cible. Pierre : réduit les dégâts reçus de 1d12 + Con. Tempête : 1d8 tonnerre en réaction."],
+  ["Forme géante (niv. 5)","Action bonus : tu deviens de taille G pendant 10 minutes, avec avantage aux tests de Force et +3 m de vitesse. 1 fois par repos long."],
+  ["Carrure puissante","Avantage pour mettre fin à l'état agrippé, et tu comptes une taille au-dessus pour la capacité de charge."]
+ ],pairs:["Barbare","Guerrier","Moine","Paladin"]},
+{id:"halfelin",nom:"Halfelin",en:"Halfling",taille:"P",vitesse:"9 m",vision:"—",
+ resume:"Petites gens chaleureuses et étonnamment chanceuses, capables de se faufiler partout.",
+ traits:[
+  ["Chanceux","Quand tu fais un 1 au d20 d'un test, tu relances le dé et gardes le nouveau résultat."],
+  ["Brave","Avantage aux jets de sauvegarde contre l'état effrayé."],
+  ["Agilité halfeline","Tu peux traverser l'espace d'une créature plus grande que toi."],
+  ["Discrétion naturelle","Tu peux te cacher derrière une créature de taille M ou plus."]
+ ],pairs:["Roublard","Barde","Rôdeur","Moine"]},
+{id:"humain",nom:"Humain",en:"Human",taille:"M ou P",vitesse:"9 m",vision:"—",
+ resume:"Le peuple le plus répandu et le plus ambitieux, qui compense sa vie courte par sa polyvalence.",
+ traits:[
+  ["Ingénieux","Tu gagnes l'Inspiration héroïque à chaque repos long."],
+  ["Doué","Maîtrise d'une compétence au choix."],
+  ["Polyvalent","Un don d'origine au choix (par exemple Doué ou Vigilant), en plus de celui de ton historique."]
+ ],pairs:["Toutes les classes"]},
+{id:"orc",nom:"Orc",en:"Orc",taille:"M",vitesse:"9 m",vision:"36 m",
+ resume:"Peuple endurant forgé par Gruumsh pour survivre et ne jamais abandonner.",
+ traits:[
+  ["Poussée d'adrénaline","Action bonus : Foncer et gagner des PV temporaires égaux à ton bonus de maîtrise. Utilisations = bonus de maîtrise par repos court ou long."],
+  ["Endurance implacable","Quand tu tombes à 0 PV sans être tué, tu restes à 1 PV. 1 fois par repos long."],
+  ["Vision dans le noir","36 m."]
+ ],pairs:["Barbare","Guerrier","Rôdeur","Paladin"]},
+{id:"tieffelin",nom:"Tieffelin",en:"Tiefling",taille:"M ou P",vitesse:"9 m",vision:"18 m",
+ resume:"Mortels marqués par un héritage des plans inférieurs, reconnaissables à leurs cornes et à leur queue.",
+ traits:[
+  ["Héritage fiélon","Abyssal : résistance au poison, Aspersion de poison, puis Rayon empoisonné (niv. 3) et Immobilisation de personne (niv. 5). Chthonien : résistance nécrotique, Contact glacial, puis Simulacre de vie et Rayon affaiblissant. Infernal : résistance au feu, Trait de feu, puis Représailles infernales et Ténèbres."],
+  ["Présence d'outre-monde","Tu connais le sort mineur Thaumaturgie."],
+  ["Vision dans le noir","18 m."]
+ ],pairs:["Occultiste","Ensorceleur","Barde","Paladin"]}
+];
+
+ESPECES.forEach(e=>{e.src='phb'});
+const f=(nom,en,src,taille,vitesse,vision,resume,traits,pairs,type)=>({id:norm(nom).replace(/[^a-z]+/g,'-'),nom,en,src,taille,vitesse,vision,resume,traits,pairs,type});
+function norm(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+ESPECES.push(
+// Eberron : Forge of the Artificer (déc. 2025)
+f("Changelin","Changeling","eberron","M ou P","9 m","—","Métamorphes capables de changer d'apparence à volonté, qui vivent souvent sous plusieurs identités.",[
+ ["Métamorphe","Action : tu changes d'apparence (traits, voix, taille dans ta catégorie). Avantage aux tests de Charisme tant que tu es métamorphosé (révision 2025)."],
+ ["Instincts de changelin","Maîtrise de deux compétences sociales (Tromperie, Intimidation, Perspicacité, Représentation ou Persuasion)."]
+],["Roublard","Barde","Occultiste","Ensorceleur"],"Humanoïde"),
+f("Kalashtar","Kalashtar","eberron","M","9 m","—","Humains liés à un esprit venu du plan des rêves, calmes, télépathes et coupés de leurs propres songes.",[
+ ["Type Aberration","Depuis la révision 2025, les kalashtar sont des Aberrations."],
+ ["Lien mental","Télépathie, désormais avec plusieurs créatures à la fois et sans ligne de vue."],
+ ["Discipline mentale","Résistance aux dégâts psychiques."],
+ ["Coupé des rêves","Après un repos long, maîtrise d'une compétence au choix jusqu'au repos long suivant. Les sorts de rêve n'ont pas d'effet sur toi."]
+],["Moine","Clerc","Magicien","Barde"],"Aberration"),
+f("Khoravar","Khoravar","eberron","M ou P","9 m","18 m","Les demi-elfes d'Eberron, devenus un peuple à part entière entre les mondes humain et elfique.",[
+ ["Ascendance féerique","Avantage aux sauvegardes contre l'état charmé."],
+ ["Don féerique","Tu connais le sort mineur Amis, échangeable après un repos long contre un sort mineur de clerc, druide ou magicien."],
+ ["Résilience à la léthargie","Transforme un échec contre l'état inconscient en réussite. Se recharge après 1d4 repos longs."],
+ ["Polyvalence","Maîtrise d'une compétence ou d'un outil, échangeable après chaque repos long."],
+ ["Vision dans le noir","18 m."]
+],["Barde","Rôdeur","Paladin","Toutes les classes"],"Humanoïde"),
+f("Changeforme","Shifter","eberron","M ou P","9 m","18 m","Descendants des lycanthropes, capables de laisser surgir leur bête intérieure pendant un moment.",[
+ ["Mutation","Action bonus : tu libères ta part animale et gagnes des PV temporaires, plus un effet selon ta lignée (Longues-dents, Crins-sauvages, Pieds-rapides, Cuir-dur…). Utilisations liées au bonus de maîtrise."],
+ ["Instincts bestiaux","Maîtrise d'une compétence parmi Acrobaties, Athlétisme, Intimidation ou Survie."],
+ ["Vision dans le noir","18 m."]
+],["Barbare","Rôdeur","Moine","Druide"],"Humanoïde"),
+f("Forgelier","Warforged","eberron","M ou P","9 m","—","Soldats artificiels créés pour la Dernière Guerre, en quête d'un sens maintenant que la paix est revenue.",[
+ ["Type Artificiel","Depuis la révision 2025, les forgeliers sont des Artificiels (Construct)."],
+ ["Résilience construite","Résistance au poison et avantage pour éviter ou mettre fin à l'état empoisonné."],
+ ["Protection intégrée","Armure intégrée au corps. Enfiler une armure ne prend plus une heure."],
+ ["Repos de sentinelle","Pas besoin de dormir, et la magie ne peut pas t'endormir."],
+ ["Infatigable","Pas d'épuisement dû à la soif, la faim ou l'asphyxie."]
+],["Guerrier","Paladin","Artificier","Clerc"],"Artificiel"),
+// Ravenloft : The Horrors Within (juin 2026)
+f("Dhampir","Dhampir","ravenloft","M ou P","10,5 m","18 m","Mortels à moitié touchés par le vampirisme, qui ont soif sans être morts.",[
+ ["Pattes d'araignée","Vitesse d'escalade égale à ta vitesse. Niveau 3 : tu te déplaces sur les murs et plafonds sans les mains."],
+ ["Trace de mort-vivant","Résistance aux dégâts nécrotiques."],
+ ["Morsure vampirique","Frappe à mains nues de 1d4 + Con perforants. Tu peux drainer (PV récupérés égaux aux dégâts) ou te renforcer (bonus à ton prochain test ou attaque dans la minute)."]
+],["Roublard","Moine","Occultiste","Guerrier"],"Humanoïde"),
+f("Hexblood","Hexblood","ravenloft","M ou P","9 m","18 m","Créatures transformées par une sorcière ou un pacte de guenaude, marquées par une magie étrange.",[
+ ["Jeton étrange","Action bonus : tu crées un jeton magique pour envoyer un message télépathique (25 mots, 16 km) ou voir à distance à travers lui."],
+ ["Magie maléfique","Déguisement et Maléfice toujours préparés, chacun lançable une fois par repos long sans emplacement (Int, Sag ou Cha)."],
+ ["Vision dans le noir","18 m."]
+],["Occultiste","Ensorceleur","Druide","Barde"],"Fée"),
+f("Lupin","Lupin","ravenloft","M ou P","9 m","?","Nouvelle espèce 2026 : un peuple à l'allure de loup, héritier des instincts des loups-garous.",[
+ ["Bond sauvage","Tes frappes à mains nues infligent des dégâts tranchants, et tu peux combiner dégâts et bousculade sur le même coup."],
+ ["Hurlement","Action bonus : les créatures à 4,5 m font une sauvegarde de Sagesse (DD 8 + Con + maîtrise) ou ont un désavantage aux attaques et sauvegardes jusqu'à ton prochain tour."],
+ ["Instincts de loup-garou","Maîtrise de Perception, Discrétion ou Survie."]
+],["Barbare","Rôdeur","Moine","Guerrier"],"Humanoïde"),
+f("Reborn","Reborn","ravenloft","M ou P","9 m","—","Revenus d'entre les morts, avec des souvenirs fragmentés d'une vie passée.",[
+ ["Endurance étrange","Résistance au froid, au nécrotique ou au poison (au choix)."],
+ ["Mort évitée","Avantage aux jets de sauvegarde contre la mort."],
+ ["Éternel","Pas d'épuisement dû à la soif, la faim ou l'asphyxie, pas besoin de dormir, repos long en 4 heures."],
+ ["Savoir d'une vie passée","Maîtrise d'une compétence. Sur un test raté, ajoute 1d6 (bonus de maîtrise fois par repos long)."]
+],["Paladin","Clerc","Occultiste","Guerrier"],"Humanoïde"),
+// Héritage : Monstres du Multivers (2022) et Manuel 2014
+f("Aarakocra","Aarakocra","legacy","M","9 m","—","Peuple d'oiseaux venus du plan élémentaire de l'Air.",[
+ ["Vol","Vitesse de vol égale à ta vitesse, sans armure intermédiaire ni lourde."],
+ ["Serres","Frappes à mains nues de 1d6 tranchants."],
+ ["Appel du vent (niv. 3)","Bourrasque une fois par repos long sans emplacement."]
+],["Moine","Rôdeur","Druide"]),
+f("Gobelours","Bugbear","legacy","M","9 m","18 m","Gobelinoïdes massifs et étonnamment discrets, liés aux fées.",[
+ ["Membres allongés","+1,5 m d'allonge pour tes attaques au corps à corps pendant ton tour."],
+ ["Attaque surprise","+2d6 dégâts contre une créature qui n'a pas encore joué au premier round."],
+ ["Sournois","Maîtrise de Discrétion, tu passes par des espaces étroits."],
+ ["Carrure puissante","Capacité de charge d'une taille au-dessus."],
+ ["Ascendance féerique","Avantage contre l'état charmé."]
+],["Roublard","Barbare","Guerrier"]),
+f("Centaure","Centaur","legacy","M","12 m","—","Mi-humain mi-cheval, peuple nomade proche de la nature. Type Fée.",[
+ ["Charge","Après 9 m en ligne droite, attaque de sabots en action bonus."],
+ ["Sabots","Frappes à mains nues de 1d6 contondants."],
+ ["Physionomie équine","Les montées coûtent le double, mais tu portes comme une créature plus grande."],
+ ["Affinité naturelle","Dressage, Médecine, Nature ou Survie."]
+],["Rôdeur","Paladin","Guerrier"],"Fée"),
+f("Gnome des profondeurs","Deep Gnome","legacy","P","9 m","36 m","Svirfneblin de l'Outreterre, discrets et résistants à la magie.",[
+ ["Résistance magique gnome","Avantage aux sauvegardes d'Int, Sag et Cha contre les sorts."],
+ ["Camouflage svirfneblin","Avantage en Discrétion, bonus de maîtrise fois par repos long."],
+ ["Don svirfneblin (niv. 3 et 5)","Déguisement, puis Antidétection sur toi."]
+],["Roublard","Magicien","Rôdeur"]),
+f("Duergar","Duergar","legacy","M","9 m","36 m","Nains gris de l'Outreterre, marqués par les flagelleurs mentaux.",[
+ ["Magie duergar (niv. 3 et 5)","Agrandissement/Rapetissement, puis Invisibilité."],
+ ["Résilience naine","Résistance au poison, avantage contre l'état empoisonné."],
+ ["Fortitude psionique","Avantage contre les états charmé et étourdi."]
+],["Guerrier","Barbare","Clerc"]),
+f("Eladrin","Eladrin","legacy","M","9 m","18 m","Elfes de la Féerie dont l'humeur suit les saisons.",[
+ ["Pas féerique","Action bonus : téléportation de 9 m, bonus de maîtrise fois par repos long. Effet de saison dès le niveau 3 (automne, hiver, printemps, été)."],
+ ["Sens aiguisés, Ascendance féerique, Transe","Comme l'elfe."]
+],["Paladin","Magicien","Ensorceleur","Occultiste"]),
+f("Fée","Fairy","legacy","P","9 m","—","Petite créature de la Féerie aux ailes délicates. Type Fée.",[
+ ["Vol","Vitesse de vol égale à ta vitesse, sans armure intermédiaire ni lourde."],
+ ["Magie féerique","Druidisme, puis Lueurs féeriques (niv. 3) et Agrandissement/Rapetissement (niv. 5)."]
+],["Druide","Occultiste","Barde"],"Fée"),
+f("Firbolg","Firbolg","legacy","M","9 m","—","Gardiens des forêts, discrets et bienveillants, apparentés aux géants.",[
+ ["Magie firbolg","Détection de la magie et Déguisement une fois par repos long."],
+ ["Pas caché","Action bonus : invisible jusqu'à ton prochain tour, bonus de maîtrise fois par repos long."],
+ ["Parole des bêtes et des feuilles","Tu peux te faire comprendre des bêtes et des plantes."],
+ ["Carrure puissante","Capacité de charge d'une taille au-dessus."]
+],["Druide","Clerc","Rôdeur"]),
+f("Génasi","Genasi","legacy","M ou P","9 m","18 m","Mortels porteurs du sang d'un génie, chacun lié à un élément.",[
+ ["Air","Vitesse 10,5 m, respiration sans fin, résistance à la foudre ; Poigne électrique, Feuille morte, Lévitation."],
+ ["Terre","Ignore le terrain difficile de pierre ou de terre ; Protection contre les armes en action bonus, Passage sans trace."],
+ ["Feu","Résistance au feu ; Flammes, Mains brûlantes, Lame de feu."],
+ ["Eau","Amphibie, nage, résistance à l'acide ; Aspersion d'acide, Création ou destruction d'eau, Marche sur l'eau."]
+],["Ensorceleur","Moine","Druide","Magicien"]),
+f("Githyanki","Githyanki","legacy","M","9 m","—","Guerriers du plan Astral, libérés jadis des flagelleurs mentaux.",[
+ ["Savoir astral","Après un repos long, maîtrise d'une compétence et d'une arme ou d'un outil."],
+ ["Psionique githyanki","Main de mage invisible, puis Saut (niv. 3) et Foulée brumeuse (niv. 5)."],
+ ["Résilience psychique","Résistance aux dégâts psychiques."]
+],["Guerrier","Paladin","Magicien"]),
+f("Githzerai","Githzerai","legacy","M","9 m","—","Moines ascétiques des Limbes, maîtres de leur esprit.",[
+ ["Psionique githzerai","Main de mage invisible, puis Bouclier (niv. 3) et Détection des pensées (niv. 5)."],
+ ["Discipline mentale","Avantage contre les états charmé et effrayé."],
+ ["Résilience psychique","Résistance aux dégâts psychiques."]
+],["Moine","Magicien","Clerc"]),
+f("Gobelin","Goblin","legacy","P","9 m","18 m","Petits gobelinoïdes vifs et débrouillards.",[
+ ["Furie des petits","Dégâts supplémentaires égaux à ton bonus de maîtrise contre plus grand que toi, bonus de maîtrise fois par repos long."],
+ ["Fuite agile","Action bonus : Se désengager ou Se cacher."],
+ ["Ascendance féerique","Avantage contre l'état charmé."]
+],["Roublard","Guerrier","Rôdeur"]),
+f("Lièvrin","Harengon","legacy","M ou P","9 m","—","Peuple lapin de la Féerie, toujours sur le qui-vive.",[
+ ["Réflexe du lièvre","Bonus de maîtrise à l'initiative."],
+ ["Sens léporins","Maîtrise de Perception."],
+ ["Pied chanceux","Réaction : +1d4 à une sauvegarde de Dextérité ratée."],
+ ["Saut du lapin","Action bonus : saut de 1d12 × 1,5 m sans attaque d'opportunité."]
+],["Roublard","Moine","Rôdeur","Barde"]),
+f("Hobgobelin","Hobgoblin","legacy","M","9 m","18 m","Gobelinoïdes disciplinés, forts ensemble.",[
+ ["Don féerique","Aider en action bonus, avec un bonus au choix dès le niveau 3."],
+ ["Fortune du nombre","Sur un test raté, bonus égal au nombre d'alliés proches (max +3)."],
+ ["Ascendance féerique","Avantage contre l'état charmé."]
+],["Guerrier","Magicien","Paladin"]),
+f("Kenku","Kenku","legacy","M ou P","9 m","—","Peuple corbeau, imitateur hors pair.",[
+ ["Duplication experte","Avantage pour copier une écriture ou un objet."],
+ ["Mémoire kenku","Deux compétences, et avantage sur un test de compétence bonus de maîtrise fois par repos long."],
+ ["Mimétisme","Imite les sons et voix entendus."]
+],["Roublard","Rôdeur","Barde"]),
+f("Kobold","Kobold","legacy","P","9 m","18 m","Petits reptiliens dévoués aux dragons, inventifs et rusés.",[
+ ["Cri draconique","Action bonus : tes alliés ont l'avantage contre les ennemis à 3 m, bonus de maîtrise fois par repos long."],
+ ["Héritage kobold","Ingéniosité (compétence), Défi (avantage contre la peur) ou Sorcellerie draconique (sort mineur)."]
+],["Ensorceleur","Roublard","Occultiste"]),
+f("Homme-lézard","Lizardfolk","legacy","M","9 m","—","Reptiliens pragmatiques des marais. Nage 9 m.",[
+ ["Morsure","Frappes à mains nues de 1d6 perforants."],
+ ["Mâchoires affamées","Action bonus : morsure qui donne des PV temporaires."],
+ ["Armure naturelle","CA 13 + Dex sans armure."],
+ ["Retenir son souffle","15 minutes."],
+ ["Intuition naturelle","Deux compétences de nature ou de survie."]
+],["Druide","Barbare","Rôdeur"]),
+f("Minotaure","Minotaur","legacy","M","9 m","—","Guerriers à tête de taureau, puissants et au sens de l'orientation infaillible.",[
+ ["Cornes","Frappes à mains nues de 1d6 perforants."],
+ ["Charge encornante","Après avoir foncé, attaque de cornes en action bonus."],
+ ["Cornes martelantes","Action bonus : bousculer une créature touchée."],
+ ["Mémoire du labyrinthe","Tu sais toujours où est le nord, avantage pour t'orienter."]
+],["Barbare","Guerrier","Paladin"]),
+f("Satyre","Satyr","legacy","M","10,5 m","—","Fêtards de la Féerie, joueurs et résistants à la magie. Type Fée.",[
+ ["Résistance à la magie","Avantage aux sauvegardes contre les sorts."],
+ ["Coup de tête","Frappe à mains nues de 1d6 contondants."],
+ ["Bonds joyeux","Tes sauts gagnent 1d8 × 30 cm."],
+ ["Fêtard","Représentation, Persuasion et un instrument."]
+],["Barde","Occultiste","Roublard"],"Fée"),
+f("Elfe de mer","Sea Elf","legacy","M","9 m","18 m","Elfes des océans, amis des créatures marines.",[
+ ["Enfant de la mer","Nage égale à ta vitesse, respiration aquatique, résistance au froid."],
+ ["Ami de la mer","Communication simple avec les bêtes aquatiques."],
+ ["Sens aiguisés, Ascendance féerique, Transe","Comme l'elfe."]
+],["Rôdeur","Druide","Guerrier"]),
+f("Shadar-kai","Shadar-kai","legacy","M","9 m","18 m","Elfes de la Gisombre au service de la Reine Corneille.",[
+ ["Bénédiction de la Reine Corneille","Action bonus : téléportation de 9 m ; dès le niveau 3, résistance à tous les dégâts jusqu'à ton prochain tour."],
+ ["Résistance nécrotique","Résistance aux dégâts nécrotiques."],
+ ["Sens aiguisés, Ascendance féerique, Transe","Comme l'elfe."]
+],["Occultiste","Roublard","Paladin"]),
+f("Tabaxi","Tabaxi","legacy","M ou P","9 m","18 m","Félins curieux et voyageurs. Escalade 9 m.",[
+ ["Griffes","Frappes à mains nues de 1d6 tranchants."],
+ ["Talent félin","Maîtrise de Perception et Discrétion."],
+ ["Agilité féline","Double ta vitesse pour un tour, puis doit rester immobile un tour pour recommencer."]
+],["Roublard","Moine","Rôdeur"]),
+f("Tortue","Tortle","legacy","M ou P","9 m","—","Peuple tortue qui porte sa maison sur son dos.",[
+ ["Armure naturelle","CA de base 17, sans armure."],
+ ["Défense de la carapace","Action : +4 CA en rentrant dans ta carapace."],
+ ["Griffes","Frappes à mains nues de 1d6 tranchants."],
+ ["Retenir son souffle","1 heure."]
+],["Guerrier","Clerc","Druide"]),
+f("Triton","Triton","legacy","M","9 m","18 m","Gardiens des profondeurs marines. Nage 9 m.",[
+ ["Amphibie","Respire l'air et l'eau, résistance au froid."],
+ ["Contrôle de l'air et de l'eau","Nappe de brouillard, puis Bourrasque et Marche sur l'eau."],
+ ["Émissaire de la mer","Communication avec les bêtes aquatiques."]
+],["Paladin","Druide","Ensorceleur"]),
+f("Yuan-ti","Yuan-ti","legacy","M ou P","9 m","18 m","Serpentins issus d'anciens empires, résistants au poison et à la magie.",[
+ ["Résistance à la magie","Avantage aux sauvegardes contre les sorts."],
+ ["Résilience au poison","Résistance au poison, avantage contre l'état empoisonné."],
+ ["Magie serpentine","Aspersion de poison, Amitié avec les animaux (serpents), puis Suggestion (niv. 3)."]
+],["Occultiste","Ensorceleur","Roublard"]),
+f("Demi-elfe","Half-Elf","legacy","M","9 m","18 m","Espèce du Manuel 2014, retirée en 2024 (remplacée par des parents d'espèces différentes).",[
+ ["Ascendance féerique","Avantage contre l'état charmé, immunité au sommeil magique."],
+ ["Polyvalence","Maîtrise de deux compétences."]
+],["Barde","Paladin","Occultiste"]),
+f("Demi-orc","Half-Orc","legacy","M","9 m","18 m","Espèce du Manuel 2014, retirée en 2024 au profit de l'orc.",[
+ ["Endurance implacable","Tombe à 1 PV au lieu de 0, une fois par repos long."],
+ ["Attaques sauvages","Un dé de dégâts en plus sur un coup critique au corps à corps."],
+ ["Menaçant","Maîtrise d'Intimidation."]
+],["Barbare","Guerrier","Paladin"])
+);
+const SOURCES={phb:"Manuel des Joueurs 2024",eberron:"Eberron : Forge of the Artificer (2025)",ravenloft:"Ravenloft : The Horrors Within (2026)",legacy:"Héritage (Monstres du Multivers 2022, Manuel 2014)"};
+const SRC_SHORT={phb:"Manuel 2024",eberron:"Eberron",ravenloft:"Ravenloft",legacy:"Héritage"};
+
+const CLASSES=[
+{id:"barbare",nom:"Barbare",en:"Barbarian",de:"d12",type:"Martial",carac:"Force",js:"Force, Constitution",armures:"Légères, intermédiaires, boucliers",armes:"Courantes et de guerre",complexite:1,
+ resume:"Guerrier primal porté par la rage, qui encaisse et frappe plus fort que quiconque.",
+ feats:[[1,"Rage","Action bonus : dégâts bonus, résistance aux dégâts contondants, perforants et tranchants, avantage aux tests de Force."],[1,"Défense sans armure","CA = 10 + Dex + Con sans armure."],[1,"Maîtrise des armes","Propriétés spéciales sur 2 types d'armes."],[2,"Attaque téméraire","Avantage à tes attaques de Force, mais les ennemis ont l'avantage contre toi."],[2,"Sens du danger","Avantage aux sauvegardes de Dextérité."],[5,"Attaque supplémentaire","Deux attaques par action Attaquer. Déplacement rapide : +3 m."]],
+ subs:[["Voie du Berserker","Path of the Berserker","Frénésie : dégâts en plus quand tu attaques de façon téméraire, immunité à la peur pendant la rage."],["Voie du Cœur sauvage","Path of the Wild Heart","Esprits animaux (ours, aigle, loup…) qui modifient ta rage."],["Voie de l'Arbre-Monde","Path of the World Tree","Liée à l'arbre cosmique : PV temporaires pour les alliés, téléportations, allonge accrue."],["Voie du Fanatique","Path of the Zealot","Dégâts divins supplémentaires et retour à la vie facilité."]]},
+{id:"barde",nom:"Barde",en:"Bard",de:"d8",type:"Lanceur",carac:"Charisme",js:"Dextérité, Charisme",armures:"Légères",armes:"Courantes",complexite:2,
+ resume:"Artiste dont les mots et la musique tissent la magie. Soutien, contrôle et compétences à la fois.",
+ feats:[[1,"Inspiration bardique","Action bonus : un allié gagne un d6 à ajouter à un test raté."],[1,"Incantation","Lanceur complet (Charisme), liste de sorts de barde."],[2,"Expertise","Double maîtrise sur deux compétences."],[2,"Touche-à-tout","Moitié du bonus de maîtrise aux tests sans maîtrise."],[5,"Source d'inspiration","L'Inspiration passe au d8 et se recharge aussi sur un repos court."],[10,"Secrets magiques","Deux sorts de n'importe quelle liste de classe."]],
+ subs:[["Collège de la Danse","College of Dance","Défense et déplacements acrobatiques, combat à mains nues élégant."],["Collège du Prestige","College of Glamour","Charme féerique, PV temporaires et repositionnement des alliés."],["Collège du Savoir","College of Lore","Compétences supplémentaires, Mots cinglants, sorts d'autres classes plus tôt."],["Collège de la Vaillance","College of Valor","Armures intermédiaires, boucliers, armes de guerre et Attaque supplémentaire."]]},
+{id:"clerc",nom:"Clerc",en:"Cleric",de:"d8",type:"Lanceur",carac:"Sagesse",js:"Sagesse, Charisme",armures:"Légères, intermédiaires, boucliers",armes:"Courantes",complexite:2,
+ resume:"Prêtre combattant qui canalise la puissance d'un dieu pour soigner, protéger et punir.",
+ feats:[[1,"Incantation","Lanceur complet (Sagesse), prépare ses sorts chaque jour."],[1,"Ordre divin","Protecteur (armures lourdes, armes de guerre) ou Thaumaturge (sort mineur en plus, bonus en Arcanes et Religion)."],[2,"Conduit divin","Étincelle divine (soigne ou blesse) et Renvoi des morts-vivants."],[5,"Brûlure des morts-vivants","Le Renvoi inflige aussi des dégâts radiants."],[10,"Intervention divine","Lance un sort de clerc de niveau 5 ou moins gratuitement."]],
+ subs:[["Domaine de la Vie","Life Domain","Soins renforcés, le soigneur par excellence."],["Domaine de la Lumière","Light Domain","Feu et lumière radiante, Illumination protectrice."],["Domaine de la Duperie","Trickery Domain","Illusions, discrétion et doubles trompeurs."],["Domaine de la Guerre","War Domain","Attaques bonus guidées par le dieu, sorts de combat."]]},
+{id:"druide",nom:"Druide",en:"Druid",de:"d8",type:"Lanceur",carac:"Sagesse",js:"Intelligence, Sagesse",armures:"Légères, boucliers",armes:"Courantes",complexite:3,
+ resume:"Gardien de la nature qui manie les éléments et prend la forme des bêtes.",
+ feats:[[1,"Incantation","Lanceur complet (Sagesse), sorts de nature et de soins."],[1,"Druidique","Langue secrète des druides, Communication avec les animaux toujours préparé."],[1,"Ordre primordial","Magicien (sort mineur en plus) ou Gardien (armes de guerre, armures intermédiaires)."],[2,"Forme sauvage","Action bonus : se transformer en bête connue, avec PV temporaires."],[2,"Compagnon sauvage","Dépense une Forme sauvage pour invoquer un familier."],[5,"Résurgence sauvage","Échange Forme sauvage et emplacements de sorts."]],
+ subs:[["Cercle de la Terre","Circle of the Land","Sorts liés au terrain (aride, polaire, tempéré, tropical), récupération de magie."],["Cercle de la Lune","Circle of the Moon","Formes sauvages plus puissantes, le druide combattant."],["Cercle de la Mer","Circle of the Sea","Colère de la mer : aura de froid et de vagues qui repousse."],["Cercle des Étoiles","Circle of the Stars","Forme étoilée (archer, calice, dragon) et carte céleste."]]},
+{id:"guerrier",nom:"Guerrier",en:"Fighter",de:"d10",type:"Martial",carac:"Force ou Dextérité",js:"Force, Constitution",armures:"Toutes, boucliers",armes:"Courantes et de guerre",complexite:1,
+ resume:"Maître de toutes les armes et armures, le combattant le plus régulier et le plus endurant.",
+ feats:[[1,"Style de combat","Archerie, Défense, Duel, Arme à deux mains…"],[1,"Second souffle","Action bonus : récupère 1d10 + niveau PV, plusieurs fois par repos."],[1,"Maîtrise des armes","Propriétés spéciales sur 3 types d'armes."],[2,"Fougue","Une action supplémentaire, 1 fois par repos."],[2,"Esprit tactique","Dépense un Second souffle pour réussir un test de caractéristique raté."],[5,"Attaque supplémentaire","Deux attaques (trois au niv. 11, quatre au niv. 20)."],[9,"Indomptable","Relance une sauvegarde ratée."]],
+ subs:[["Maître de guerre","Battle Master","Manœuvres alimentées par des dés de supériorité : feinte, désarmement, riposte…"],["Champion","Champion","Critiques sur 19–20, athlétisme amélioré, simple et efficace."],["Chevalier occulte","Eldritch Knight","Sorts de magicien (abjuration, évocation), arme liée."],["Guerrier psi","Psi Warrior","Énergie psionique : dégâts, bouclier, télékinésie."]]},
+{id:"moine",nom:"Moine",en:"Monk",de:"d8",type:"Martial",carac:"Dextérité et Sagesse",js:"Force, Dextérité",armures:"Aucune",armes:"Courantes, et de guerre avec la propriété Légère",complexite:2,
+ resume:"Artiste martial rapide qui canalise son énergie intérieure en rafales de coups.",
+ feats:[[1,"Arts martiaux","Frappes à mains nues avec un d6 (évolue), attaque en action bonus."],[1,"Défense sans armure","CA = 10 + Dex + Sag."],[2,"Focus du moine","Points de focus : Déluge de coups, Défense patiente, Pas du vent."],[2,"Mouvement sans armure","+3 m de vitesse (augmente avec les niveaux)."],[3,"Parade des attaques","Réduit les dégâts d'une attaque et peut la renvoyer."],[5,"Attaque supplémentaire","Et Frappe étourdissante."]],
+ subs:[["Guerrier de la Miséricorde","Warrior of Mercy","Soigne ou blesse d'un même geste, médecin masqué."],["Guerrier de l'Ombre","Warrior of Shadow","Ténèbres, téléportation d'ombre en ombre."],["Guerrier des Éléments","Warrior of the Elements","Frappes élémentaires à allonge, contrôle du terrain."],["Guerrier de la Paume","Warrior of the Open Hand","Renverser, repousser, priver de réaction ; techniques pures."]]},
+{id:"paladin",nom:"Paladin",en:"Paladin",de:"d10",type:"Hybride",carac:"Force et Charisme",js:"Sagesse, Charisme",armures:"Toutes, boucliers",armes:"Courantes et de guerre",complexite:2,
+ resume:"Chevalier lié par un serment sacré, redoutable au corps à corps et protecteur de ses alliés.",
+ feats:[[1,"Imposition des mains","Réserve de PV égale à 5 × niveau pour soigner."],[1,"Incantation","Demi-lanceur (Charisme)."],[1,"Maîtrise des armes","Propriétés spéciales sur 2 types d'armes."],[2,"Châtiment du paladin","Châtiment divin toujours préparé : gros dégâts radiants sur un coup."],[2,"Style de combat","Au choix, ou sort mineur de clerc."],[5,"Attaque supplémentaire","Et Destrier fidèle toujours préparé."],[6,"Aura de protection","Toi et tes alliés proches ajoutez ton Charisme aux sauvegardes."]],
+ subs:[["Serment de Dévotion","Oath of Devotion","Arme sacrée, idéal du chevalier vertueux."],["Serment de Gloire","Oath of Glory","Héros athlétique, vitesse et exploits."],["Serment des Anciens","Oath of the Ancients","Protège la lumière et la vie, résistance aux sorts."],["Serment de Vengeance","Oath of Vengeance","Traque implacable d'un ennemi désigné."]]},
+{id:"rodeur",nom:"Rôdeur",en:"Ranger",de:"d10",type:"Hybride",carac:"Dextérité et Sagesse",js:"Force, Dextérité",armures:"Légères, intermédiaires, boucliers",armes:"Courantes et de guerre",complexite:2,
+ resume:"Chasseur des terres sauvages qui mêle tir, pistage et magie de la nature.",
+ feats:[[1,"Incantation","Demi-lanceur (Sagesse)."],[1,"Ennemi juré","Marque du chasseur toujours préparée, lancers gratuits."],[1,"Maîtrise des armes","Propriétés spéciales sur 2 types d'armes."],[2,"Explorateur habile","Expertise dans une compétence et deux langues."],[2,"Style de combat","Au choix, ou sort mineur de druide."],[5,"Attaque supplémentaire",""],[6,"Vagabond","+3 m de vitesse, escalade et nage."]],
+ subs:[["Maître des bêtes","Beast Master","Un compagnon primordial (terre, mer ou ciel) qui combat à tes côtés."],["Vagabond féerique","Fey Wanderer","Dégâts psychiques, charme, présence féerique."],["Traqueur des ténèbres","Gloom Stalker","Invisible dans le noir, gros premier tour de combat."],["Chasseur","Hunter","Choix tactiques contre les hordes ou les grosses cibles."]]},
+{id:"roublard",nom:"Roublard",en:"Rogue",de:"d8",type:"Martial",carac:"Dextérité",js:"Dextérité, Intelligence",armures:"Légères",armes:"Courantes, et de guerre Finesse ou Légère",complexite:1,
+ resume:"Expert en compétences et en coups précis, qui frappe là où ça fait mal.",
+ feats:[[1,"Attaque sournoise","+1d6 dégâts (évolue) avec avantage ou un allié à côté de la cible."],[1,"Expertise","Double maîtrise sur deux compétences."],[1,"Jargon des voleurs","Langage secret, et une langue en plus."],[1,"Maîtrise des armes","Propriétés spéciales sur 2 types d'armes."],[2,"Ruse","Action bonus : Foncer, Se désengager ou Se cacher."],[3,"Visée stable","Avantage si tu ne bouges pas ce tour."],[5,"Frappe rusée","Échange des dés de sournoise contre des effets (empoisonner, renverser, reculer)."]],
+ subs:[["Escroc arcanique","Arcane Trickster","Sorts de magicien (illusion, enchantement), Main de mage invisible."],["Assassin","Assassin","Premier coup dévastateur, déguisements et poisons."],["Lame psychique","Soulknife","Lames psychiques et télépathie."],["Voleur","Thief","Mains lestes, escalade, utilisation d'objets magiques."]]},
+{id:"ensorceleur",nom:"Ensorceleur",en:"Sorcerer",de:"d6",type:"Lanceur",carac:"Charisme",js:"Constitution, Charisme",armures:"Aucune",armes:"Courantes",complexite:3,
+ resume:"Magie innée dans le sang, que l'ensorceleur plie et modèle avec la métamagie.",
+ feats:[[1,"Incantation","Lanceur complet (Charisme), peu de sorts mais très souples."],[1,"Sorcellerie innée","Action bonus, 1 minute : DD des sorts +1 et avantage aux attaques de sort."],[2,"Source de magie","Points de sorcellerie, convertibles en emplacements de sorts."],[2,"Métamagie","Sort accéléré, jumelé, subtil, prolongé…"],[5,"Restauration sorcière","Récupère des points de sorcellerie sur un repos court."]],
+ subs:[["Sorcellerie aberrante","Aberrant Sorcery","Télépathie et sorts psioniques."],["Sorcellerie mécanique","Clockwork Sorcery","Ordre de Méchanus : annule avantage et désavantage."],["Sorcellerie draconique","Draconic Sorcery","Écailles, résistance, ailes de dragon."],["Magie sauvage","Wild Magic Sorcery","Poussées de magie chaotique, Marées du chaos."]]},
+{id:"occultiste",nom:"Occultiste",en:"Warlock",de:"d8",type:"Lanceur",carac:"Charisme",js:"Sagesse, Charisme",armures:"Légères",armes:"Courantes",complexite:3,
+ resume:"Pouvoir obtenu par un pacte avec une entité, personnalisé par ses manifestations occultes.",
+ feats:[[1,"Manifestations occultes","Pouvoirs à la carte, dont Pacte de la lame, de la chaîne ou du grimoire."],[1,"Magie de pacte","Peu d'emplacements, toujours au plus haut niveau, rechargés sur repos court."],[2,"Astuce magique","Récupère des emplacements de pacte en 1 minute, 1 fois par repos long."],[9,"Contacter le protecteur","Contact avec les plans toujours préparé."],[11,"Arcanum mystique","Un sort de niveau 6 (puis 7, 8, 9) 1 fois par jour."]],
+ subs:[["Protecteur Archifée","Archfey Patron","Téléportation féerique, charme et illusions."],["Protecteur Céleste","Celestial Patron","Soins et lumière radiante."],["Protecteur Fiélon","Fiend Patron","PV temporaires à chaque ennemi vaincu, feu infernal."],["Protecteur Grand Ancien","Great Old One Patron","Télépathie, sorts psychiques, folie."]]},
+{id:"magicien",nom:"Magicien",en:"Wizard",de:"d6",type:"Lanceur",carac:"Intelligence",js:"Intelligence, Sagesse",armures:"Aucune",armes:"Courantes",complexite:3,
+ resume:"Érudit de l'arcane qui possède la plus grande liste de sorts du jeu, consignée dans son grimoire.",
+ feats:[[1,"Incantation","Lanceur complet (Intelligence), sorts copiés dans un grimoire."],[1,"Adepte des rituels","Lance les rituels du grimoire sans les préparer."],[1,"Restauration arcanique","Récupère des emplacements sur un repos court, 1 fois par jour."],[2,"Érudit","Expertise en Arcanes, Histoire, Investigation, Médecine, Nature ou Religion."],[5,"Mémorisation","Échange un sort préparé après un repos court."],[18,"Maîtrise des sorts","Deux sorts lancés à volonté."]],
+ subs:[["Abjurateur","Abjurer","Barrière arcanique, contresorts renforcés."],["Devin","Diviner","Présage : remplace des jets de d20 par des valeurs tirées d'avance."],["Évocateur","Evoker","Sorts de dégâts qui épargnent les alliés."],["Illusionniste","Illusionist","Illusions améliorées et plus réelles."]]}
+];
+
+
+const DATA={"classes":{"barbare":{"id":"barbare","nom":"Barbare","en":"Barbarian","de":12,"carac":"Force","js":["For","Con"],"js_txt":"Force et Constitution","comp_n":2,"comp":["Athlétisme","Dressage","Intimidation","Nature","Perception","Survie"],"armes":"Armes courantes et armes de guerre","armures":"Armures légères, intermédiaires et boucliers","outils":"","equipement":"Choisissez A ou B : (A) Hache à deux mains, 4 hachettes, paquetage d’explorateur et 15 po ; ou (B) 75 po","carac_sort":null,"std":[15,13,14,10,12,8],"prog":[{"niv":1,"bm":2,"apt":"Rage, Bottes d’arme, Défense sans armure","extra":{"Rages":"2","Dégâts de Rage":"+2","Bottes d’arme":"2"},"mineurs":null,"prep":null,"empl":null},{"niv":2,"bm":2,"apt":"Sens du danger, Témérité","extra":{"Rages":"2","Dégâts de Rage":"+2","Bottes d’arme":"2"},"mineurs":null,"prep":null,"empl":null},{"niv":3,"bm":2,"apt":"Savoir primal, Sous-classe de Barbare","extra":{"Rages":"3","Dégâts de Rage":"+2","Bottes d’arme":"2"},"mineurs":null,"prep":null,"empl":null},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Rages":"3","Dégâts de Rage":"+2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":5,"bm":3,"apt":"Attaque supplémentaire, Déplacement rapide","extra":{"Rages":"3","Dégâts de Rage":"+2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Rages":"4","Dégâts de Rage":"+2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":7,"bm":3,"apt":"Bond agressif, Instinct sauvage","extra":{"Rages":"4","Dégâts de Rage":"+2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Rages":"4","Dégâts de Rage":"+2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":9,"bm":4,"apt":"Coup brutal","extra":{"Rages":"4","Dégâts de Rage":"+3","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":10,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Rages":"4","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":11,"bm":4,"apt":"Rage implacable","extra":{"Rages":"4","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Rages":"5","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":13,"bm":5,"apt":"Coup brutal amélioré","extra":{"Rages":"5","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Rages":"5","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":15,"bm":5,"apt":"Rage persistante","extra":{"Rages":"5","Dégâts de Rage":"+3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Rages":"5","Dégâts de Rage":"+4","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":17,"bm":6,"apt":"Coup brutal amélioré","extra":{"Rages":"6","Dégâts de Rage":"+4","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":18,"bm":6,"apt":"Puissance indomptable","extra":{"Rages":"6","Dégâts de Rage":"+4","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Rages":"6","Dégâts de Rage":"+4","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":20,"bm":6,"apt":"Champion primitif","extra":{"Rages":"6","Dégâts de Rage":"+4","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null}]},"barde":{"id":"barde","nom":"Barde","en":"Bard","de":8,"carac":"Charisme","js":["Dex","Cha"],"js_txt":"Dextérité et Charisme","comp_n":3,"comp":["Acrobaties","Arcanes","Athlétisme","Discrétion","Dressage","Escamotage","Histoire","Intimidation","Intuition","Investigation","Médecine","Nature","Perception","Persuasion","Religion","Représentation","Survie","Tromperie"],"armes":"Armes courantes","armures":"Armures légères","outils":"3 instruments de musique au choix (cf. « Équipement »)","equipement":"Choisissez A ou B : (A) Armure de cuir, 2 dagues, instrument de musique de votre choix, paquetage d’artiste et 19 po ; ou (B) 90 po","carac_sort":"Cha","std":[8,14,12,13,10,15],"prog":[{"niv":1,"bm":2,"apt":"Inspiration bardique, Sorts","extra":{"Dé bardique":"d6","Sorts mineurs":"2","Sorts préparés":"4"},"mineurs":2,"prep":4,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Expertise, Touche-à-tout","extra":{"Dé bardique":"d6","Sorts mineurs":"2","Sorts préparés":"5"},"mineurs":2,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe de Barde","extra":{"Dé bardique":"d6","Sorts mineurs":"2","Sorts préparés":"6"},"mineurs":2,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Dé bardique":"d6","Sorts mineurs":"3","Sorts préparés":"7"},"mineurs":3,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Source d’inspiration","extra":{"Dé bardique":"d8","Sorts mineurs":"3","Sorts préparés":"9"},"mineurs":3,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Dé bardique":"d8","Sorts mineurs":"3","Sorts préparés":"10"},"mineurs":3,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Contre-charme","extra":{"Dé bardique":"d8","Sorts mineurs":"3","Sorts préparés":"11"},"mineurs":3,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Dé bardique":"d8","Sorts mineurs":"3","Sorts préparés":"12"},"mineurs":3,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"Expertise","extra":{"Dé bardique":"d8","Sorts mineurs":"3","Sorts préparés":"14"},"mineurs":3,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":10,"bm":4,"apt":"Secrets magiques","extra":{"Dé bardique":"d10","Sorts mineurs":"4","Sorts préparés":"15"},"mineurs":4,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"—","extra":{"Dé bardique":"d10","Sorts mineurs":"4","Sorts préparés":"16"},"mineurs":4,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Dé bardique":"d10","Sorts mineurs":"4","Sorts préparés":"16"},"mineurs":4,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Dé bardique":"d10","Sorts mineurs":"4","Sorts préparés":"17"},"mineurs":4,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Dé bardique":"d10","Sorts mineurs":"4","Sorts préparés":"17"},"mineurs":4,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":15,"bm":5,"apt":"—","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"18"},"mineurs":4,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"18"},"mineurs":4,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":17,"bm":6,"apt":"—","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"19"},"mineurs":4,"prep":19,"empl":[4,3,3,3,2,1,1,1,1]},{"niv":18,"bm":6,"apt":"Inspiration supérieure","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"20"},"mineurs":4,"prep":20,"empl":[4,3,3,3,3,1,1,1,1]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"21"},"mineurs":4,"prep":21,"empl":[4,3,3,3,3,2,1,1,1]},{"niv":20,"bm":6,"apt":"Verbe de la création","extra":{"Dé bardique":"d12","Sorts mineurs":"4","Sorts préparés":"22"},"mineurs":4,"prep":22,"empl":[4,3,3,3,3,2,2,1,1]}]},"clerc":{"id":"clerc","nom":"Clerc","en":"Cleric","de":8,"carac":"Sagesse","js":["Sag","Cha"],"js_txt":"Sagesse et Charisme","comp_n":2,"comp":["Histoire","Intuition","Médecine","Persuasion","Religion"],"armes":"Armes courantes","armures":"Armures légères, intermédiaires et boucliers","outils":"","equipement":"Choisissez A ou B : (A) Chemise de mailles, bouclier, masse d’armes, symbole sacré, paquetage d’ecclésiastique et 7 po ; ou (B) 110 po","carac_sort":"Sag","std":[14,8,13,10,15,12],"prog":[{"niv":1,"bm":2,"apt":"Sorts, Ordre divin","extra":{"Conduit divin":"—","Sorts mineurs":"3","Sorts préparés":"4"},"mineurs":3,"prep":4,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Conduit divin","extra":{"Conduit divin":"2","Sorts mineurs":"3","Sorts préparés":"5"},"mineurs":3,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe de Clerc","extra":{"Conduit divin":"2","Sorts mineurs":"3","Sorts préparés":"6"},"mineurs":3,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"2","Sorts mineurs":"4","Sorts préparés":"7"},"mineurs":4,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Calcination de Mort-vivant","extra":{"Conduit divin":"2","Sorts mineurs":"4","Sorts préparés":"9"},"mineurs":4,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Conduit divin":"3","Sorts mineurs":"4","Sorts préparés":"10"},"mineurs":4,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Impacts bénis","extra":{"Conduit divin":"3","Sorts mineurs":"4","Sorts préparés":"11"},"mineurs":4,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"3","Sorts mineurs":"4","Sorts préparés":"12"},"mineurs":4,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"—","extra":{"Conduit divin":"3","Sorts mineurs":"4","Sorts préparés":"14"},"mineurs":4,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":10,"bm":4,"apt":"Intervention divine","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"15"},"mineurs":5,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"—","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"16"},"mineurs":5,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"16"},"mineurs":5,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"17"},"mineurs":5,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":14,"bm":5,"apt":"Impacts bénis améliorés","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"17"},"mineurs":5,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":15,"bm":5,"apt":"—","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"18"},"mineurs":5,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"18"},"mineurs":5,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":17,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Conduit divin":"3","Sorts mineurs":"5","Sorts préparés":"19"},"mineurs":5,"prep":19,"empl":[4,3,3,3,2,1,1,1,1]},{"niv":18,"bm":6,"apt":"—","extra":{"Conduit divin":"4","Sorts mineurs":"5","Sorts préparés":"20"},"mineurs":5,"prep":20,"empl":[4,3,3,3,3,1,1,1,1]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Conduit divin":"4","Sorts mineurs":"5","Sorts préparés":"21"},"mineurs":5,"prep":21,"empl":[4,3,3,3,3,2,1,1,1]},{"niv":20,"bm":6,"apt":"Intervention divine suprême","extra":{"Conduit divin":"4","Sorts mineurs":"5","Sorts préparés":"22"},"mineurs":5,"prep":22,"empl":[4,3,3,3,3,2,2,1,1]}]},"druide":{"id":"druide","nom":"Druide","en":"Druid","de":8,"carac":"Sagesse","js":["Int","Sag"],"js_txt":"Intelligence et Sagesse","comp_n":2,"comp":["Arcanes","Dressage","Intuition","Médecine","Nature","Perception","Religion","Survie"],"armes":"Armes courantes","armures":"Armures légères et boucliers","outils":"Matériel d’herboriste","equipement":"Choisissez A ou B : (A) Armure de cuir, bouclier, serpe, focaliseur druidique (bâton de combat), paquetage d’explorateur, matériel d’herboriste et 9 po ; ou (B) 50 po","carac_sort":"Sag","std":[8,12,14,13,15,10],"prog":[{"niv":1,"bm":2,"apt":"Sorts, Druidique, Ordre primitif","extra":{"Forme sauvage":"—","Sorts mineurs":"2","Sorts préparés":"4"},"mineurs":2,"prep":4,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Compagnon sauvage, Forme sauvage","extra":{"Forme sauvage":"2","Sorts mineurs":"2","Sorts préparés":"5"},"mineurs":2,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe de Druide","extra":{"Forme sauvage":"2","Sorts mineurs":"2","Sorts préparés":"6"},"mineurs":2,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Forme sauvage":"2","Sorts mineurs":"3","Sorts préparés":"7"},"mineurs":3,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Regain sauvage","extra":{"Forme sauvage":"2","Sorts mineurs":"3","Sorts préparés":"9"},"mineurs":3,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Forme sauvage":"3","Sorts mineurs":"3","Sorts préparés":"10"},"mineurs":3,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Fureur élémentaire","extra":{"Forme sauvage":"3","Sorts mineurs":"3","Sorts préparés":"11"},"mineurs":4,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Forme sauvage":"3","Sorts mineurs":"3","Sorts préparés":"12"},"mineurs":3,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"—","extra":{"Forme sauvage":"3","Sorts mineurs":"3","Sorts préparés":"14"},"mineurs":3,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":10,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"15"},"mineurs":4,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"—","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"16"},"mineurs":4,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"16"},"mineurs":4,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"17"},"mineurs":4,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"17"},"mineurs":4,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":15,"bm":5,"apt":"Fureur élémentaire améliorée","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"18"},"mineurs":4,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Forme sauvage":"3","Sorts mineurs":"4","Sorts préparés":"18"},"mineurs":5,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":17,"bm":6,"apt":"—","extra":{"Forme sauvage":"4","Sorts mineurs":"4","Sorts préparés":"19"},"mineurs":4,"prep":19,"empl":[4,3,3,3,2,1,1,1,1]},{"niv":18,"bm":6,"apt":"Incantation animale","extra":{"Forme sauvage":"4","Sorts mineurs":"4","Sorts préparés":"20"},"mineurs":4,"prep":20,"empl":[4,3,3,3,3,1,1,1,1]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Forme sauvage":"4","Sorts mineurs":"4","Sorts préparés":"21"},"mineurs":4,"prep":21,"empl":[4,3,3,3,3,2,1,1,1]},{"niv":20,"bm":6,"apt":"Archidruide","extra":{"Forme sauvage":"4","Sorts mineurs":"4","Sorts préparés":"22"},"mineurs":4,"prep":22,"empl":[4,3,3,3,3,2,2,1,1]}]},"ensorceleur":{"id":"ensorceleur","nom":"Ensorceleur","en":"Sorcerer","de":6,"carac":"Charisme","js":["Con","Cha"],"js_txt":"Constitution et Charisme","comp_n":2,"comp":["Arcanes","Intimidation","Intuition","Persuasion","Religion","Tromperie"],"armes":"Armes courantes","armures":"Aucune","outils":"","equipement":"Choisissez A ou B : (A) lance, 2 dagues, focaliseur arcanique (cristal), paquetage d’exploration souterraine et 28 po ; ou (B) 50 po","carac_sort":"Cha","std":[10,13,14,8,12,15],"prog":[{"niv":1,"bm":2,"apt":"Sorts, Sorcellerie innée","extra":{"Points de Sorcellerie":"—","Sorts mineurs":"4","Sorts préparés":"2"},"mineurs":4,"prep":2,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Réserve arcanique, Métamagie","extra":{"Points de Sorcellerie":"2","Sorts mineurs":"4","Sorts préparés":"4"},"mineurs":4,"prep":4,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe d’Ensorceleur","extra":{"Points de Sorcellerie":"3","Sorts mineurs":"4","Sorts préparés":"6"},"mineurs":4,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Points de Sorcellerie":"4","Sorts mineurs":"5","Sorts préparés":"7"},"mineurs":5,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Restauration ensorcelée","extra":{"Points de Sorcellerie":"5","Sorts mineurs":"5","Sorts préparés":"9"},"mineurs":5,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Points de Sorcellerie":"6","Sorts mineurs":"5","Sorts préparés":"10"},"mineurs":5,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Sorcellerie incarnée","extra":{"Points de Sorcellerie":"7","Sorts mineurs":"5","Sorts préparés":"11"},"mineurs":5,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Points de Sorcellerie":"8","Sorts mineurs":"5","Sorts préparés":"12"},"mineurs":5,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"—","extra":{"Points de Sorcellerie":"9","Sorts mineurs":"5","Sorts préparés":"14"},"mineurs":5,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":10,"bm":4,"apt":"Métamagie","extra":{"Points de Sorcellerie":"10","Sorts mineurs":"6","Sorts préparés":"15"},"mineurs":6,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"—","extra":{"Points de Sorcellerie":"11","Sorts mineurs":"6","Sorts préparés":"16"},"mineurs":6,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Points de Sorcellerie":"12","Sorts mineurs":"6","Sorts préparés":"16"},"mineurs":6,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Points de Sorcellerie":"13","Sorts mineurs":"6","Sorts préparés":"17"},"mineurs":6,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Points de Sorcellerie":"14","Sorts mineurs":"6","Sorts préparés":"17"},"mineurs":6,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":15,"bm":5,"apt":"—","extra":{"Points de Sorcellerie":"15","Sorts mineurs":"6","Sorts préparés":"18"},"mineurs":6,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Points de Sorcellerie":"16","Sorts mineurs":"6","Sorts préparés":"18"},"mineurs":6,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":17,"bm":6,"apt":"Métamagie","extra":{"Points de Sorcellerie":"17","Sorts mineurs":"6","Sorts préparés":"19"},"mineurs":6,"prep":19,"empl":[4,3,3,3,2,1,1,1,1]},{"niv":18,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Points de Sorcellerie":"18","Sorts mineurs":"6","Sorts préparés":"20"},"mineurs":6,"prep":20,"empl":[4,3,3,3,3,1,1,1,1]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Points de Sorcellerie":"19","Sorts mineurs":"6","Sorts préparés":"21"},"mineurs":6,"prep":21,"empl":[4,3,3,3,3,2,1,1,1]},{"niv":20,"bm":6,"apt":"Apothéose arcanique","extra":{"Points de Sorcellerie":"20","Sorts mineurs":"6","Sorts préparés":"22"},"mineurs":6,"prep":22,"empl":[4,3,3,3,3,2,2,1,1]}]},"guerrier":{"id":"guerrier","nom":"Guerrier","en":"Fighter","de":10,"carac":"Force ou Dextérité","js":["For","Con"],"js_txt":"Force et Constitution","comp_n":2,"comp":["Acrobaties","Athlétisme","Dressage","Histoire","Intuition","Intimidation","Perception","Persuasion","Survie"],"armes":"Armes courantes et armes de guerre","armures":"Armures légères, intermédiaires et lourdes, boucliers","outils":"","equipement":"Choisissez entre A, B et C : (A) Cotte de mailles, épée à deux mains, fléau d’armes, 8 javelines, paquetage d’exploration souterraine et 4 po ; (B) Armure de cuir clouté, cimeterre, épée courte, arc long, 20 flèches, carquois, paquetage d’exploration souterraine et 11 po ; ou (C) 155 po","carac_sort":null,"std":[15,14,13,8,10,12],"prog":[{"niv":1,"bm":2,"apt":"Bottes d’arme, Second souffle, Style de combat","extra":{"Second souffle":"2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":2,"bm":2,"apt":"Fougue (une utilisation), Sens tactique","extra":{"Second souffle":"2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":3,"bm":2,"apt":"Sous-classe de Guerrier","extra":{"Second souffle":"2","Bottes d’arme":"3"},"mineurs":null,"prep":null,"empl":null},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":5,"bm":3,"apt":"Attaque supplémentaire, Décalage tactique","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":6,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":7,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":9,"bm":4,"apt":"Botte tactique, Inflexible (une utilisation)","extra":{"Second souffle":"3","Bottes d’arme":"4"},"mineurs":null,"prep":null,"empl":null},{"niv":10,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":11,"bm":4,"apt":"Double attaque supplémentaire","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":13,"bm":5,"apt":"Attaques avisées, Inflexible (deux utilisations)","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":14,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":15,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Second souffle":"4","Bottes d’arme":"5"},"mineurs":null,"prep":null,"empl":null},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Second souffle":"4","Bottes d’arme":"6"},"mineurs":null,"prep":null,"empl":null},{"niv":17,"bm":6,"apt":"Fougue (deux utilisations), Inflexible (trois utilisations)","extra":{"Second souffle":"4","Bottes d’arme":"6"},"mineurs":null,"prep":null,"empl":null},{"niv":18,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Second souffle":"4","Bottes d’arme":"6"},"mineurs":null,"prep":null,"empl":null},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Second souffle":"4","Bottes d’arme":"6"},"mineurs":null,"prep":null,"empl":null},{"niv":20,"bm":6,"apt":"Triple attaque supplémentaire","extra":{"Second souffle":"4","Bottes d’arme":"6"},"mineurs":null,"prep":null,"empl":null}]},"magicien":{"id":"magicien","nom":"Magicien","en":"Wizard","de":6,"carac":"Intelligence","js":["Int","Sag"],"js_txt":"Intelligence et Sagesse","comp_n":2,"comp":["Arcanes","Histoire","Intuition","Investigation","Médecine","Nature","Religion"],"armes":"Armes courantes","armures":"Aucune","outils":"","equipement":"Choisissez A ou B : (A) 2 dagues, focaliseur arcanique (bâton de combat), robe, grimoire, paquetage d’érudit et 5 po ; ou (B) 55 po","carac_sort":"Int","std":[8,12,13,15,14,10],"prog":[{"niv":1,"bm":2,"apt":"Sorts, Savoir rituel, Restauration magique","extra":{"Sorts mineurs":"3","Sorts préparés":"4"},"mineurs":3,"prep":4,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Érudition","extra":{"Sorts mineurs":"3","Sorts préparés":"5"},"mineurs":3,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe de Magicien","extra":{"Sorts mineurs":"3","Sorts préparés":"6"},"mineurs":3,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Sorts mineurs":"4","Sorts préparés":"7"},"mineurs":4,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Mémorisation de sort","extra":{"Sorts mineurs":"4","Sorts préparés":"9"},"mineurs":4,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Sorts mineurs":"4","Sorts préparés":"10"},"mineurs":4,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"—","extra":{"Sorts mineurs":"4","Sorts préparés":"11"},"mineurs":4,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Sorts mineurs":"4","Sorts préparés":"12"},"mineurs":4,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"—","extra":{"Sorts mineurs":"4","Sorts préparés":"14"},"mineurs":4,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":10,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Sorts mineurs":"5","Sorts préparés":"15"},"mineurs":5,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"—","extra":{"Sorts mineurs":"5","Sorts préparés":"16"},"mineurs":5,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Sorts mineurs":"5","Sorts préparés":"16"},"mineurs":5,"prep":16,"empl":[4,3,3,3,2,1,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Sorts mineurs":"5","Sorts préparés":"17"},"mineurs":5,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Sorts mineurs":"5","Sorts préparés":"18"},"mineurs":5,"prep":17,"empl":[4,3,3,3,2,1,1,0,0]},{"niv":15,"bm":5,"apt":"—","extra":{"Sorts mineurs":"5","Sorts préparés":"19"},"mineurs":5,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Sorts mineurs":"5","Sorts préparés":"21"},"mineurs":5,"prep":18,"empl":[4,3,3,3,2,1,1,1,0]},{"niv":17,"bm":6,"apt":"—","extra":{"Sorts mineurs":"5","Sorts préparés":"22"},"mineurs":5,"prep":19,"empl":[4,3,3,3,2,1,1,1,1]},{"niv":18,"bm":6,"apt":"Maîtrise des sorts","extra":{"Sorts mineurs":"5","Sorts préparés":"23"},"mineurs":5,"prep":20,"empl":[4,3,3,3,3,1,1,1,1]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Sorts mineurs":"5","Sorts préparés":"24"},"mineurs":5,"prep":21,"empl":[4,3,3,3,3,2,1,1,1]},{"niv":20,"bm":6,"apt":"Sorts de prédilection","extra":{"Sorts mineurs":"5","Sorts préparés":"25"},"mineurs":5,"prep":22,"empl":[4,3,3,3,3,2,2,1,1]}]},"moine":{"id":"moine","nom":"Moine","en":"Monk","de":8,"carac":"Dextérité et Sagesse","js":["For","Dex"],"js_txt":"Force et Dextérité","comp_n":2,"comp":["Acrobaties","Athlétisme","Discrétion","Histoire","Intuition","Religion"],"armes":"Armes courantes ; et armes de guerre dotées de la propriété Légère","armures":"Aucune","outils":"Choisissez un type d’outils d’artisan ou d’instrument de musique (cf. « Équipement »)","equipement":"Choisissez A ou B : (A) Lance, 5 dagues, outils d’artisan ou instrument de musique choisis pour la maîtrise d’outils ci-dessus, paquetage d’explorateur et 11 po ; ou (B) 50 po","carac_sort":null,"std":[12,15,13,10,14,8],"prog":[{"niv":1,"bm":2,"apt":"Arts martiaux, Défense sans armure","extra":{"Arts martiaux":"1d6","Points de Credo":"—","Déplacement sans armure":"—"},"mineurs":null,"prep":null,"empl":null},{"niv":2,"bm":2,"apt":"Déplacement sans armure, Credo du Moine, Métabolisme surnaturel","extra":{"Arts martiaux":"1d6","Points de Credo":"2","Déplacement sans armure":"+3 m"},"mineurs":null,"prep":null,"empl":null},{"niv":3,"bm":2,"apt":"Déviation d’assaut, Sous-classe de Moine","extra":{"Arts martiaux":"1d6","Points de Credo":"3","Déplacement sans armure":"+3 m"},"mineurs":null,"prep":null,"empl":null},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique, Chute ralentie","extra":{"Arts martiaux":"1d6","Points de Credo":"4","Déplacement sans armure":"+3 m"},"mineurs":null,"prep":null,"empl":null},{"niv":5,"bm":3,"apt":"Attaque supplémentaire, Frappe étourdissante","extra":{"Arts martiaux":"1d8","Points de Credo":"5","Déplacement sans armure":"+3 m"},"mineurs":null,"prep":null,"empl":null},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe, Frappes renforcées","extra":{"Arts martiaux":"1d8","Points de Credo":"6","Déplacement sans armure":"+4,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":7,"bm":3,"apt":"Esquive totale","extra":{"Arts martiaux":"1d8","Points de Credo":"7","Déplacement sans armure":"+4,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Arts martiaux":"1d8","Points de Credo":"8","Déplacement sans armure":"+4,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":9,"bm":4,"apt":"Mouvement acrobatique","extra":{"Arts martiaux":"1d8","Points de Credo":"9","Déplacement sans armure":"+4,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":10,"bm":4,"apt":"Autosubsistance, Credo accru","extra":{"Arts martiaux":"1d8","Points de Credo":"10","Déplacement sans armure":"+6 m"},"mineurs":null,"prep":null,"empl":null},{"niv":11,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Arts martiaux":"1d10","Points de Credo":"11","Déplacement sans armure":"+6 m"},"mineurs":null,"prep":null,"empl":null},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Arts martiaux":"1d10","Points de Credo":"12","Déplacement sans armure":"+6 m"},"mineurs":null,"prep":null,"empl":null},{"niv":13,"bm":5,"apt":"Parade énergétique","extra":{"Arts martiaux":"1d10","Points de Credo":"13","Déplacement sans armure":"+6 m"},"mineurs":null,"prep":null,"empl":null},{"niv":14,"bm":5,"apt":"Survivant discipliné","extra":{"Arts martiaux":"1d10","Points de Credo":"14","Déplacement sans armure":"+7,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":15,"bm":5,"apt":"Credo parachevé","extra":{"Arts martiaux":"1d10","Points de Credo":"15","Déplacement sans armure":"+7,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Arts martiaux":"1d10","Points de Credo":"16","Déplacement sans armure":"+7,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":17,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Arts martiaux":"1d12","Points de Credo":"17","Déplacement sans armure":"+7,50 m"},"mineurs":null,"prep":null,"empl":null},{"niv":18,"bm":6,"apt":"Défense supérieure","extra":{"Arts martiaux":"1d12","Points de Credo":"18","Déplacement sans armure":"+9 m"},"mineurs":null,"prep":null,"empl":null},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Arts martiaux":"1d12","Points de Credo":"19","Déplacement sans armure":"+9 m"},"mineurs":null,"prep":null,"empl":null},{"niv":20,"bm":6,"apt":"Esprit et corps","extra":{"Arts martiaux":"1d12","Points de Credo":"20","Déplacement sans armure":"+9 m"},"mineurs":null,"prep":null,"empl":null}]},"occultiste":{"id":"occultiste","nom":"Occultiste","en":"Warlock","de":8,"carac":"Charisme","js":["Sag","Cha"],"js_txt":"Sagesse et Charisme","comp_n":2,"comp":["Arcanes","Histoire","Intimidation","Investigation","Nature","Religion","Tromperie"],"armes":"Armes courantes","armures":"Armures légères","outils":"","equipement":"Choisissez A ou B : (A) Armure de cuir, serpe, 2 dagues, focaliseur arcanique (orbe), livre (savoir occulte), paquetage d’érudit et 15 po ; ou (B) 100 po","carac_sort":"Cha","std":[8,14,13,12,10,15],"prog":[{"niv":1,"bm":2,"apt":"Manifestations occultes, Magie de pacte","extra":{"Manifestations occultes":"1","Sorts mineurs":"2","Sorts préparés":"2","Emplacements de sort":"1","Niveau des emplacements":"1"},"mineurs":2,"prep":2,"empl":[1,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Rouerie magique","extra":{"Manifestations occultes":"3","Sorts mineurs":"2","Sorts préparés":"3","Emplacements de sort":"2","Niveau des emplacements":"1"},"mineurs":2,"prep":3,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe d’Occultiste","extra":{"Manifestations occultes":"3","Sorts mineurs":"2","Sorts préparés":"4","Emplacements de sort":"2","Niveau des emplacements":"2"},"mineurs":2,"prep":4,"empl":[0,2,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Manifestations occultes":"3","Sorts mineurs":"3","Sorts préparés":"5","Emplacements de sort":"2","Niveau des emplacements":"2"},"mineurs":3,"prep":5,"empl":[0,2,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"—","extra":{"Manifestations occultes":"5","Sorts mineurs":"3","Sorts préparés":"6","Emplacements de sort":"2","Niveau des emplacements":"3"},"mineurs":3,"prep":6,"empl":[0,0,2,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Manifestations occultes":"5","Sorts mineurs":"3","Sorts préparés":"7","Emplacements de sort":"2","Niveau des emplacements":"3"},"mineurs":3,"prep":7,"empl":[0,0,2,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"—","extra":{"Manifestations occultes":"6","Sorts mineurs":"3","Sorts préparés":"8","Emplacements de sort":"2","Niveau des emplacements":"4"},"mineurs":3,"prep":8,"empl":[0,0,0,2,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Manifestations occultes":"6","Sorts mineurs":"3","Sorts préparés":"9","Emplacements de sort":"2","Niveau des emplacements":"4"},"mineurs":3,"prep":9,"empl":[0,0,0,2,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"Communication avec le protecteur","extra":{"Manifestations occultes":"7","Sorts mineurs":"3","Sorts préparés":"10","Emplacements de sort":"2","Niveau des emplacements":"5"},"mineurs":3,"prep":10,"empl":[0,0,0,0,2,0,0,0,0]},{"niv":10,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Manifestations occultes":"7","Sorts mineurs":"4","Sorts préparés":"10","Emplacements de sort":"2","Niveau des emplacements":"5"},"mineurs":4,"prep":10,"empl":[0,0,0,0,2,0,0,0,0]},{"niv":11,"bm":4,"apt":"Arcanum mystique (sort du 6","extra":{"Manifestations occultes":"niveau) 7","Sorts mineurs":"4","Sorts préparés":"11","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":11,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Manifestations occultes":"8","Sorts mineurs":"4","Sorts préparés":"11","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":11,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":13,"bm":5,"apt":"Arcanum mystique (sort du 7","extra":{"Manifestations occultes":"niveau) 8","Sorts mineurs":"4","Sorts préparés":"12","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":12,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":14,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Manifestations occultes":"8","Sorts mineurs":"4","Sorts préparés":"12","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":12,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":15,"bm":5,"apt":"Arcanum mystique (sort du 8","extra":{"Manifestations occultes":"niveau) 9","Sorts mineurs":"4","Sorts préparés":"13","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":13,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Manifestations occultes":"9","Sorts mineurs":"4","Sorts préparés":"13","Emplacements de sort":"3","Niveau des emplacements":"5"},"mineurs":4,"prep":13,"empl":[0,0,0,0,3,0,0,0,0]},{"niv":17,"bm":6,"apt":"Arcanum mystique (sort du 9","extra":{"Manifestations occultes":"niveau) 9","Sorts mineurs":"4","Sorts préparés":"14","Emplacements de sort":"4","Niveau des emplacements":"5"},"mineurs":4,"prep":14,"empl":[0,0,0,0,4,0,0,0,0]},{"niv":18,"bm":6,"apt":"—","extra":{"Manifestations occultes":"10","Sorts mineurs":"4","Sorts préparés":"14","Emplacements de sort":"4","Niveau des emplacements":"5"},"mineurs":4,"prep":14,"empl":[0,0,0,0,4,0,0,0,0]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Manifestations occultes":"10","Sorts mineurs":"4","Sorts préparés":"15","Emplacements de sort":"4","Niveau des emplacements":"5"},"mineurs":4,"prep":15,"empl":[0,0,0,0,4,0,0,0,0]},{"niv":20,"bm":6,"apt":"Maître de l’occulte","extra":{"Manifestations occultes":"10","Sorts mineurs":"4","Sorts préparés":"15","Emplacements de sort":"4","Niveau des emplacements":"5"},"mineurs":4,"prep":15,"empl":[0,0,0,0,4,0,0,0,0]}]},"paladin":{"id":"paladin","nom":"Paladin","en":"Paladin","de":10,"carac":"Force et Charisme","js":["Sag","Cha"],"js_txt":"Sagesse et Charisme","comp_n":2,"comp":["Athlétisme","Intimidation","Intuition","Médecine","Persuasion","Religion"],"armes":"Armes courantes et armes de guerre","armures":"Armures légères, intermédiaires et lourdes, boucliers","outils":"","equipement":"Choisissez A ou B : (A) Cotte de mailles, bouclier, épée longue, 6 javelines, symbole sacré, paquetage d’ecclésiastique et 9 po ; ou (B) 150 po","carac_sort":"Cha","std":[15,10,13,8,12,14],"prog":[{"niv":1,"bm":2,"apt":"Bottes d’arme, Imposition des mains, Sorts","extra":{"Conduit divin":"—","Sorts préparés":"2"},"mineurs":0,"prep":2,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Châtiment de paladin, Style de combat","extra":{"Conduit divin":"—","Sorts préparés":"3"},"mineurs":0,"prep":3,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Conduit divin, Sous-classe de Paladin","extra":{"Conduit divin":"2","Sorts préparés":"4"},"mineurs":0,"prep":4,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"2","Sorts préparés":"5"},"mineurs":0,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Attaque supplémentaire, Fidèle destrier","extra":{"Conduit divin":"2","Sorts préparés":"6"},"mineurs":0,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Aura de protection","extra":{"Conduit divin":"2","Sorts préparés":"6"},"mineurs":0,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Conduit divin":"2","Sorts préparés":"7"},"mineurs":0,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"2","Sorts préparés":"7"},"mineurs":0,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"Abjuration d’ennemis","extra":{"Conduit divin":"2","Sorts préparés":"9"},"mineurs":0,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":10,"bm":4,"apt":"Aura de courage","extra":{"Conduit divin":"2","Sorts préparés":"9"},"mineurs":0,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":11,"bm":4,"apt":"Frappes radiantes","extra":{"Conduit divin":"3","Sorts préparés":"10"},"mineurs":0,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"3","Sorts préparés":"10"},"mineurs":0,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":13,"bm":5,"apt":"—","extra":{"Conduit divin":"3","Sorts préparés":"11"},"mineurs":0,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":14,"bm":5,"apt":"Toucher réparateur","extra":{"Conduit divin":"3","Sorts préparés":"11"},"mineurs":0,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":15,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Conduit divin":"3","Sorts préparés":"12"},"mineurs":0,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Conduit divin":"3","Sorts préparés":"12"},"mineurs":0,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":17,"bm":6,"apt":"—","extra":{"Conduit divin":"3","Sorts préparés":"14"},"mineurs":0,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":18,"bm":6,"apt":"Aura étendue","extra":{"Conduit divin":"3","Sorts préparés":"14"},"mineurs":0,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Conduit divin":"3","Sorts préparés":"15"},"mineurs":0,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":20,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Conduit divin":"3","Sorts préparés":"15"},"mineurs":0,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]}]},"rodeur":{"id":"rodeur","nom":"Rôdeur","en":"Ranger","de":10,"carac":"Dextérité et Sagesse","js":["For","Dex"],"js_txt":"Force et Dextérité","comp_n":3,"comp":["Athlétisme","Discrétion","Dressage","Intuition","Investigation","Nature","Perception","Survie"],"armes":"Armes courantes et armes de guerre","armures":"Armures légères, intermédiaires et boucliers","outils":"","equipement":"Choisissez A ou B : (A) Armure de cuir clouté, cimeterre, épée courte, arc long, 20 flèches, carquois, focaliseur druidique (branche de gui), paquetage d’explorateur et 7 po ; ou (B) 150 po","carac_sort":"Sag","std":[12,15,13,8,14,10],"prog":[{"niv":1,"bm":2,"apt":"Sorts, Ennemi juré, Bottes d’arme","extra":{"Ennemi juré":"2","Sorts préparés":"2"},"mineurs":0,"prep":2,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":2,"bm":2,"apt":"Fin explorateur, Style de combat","extra":{"Ennemi juré":"2","Sorts préparés":"3"},"mineurs":0,"prep":3,"empl":[2,0,0,0,0,0,0,0,0]},{"niv":3,"bm":2,"apt":"Sous-classe de Rôdeur","extra":{"Ennemi juré":"2","Sorts préparés":"4"},"mineurs":0,"prep":4,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Ennemi juré":"2","Sorts préparés":"5"},"mineurs":0,"prep":5,"empl":[3,0,0,0,0,0,0,0,0]},{"niv":5,"bm":3,"apt":"Attaque supplémentaire","extra":{"Ennemi juré":"3","Sorts préparés":"6"},"mineurs":0,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":6,"bm":3,"apt":"Arpenteur","extra":{"Ennemi juré":"3","Sorts préparés":"6"},"mineurs":0,"prep":6,"empl":[4,2,0,0,0,0,0,0,0]},{"niv":7,"bm":3,"apt":"Aptitude de sous-classe","extra":{"Ennemi juré":"3","Sorts préparés":"7"},"mineurs":0,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Ennemi juré":"3","Sorts préparés":"7"},"mineurs":0,"prep":7,"empl":[4,3,0,0,0,0,0,0,0]},{"niv":9,"bm":4,"apt":"Expertise","extra":{"Ennemi juré":"4","Sorts préparés":"9"},"mineurs":0,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":10,"bm":4,"apt":"Infatigable","extra":{"Ennemi juré":"4","Sorts préparés":"9"},"mineurs":0,"prep":9,"empl":[4,3,2,0,0,0,0,0,0]},{"niv":11,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Ennemi juré":"4","Sorts préparés":"10"},"mineurs":0,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Ennemi juré":"4","Sorts préparés":"10"},"mineurs":0,"prep":10,"empl":[4,3,3,0,0,0,0,0,0]},{"niv":13,"bm":5,"apt":"Chasseur implacable","extra":{"Ennemi juré":"5","Sorts préparés":"11"},"mineurs":0,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":14,"bm":5,"apt":"Voile de la nature","extra":{"Ennemi juré":"5","Sorts préparés":"11"},"mineurs":0,"prep":11,"empl":[4,3,3,1,0,0,0,0,0]},{"niv":15,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Ennemi juré":"5","Sorts préparés":"12"},"mineurs":0,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Ennemi juré":"5","Sorts préparés":"12"},"mineurs":0,"prep":12,"empl":[4,3,3,2,0,0,0,0,0]},{"niv":17,"bm":6,"apt":"Chasseur précis","extra":{"Ennemi juré":"6","Sorts préparés":"14"},"mineurs":0,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":18,"bm":6,"apt":"Sens sauvages","extra":{"Ennemi juré":"6","Sorts préparés":"14"},"mineurs":0,"prep":14,"empl":[4,3,3,3,1,0,0,0,0]},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Ennemi juré":"6","Sorts préparés":"15"},"mineurs":0,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]},{"niv":20,"bm":6,"apt":"Tueur implacable","extra":{"Ennemi juré":"6","Sorts préparés":"15"},"mineurs":0,"prep":15,"empl":[4,3,3,3,2,0,0,0,0]}]},"roublard":{"id":"roublard","nom":"Roublard","en":"Rogue","de":8,"carac":"Dextérité","js":["Dex","Int"],"js_txt":"Dextérité et Intelligence","comp_n":4,"comp":["Acrobaties","Athlétisme","Discrétion","Escamotage","Intimidation","Intuition","Investigation","Perception","Persuasion","Tromperie"],"armes":"Armes courantes et armes de guerre dotées de la propriété Finesse ou Légère","armures":"Armures légères","outils":"Outils de voleur","equipement":"Choisissez A ou B : (A) Armure de cuir, 2 dagues, épée courte, arc court, 20 flèches, carquois, outils de voleur, paquetage de cambrioleur et 8 po ; ou (B) 100 po","carac_sort":null,"std":[12,15,13,14,10,8],"prog":[{"niv":1,"bm":2,"apt":"Argot des voleurs, Attaque sournoise, Bottes d’arme, Expertise","extra":{"Attaque sournoise":"1d6"},"mineurs":null,"prep":null,"empl":null},{"niv":2,"bm":2,"apt":"Ruse","extra":{"Attaque sournoise":"1d6"},"mineurs":null,"prep":null,"empl":null},{"niv":3,"bm":2,"apt":"Sous-classe de Roublard, Visée appliquée","extra":{"Attaque sournoise":"2d6"},"mineurs":null,"prep":null,"empl":null},{"niv":4,"bm":2,"apt":"Amélioration de caractéristique","extra":{"Attaque sournoise":"2d6"},"mineurs":null,"prep":null,"empl":null},{"niv":5,"bm":3,"apt":"Frappe malicieuse, Esquive instinctive","extra":{"Attaque sournoise":"3d6"},"mineurs":null,"prep":null,"empl":null},{"niv":6,"bm":3,"apt":"Expertise","extra":{"Attaque sournoise":"3d6"},"mineurs":null,"prep":null,"empl":null},{"niv":7,"bm":3,"apt":"Esquive totale, Savoir-faire","extra":{"Attaque sournoise":"4d6"},"mineurs":null,"prep":null,"empl":null},{"niv":8,"bm":3,"apt":"Amélioration de caractéristique","extra":{"Attaque sournoise":"4d6"},"mineurs":null,"prep":null,"empl":null},{"niv":9,"bm":4,"apt":"Aptitude de sous-classe","extra":{"Attaque sournoise":"5d6"},"mineurs":null,"prep":null,"empl":null},{"niv":10,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Attaque sournoise":"5d6"},"mineurs":null,"prep":null,"empl":null},{"niv":11,"bm":4,"apt":"Frappe malicieuse améliorée","extra":{"Attaque sournoise":"6d6"},"mineurs":null,"prep":null,"empl":null},{"niv":12,"bm":4,"apt":"Amélioration de caractéristique","extra":{"Attaque sournoise":"6d6"},"mineurs":null,"prep":null,"empl":null},{"niv":13,"bm":5,"apt":"Aptitude de sous-classe","extra":{"Attaque sournoise":"7d6"},"mineurs":null,"prep":null,"empl":null},{"niv":14,"bm":5,"apt":"Coups vicieux","extra":{"Attaque sournoise":"7d6"},"mineurs":null,"prep":null,"empl":null},{"niv":15,"bm":5,"apt":"Esprit fuyant","extra":{"Attaque sournoise":"8d6"},"mineurs":null,"prep":null,"empl":null},{"niv":16,"bm":5,"apt":"Amélioration de caractéristique","extra":{"Attaque sournoise":"8d6"},"mineurs":null,"prep":null,"empl":null},{"niv":17,"bm":6,"apt":"Aptitude de sous-classe","extra":{"Attaque sournoise":"9d6"},"mineurs":null,"prep":null,"empl":null},{"niv":18,"bm":6,"apt":"Insaisissable","extra":{"Attaque sournoise":"9d6"},"mineurs":null,"prep":null,"empl":null},{"niv":19,"bm":6,"apt":"Faveur épique","extra":{"Attaque sournoise":"10d6"},"mineurs":null,"prep":null,"empl":null},{"niv":20,"bm":6,"apt":"Coup de chance","extra":{"Attaque sournoise":"10d6"},"mineurs":null,"prep":null,"empl":null}]}},"historiques":[{"id":"acolyte","nom":"Acolyte","en":"Acolyte","srd":true,"caracs":["Int","Sag","Cha"],"don":"Initié à la magie (Clerc)","competences":["Intuition","Religion"],"outil":"matériel de calligraphe","equipement":"Choisissez A ou B : (A) Matériel de calligraphe, livre (de prières), symbole sacré, parchemin (10 feuilles), robe, 8 po ; ou (B) 50 po"},{"id":"artisan","nom":"Artisan","en":"Artisan","srd":false,"caracs":["For","Dex","Int"],"don":"Artisan (Crafter)","competences":["Investigation","Persuasion"],"outil":"outils d'artisan (un type au choix)","equipement":"(A) Outils d'artisan choisis, 2 sacoches, tenue de voyage, 32 po ; ou (B) 50 po"},{"id":"artiste","nom":"Artiste","en":"Entertainer","srd":false,"caracs":["For","Dex","Cha"],"don":"Musicien (Musician)","competences":["Acrobaties","Représentation"],"outil":"instrument de musique (un au choix)","equipement":"(A) Instrument de musique choisi, 2 costumes, miroir, parfum, tenue de voyage, 11 po ; ou (B) 50 po"},{"id":"charlatan","nom":"Charlatan","en":"Charlatan","srd":false,"caracs":["Dex","Con","Cha"],"don":"Doué","competences":["Escamotage","Tromperie"],"outil":"matériel de contrefaçon","equipement":"(A) Matériel de contrefaçon, costume, beaux habits, 15 po ; ou (B) 50 po"},{"id":"criminel","nom":"Criminel","en":"Criminal","srd":true,"caracs":["Dex","Con","Int"],"don":"Vigilant","competences":["Discrétion","Escamotage"],"outil":"outils de voleur","equipement":"Choisissez A ou B : (A) 2 dagues, outils de voleur, 2 bourses, pied-de-biche, tenue de voyage, 16 po ; ou (B) 50 po"},{"id":"ermite","nom":"Ermite","en":"Hermit","srd":false,"caracs":["Con","Sag","Cha"],"don":"Guérisseur (Healer)","competences":["Médecine","Religion"],"outil":"matériel d'herboriste","equipement":"(A) Bâton de combat, matériel d'herboriste, sac de couchage, livre (philosophie), lampe, 3 flasques d'huile, tenue de voyage, 16 po ; ou (B) 50 po"},{"id":"fermier","nom":"Fermier","en":"Farmer","srd":false,"caracs":["For","Con","Sag"],"don":"Robuste (Tough)","competences":["Dressage","Nature"],"outil":"outils de charpentier","equipement":"(A) Serpe, outils de charpentier, trousse de soins, pot en fer, pelle, tenue de voyage, 30 po ; ou (B) 50 po"},{"id":"garde","nom":"Garde","en":"Guard","srd":false,"caracs":["For","Int","Sag"],"don":"Vigilant","competences":["Athlétisme","Perception"],"outil":"jeu (un au choix)","equipement":"(A) Lance, arbalète légère, 20 carreaux, jeu choisi, lanterne à capote, menottes, carquois, tenue de voyage, 12 po ; ou (B) 50 po"},{"id":"guide","nom":"Guide","en":"Guide","srd":false,"caracs":["Dex","Con","Sag"],"don":"Initié à la magie (Druide)","competences":["Discrétion","Survie"],"outil":"outils de cartographe","equipement":"(A) Arc court, 20 flèches, outils de cartographe, sac de couchage, carquois, tente, tenue de voyage, 3 po ; ou (B) 50 po"},{"id":"marchand","nom":"Marchand","en":"Merchant","srd":false,"caracs":["Con","Int","Cha"],"don":"Chanceux (Lucky)","competences":["Dressage","Persuasion"],"outil":"instruments de navigateur","equipement":"(A) Instruments de navigateur, 2 sacoches, tenue de voyage, 22 po ; ou (B) 50 po"},{"id":"marin","nom":"Marin","en":"Sailor","srd":false,"caracs":["For","Dex","Sag"],"don":"Bagarreur de taverne (Tavern Brawler)","competences":["Acrobaties","Perception"],"outil":"instruments de navigateur","equipement":"(A) Dague, instruments de navigateur, corde, tenue de voyage, 20 po ; ou (B) 50 po"},{"id":"noble","nom":"Noble","en":"Noble","srd":false,"caracs":["For","Int","Cha"],"don":"Doué","competences":["Histoire","Persuasion"],"outil":"jeu (un au choix)","equipement":"(A) Jeu choisi, beaux habits, parfum, 29 po ; ou (B) 50 po"},{"id":"sage","nom":"Sage","en":"Sage","srd":true,"caracs":["Con","Int","Sag"],"don":"Initié à la magie (Magicien)","competences":["Arcanes","Histoire"],"outil":"matériel de calligraphe","equipement":"Choisissez A ou B : (A) Bâton de combat, matériel de calligraphe, livre (d’histoire), parchemin (8 feuilles), robe, 8 po ; ou (B) 50 po"},{"id":"scribe","nom":"Scribe","en":"Scribe","srd":false,"caracs":["Dex","Int","Sag"],"don":"Doué","competences":["Investigation","Perception"],"outil":"matériel de calligraphe","equipement":"(A) Matériel de calligraphe, beaux habits, lampe, 3 flasques d'huile, 12 feuilles de parchemin, 23 po ; ou (B) 50 po"},{"id":"soldat","nom":"Soldat","en":"Soldier","srd":true,"caracs":["For","Dex","Con"],"don":"Sauvagerie martiale","competences":["Athlétisme","Intimidation"],"outil":"Choisissez un type de boîte de jeux (cf. « Équipement »)","equipement":"Choisissez A ou B : (A) Arc court + 20 flèches, carquois, lance, boîte de jeux (du même type que ci-dessus), trousse de soins, tenue de voyage, 14 po ; ou (B) 50 po"},{"id":"voyageur","nom":"Voyageur","en":"Wayfarer","srd":false,"caracs":["Dex","Sag","Cha"],"don":"Chanceux (Lucky)","competences":["Discrétion","Intuition"],"outil":"outils de voleur","equipement":"(A) 2 dagues, outils de voleur, jeu (un au choix), sac de couchage, 2 sacoches, tenue de voyage, 16 po ; ou (B) 50 po"}],"dons_origine":[{"nom":"Doué","en":"Skilled","srd":true,"desc":["Vous recevez la maîtrise d’une combinaison au choix de trois compétences ou outils.","**Répétable.** Vous pouvez sélectionner ce don plus d’une fois."]},{"nom":"Initié à la magie","en":"Magic Initiate","srd":true,"desc":["Vous recevez les bénéfices suivants.","**Deux sorts mineurs.** Vous apprenez deux sorts mineurs de votre choix issus de la liste de sorts du Clerc, du Druide ou du Magicien. L’Intelligence, la Sagesse ou le Charisme est votre caractéristique d’incantation pour les sorts de ce don (décidez laquelle à l’acquisition du don).","**Sort du 1** er niveau. Choisissez un sort du 1er niveau dans la même liste de sorts où vous avez choisi les sorts mineurs de ce don. Ce sort est toujours considéré comme préparé pour vous. Vous pouvez le lancer une fois sans dépenser d’emplacement de sort et récupérez cette aptitude en terminant un Repos long. Vous pouvez aussi lancer ce même sort avec vos éventuels emplacements de sort.","**Changement de sort.** Chaque fois que vous gagnez un niveau, vous pouvez remplacer l’un des sorts choisis dans le cadre de ce don par un autre sort du même niveau figurant dans la liste de sorts choisie.","**Répétable.** Vous pouvez sélectionner ce don plus d’une fois, mais devez choisir une liste de sorts différente à chaque fois."]},{"nom":"Sauvagerie martiale","en":"Savage Attacker","srd":true,"desc":["Vous êtes formé à porter des coups dévastateurs. Une fois par tour, lorsque vous touchez une cible avec une arme, vous pouvez lancer deux fois les dés de dégâts de l’arme et utiliser l’un ou l’autre résultat contre la cible."]},{"nom":"Vigilant","en":"Alert","srd":true,"desc":["Vous recevez les bénéfices suivants.","**Maîtrise de l’Initiative.** Lorsque vous jouez l’Initiative, ajoutez votre bonus de maîtrise au jet.","**Échange d’Initiative.** Aussitôt après avoir joué l’Initiative, vous pouvez échanger votre Initiative avec celle d’un allié volontaire pour le combat à venir. Un tel échange est impossible si vous-même ou l’allié désigné subissez l’état Neutralisé."]},{"nom":"Artisan","en":"Crafter","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Tu gagnes la maîtrise de trois types d'outils d'artisan au choix. Tu bénéficies d'une réduction de 20 % sur les objets non magiques que tu achètes. Après un Repos long, tu peux fabriquer un objet simple de la liste du don avec un de tes outils d'artisan, sans dépenser de matériaux ; il disparaît au Repos long suivant si tu en fabriques un autre."]},{"nom":"Bagarreur de taverne","en":"Tavern Brawler","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Tes Frappes à mains nues infligent 1d4 + Force dégâts contondants. Tu peux relancer un 1 sur les dés de dégâts à mains nues. Tu es formé aux armes improvisées. Une fois par tour, quand tu touches une créature avec une Frappe à mains nues, tu peux la Pousser de 1,50 m."]},{"nom":"Chanceux","en":"Lucky","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Tu as un nombre de points de Chance égal à ton bonus de maîtrise, récupérés au Repos long. Dépense 1 point pour avoir l'Avantage à un Test d20, ou pour imposer le Désavantage à un jet d'attaque qui te vise."]},{"nom":"Guérisseur","en":"Healer","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Avec une trousse de soins, tu peux, par l'action Utilisation, soigner une créature à 1,50 m : elle dépense un dé de vie, tu le lances et elle récupère le résultat + ton bonus de maîtrise en points de vie. Quand tu lances un dé de soins (sort ou ce don), tu peux relancer un 1."]},{"nom":"Musicien","en":"Musician","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Tu gagnes la maîtrise de trois instruments de musique au choix. À la fin d'un Repos court ou long, tu peux jouer pour donner l'Inspiration héroïque à un nombre d'alliés égal à ton bonus de maîtrise."]},{"nom":"Robuste","en":"Tough","srd":false,"desc":["Résumé (Manuel des Joueurs 2024). Ton maximum de points de vie augmente de 2 par niveau."]}],"langues":{"courantes":["Commun","Langue des signes commune","Draconique","Elfique","Géant","Gnome","Gobelin","Halfelin","Nain","Orc"],"rares":["Abyssal","Céleste","Druidique","Infernal","Profond","Primordial (aérien, aquatique, igné, terreux)","Sylvestre","Commun des profondeurs","Argot des voleurs"]},"point_buy":{"8":0,"9":1,"10":2,"11":3,"12":4,"13":5,"14":7,"15":9},"tableau_standard":[15,14,13,12,10,8],"alignements":["Loyal Bon","Neutre Bon","Chaotique Bon","Loyal Neutre","Neutre","Chaotique Neutre","Loyal Mauvais","Neutre Mauvais","Chaotique Mauvais"],"competences":[{"nom":"Acrobaties","carac":"Dex"},{"nom":"Arcanes","carac":"Int"},{"nom":"Athlétisme","carac":"For"},{"nom":"Discrétion","carac":"Dex"},{"nom":"Dressage","carac":"Sag"},{"nom":"Escamotage","carac":"Dex"},{"nom":"Histoire","carac":"Int"},{"nom":"Intimidation","carac":"Cha"},{"nom":"Intuition","carac":"Sag"},{"nom":"Investigation","carac":"Int"},{"nom":"Médecine","carac":"Sag"},{"nom":"Nature","carac":"Int"},{"nom":"Perception","carac":"Sag"},{"nom":"Persuasion","carac":"Cha"},{"nom":"Religion","carac":"Int"},{"nom":"Représentation","carac":"Cha"},{"nom":"Survie","carac":"Sag"},{"nom":"Tromperie","carac":"Cha"}],"caracs":["For","Dex","Con","Int","Sag","Cha"],"caracs_long":["Force","Dextérité","Constitution","Intelligence","Sagesse","Charisme"],"armures":[{"cat":"Armures légères (s’enfile ou se retire en 1 minute)","nom":"Armure matelassée","ca":"11 + modificateur de Dex","force":"—","discretion":"Désavantage","poids":"4 kg","prix":"5 po"},{"cat":"Armures légères (s’enfile ou se retire en 1 minute)","nom":"Armure de cuir","ca":"11 + modificateur de Dex","force":"—","discretion":"—","poids":"5 kg","prix":"10 po"},{"cat":"Armures légères (s’enfile ou se retire en 1 minute)","nom":"Armure de cuir clouté","ca":"12 + modificateur de Dex","force":"—","discretion":"—","poids":"6,5 kg","prix":"45 po"},{"cat":"Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)","nom":"Armure de peaux","ca":"12 + modificateur de Dex (max 2)","force":"—","discretion":"—","poids":"6 kg","prix":"10 po"},{"cat":"Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)","nom":"Chemise de mailles","ca":"13 + modificateur de Dex (max 2)","force":"—","discretion":"—","poids":"10 kg","prix":"50 po"},{"cat":"Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)","nom":"Armure d’écailles","ca":"14 + modificateur de Dex (max 2)","force":"—","discretion":"Désavantage","poids":"22,5 kg","prix":"50 po"},{"cat":"Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)","nom":"Cuirasse","ca":"14 + modificateur de Dex (max 2)","force":"—","discretion":"—","poids":"10 kg 400 po"},{"cat":"Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)","nom":"Demi-plate","ca":"15 + modificateur de Dex (max 2)","force":"—","discretion":"Désavantage","poids":"20 kg 750 po"},{"cat":"Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)","nom":"Broigne","ca":"14","force":"—","discretion":"Désavantage","poids":"20 kg","prix":"30 po"},{"cat":"Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)","nom":"Cotte de mailles","ca":"16","force":"For 13","discretion":"Désavantage","poids":"27,5 kg","prix":"75 po"},{"cat":"Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)","nom":"Clibanion","ca":"17","force":"For 15","discretion":"Désavantage","poids":"30 kg 200 po"},{"cat":"Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)","nom":"Harnois","ca":"18","force":"For 15","discretion":"Désavantage","poids":"32,5 kg 1 500 po"},{"cat":"Bouclier (s’enfile ou se retire au prix de l’action Utilisation)","nom":"Bouclier","ca":"+2","force":"—","discretion":"—","poids":"3 kg","prix":"10 po"}]};
+const C=DATA.classes, H=DATA.historiques, AB=DATA.caracs, ABL=DATA.caracs_long, SK=DATA.competences;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mod=v=>Math.floor((v-10)/2), sg=n=>(n>=0?'+':'')+n;
+const $=id=>document.getElementById(id);
+const DEF=()=>({cls:null,lvl:1,bg:null,sp:null,spvar:'',method:'standard',base:{For:8,Dex:8,Con:8,Int:8,Sag:8,Cha:8},std:{},plus2:null,plus1:null,trois:false,skills:[],nom:'',align:'Neutre',lang1:'',lang2:'',armor:'',shield:0,equip:'',notes:''});
+let S=DEF();
+try{const s=JSON.parse(localStorage.getItem('gda-perso')||'null');if(s&&s.base)S={...DEF(),...s}}catch(e){}
+const save=()=>{try{localStorage.setItem('gda-perso',JSON.stringify(S))}catch(e){}};
+// ---- niveau
+for(let i=1;i<=20;i++)$('lvl').insertAdjacentHTML('beforeend',`<option value="${i}">Niveau ${i}</option>`);
+// ---- classes
+const TYPE={Martial:'Martiale',Hybride:'Hybride',Lanceur:'Lanceur de sorts'};
+$('classes').innerHTML=Object.values(C).map(c=>{const site=CLASSES.find(x=>x.id===c.id)||{};return `<button class="pick" data-cls="${c.id}"><i>${esc(TYPE[site.type]||'')}</i><b>${esc(c.nom)}</b><small>d${c.de} · ${esc(c.carac)}</small></button>`}).join('');
+function clsDetail(){
+  const c=C[S.cls]; const box=$('cls-detail'); if(!c){box.hidden=true;return}
+  const site=CLASSES.find(x=>x.id===c.id)||{feats:[],subs:[]};
+  const chosen=S.skills.filter(s=>c.comp.includes(s));
+  const bgSk=(H.find(h=>h.id===S.bg)||{}).competences||[];
+  const row=c.prog[S.lvl-1];
+  const extraCols=Object.keys(c.prog[0].extra);
+  const table=`<details><summary>Table de progression du ${esc(c.nom)} (SRD)</summary><div class="tbwrap"><table class="tb"><thead><tr><th>Niv.</th><th>BM</th><th>Aptitudes de classe</th>${extraCols.map(k=>`<th>${esc(k)}</th>`).join('')}${c.carac_sort?'<th>Mineurs</th><th>Préparés</th><th>Emplacements 1–9</th>':''}</tr></thead><tbody>${c.prog.map(r=>`<tr${r.niv===S.lvl?' style="outline:2px solid var(--gold);outline-offset:-2px"':''}><td>${r.niv}</td><td>+${r.bm}</td><td style="font-weight:400">${esc(r.apt)}</td>${extraCols.map(k=>`<td>${esc(r.extra[k])}</td>`).join('')}${c.carac_sort?`<td>${r.mineurs||'—'}</td><td>${r.prep||'—'}</td><td>${r.empl?r.empl.map(n=>n||'—').join(' · '):'—'}</td>`:''}</tr>`).join('')}</tbody></table></div></details>`;
+  box.hidden=false;
+  box.innerHTML=`<p class="intro" style="font-size:18px">${esc(site.resume||'')}</p>
+   <dl class="kv"><div><dt>Dé de vie</dt><dd>d${c.de} par niveau</dd></div><div><dt>Caractéristique principale</dt><dd>${esc(c.carac)}</dd></div><div><dt>Jets de sauvegarde</dt><dd>${esc(c.js_txt)}</dd></div><div><dt>Armes</dt><dd>${esc(c.armes)}</dd></div><div><dt>Armures</dt><dd>${esc(c.armures)}</dd></div>${c.outils?`<div><dt>Outils</dt><dd>${esc(c.outils)}</dd></div>`:''}<div style="grid-column:1/-1"><dt>Équipement de départ</dt><dd>${esc(c.equipement)}</dd></div></dl>
+   <div><div class="eyebrow" style="margin-bottom:8px">Compétences : choisis-en ${c.comp_n} <span class="${chosen.length===c.comp_n?'ok':'warn'}">(${chosen.length}/${c.comp_n})</span></div>
+   <div class="checks" id="skchecks">${c.comp.map(s=>`<label title="${bgSk.includes(s)?'Déjà donnée par ton historique':''}"><input type="checkbox" value="${esc(s)}" ${chosen.includes(s)?'checked':''} ${!chosen.includes(s)&&chosen.length>=c.comp_n?'disabled':''}>${esc(s)}${bgSk.includes(s)?' *':''}</label>`).join('')}</div>${bgSk.some(s=>c.comp.includes(s))?'<p class="help" style="margin:8px 0 0">* déjà acquise par l\'historique : si tu la coches, choisis une autre compétence de la liste ou de la liste de l\'historique, avec l\'accord du MJ.</p>':''}</div>
+   <div><div class="eyebrow" style="margin-bottom:8px">Aptitudes acquises au niveau ${S.lvl}</div><ul>${c.prog.slice(0,S.lvl).map(r=>`<li><b>Niveau ${r.niv}.</b> ${esc(r.apt)}</li>`).join('')}</ul></div>
+   ${table}`;
+  box.querySelectorAll('#skchecks input').forEach(i=>i.onchange=()=>{const set=new Set(S.skills.filter(s=>c.comp.includes(s)));if(i.checked)set.add(i.value);else set.delete(i.value);S.skills=[...set];update()});
+}
+// ---- historiques
+$('bgs').innerHTML=H.map(h=>`<button class="pick" data-bg="${h.id}"><i>${h.srd?'SRD':'Manuel'}</i><b>${esc(h.nom)}</b><small>${h.caracs.join(' · ')}</small></button>`).join('');
+function bgDetail(){
+  const h=H.find(x=>x.id===S.bg); const box=$('bg-detail'); if(!h){box.hidden=true;return}
+  const donName=h.don.replace(/\s*\(.*$/,''); const don=DATA.dons_origine.find(d=>d.nom===donName);
+  box.hidden=false;
+  box.innerHTML=`<dl class="kv"><div><dt>Caractéristiques</dt><dd>${h.caracs.map(a=>ABL[AB.indexOf(a)]).join(', ')}</dd></div><div><dt>Don d'origine</dt><dd>${esc(h.don)}</dd></div><div><dt>Compétences</dt><dd>${h.competences.join(' et ')}</dd></div><div><dt>Outil</dt><dd>${esc(h.outil)}</dd></div><div style="grid-column:1/-1"><dt>Équipement</dt><dd>${esc(h.equipement)}</dd></div></dl>
+  ${don?`<details><summary>Don : ${esc(don.nom)}${don.en&&don.en!==don.nom?' ('+esc(don.en)+')':''}</summary><div class="prose" style="margin-top:8px">${don.desc.map(p=>{const m=p.match(/^\*\*(.+?)\*\*\s*(.*)$/s);return m?`<p><b>${esc(m[1])}</b> ${esc(m[2])}</p>`:`<p>${esc(p)}</p>`}).join('')}</div></details>`:''}`;
+}
+// ---- espèces
+const bySrc={};ESPECES.forEach(e=>(bySrc[e.src]=bySrc[e.src]||[]).push(e));
+$('sp').innerHTML='<option value="">— choisis —</option>'+Object.keys(SOURCES).map(s=>`<optgroup label="${esc(SOURCES[s])}">${bySrc[s].sort((a,b)=>a.nom.localeCompare(b.nom,'fr')).map(e=>`<option value="${e.id}">${esc(e.nom)}</option>`).join('')}</optgroup>`).join('');
+function spDetail(){
+  const e=ESPECES.find(x=>x.id===S.sp); const box=$('sp-detail'); $('sp-var-wrap').hidden=!e; if(!e){box.hidden=true;return}
+  box.hidden=false;
+  box.innerHTML=`<p class="intro" style="font-size:18px">${esc(e.resume)}</p><dl class="kv"><div><dt>Taille</dt><dd>${e.taille==='P'?'Petite':e.taille==='M'?'Moyenne':'Moyenne ou petite'}</dd></div><div><dt>Vitesse</dt><dd>${esc(e.vitesse)}</dd></div><div><dt>Vision dans le noir</dt><dd>${e.vision==='—'?'Non':e.vision==='?'?'Non précisé':esc(e.vision)}</dd></div><div><dt>Source</dt><dd>${esc(SRC_SHORT[e.src])}</dd></div></dl><ul>${e.traits.map(t=>`<li><b>${esc(t[0])}.</b> ${esc(t[1])}</li>`).join('')}</ul>`;
+}
+// ---- caractéristiques
+const PB=DATA.point_buy, STDARR=DATA.tableau_standard;
+function abilUI(){
+  const box=$('abil'); const h=H.find(x=>x.id===S.bg);
+  box.innerHTML=AB.map((a,i)=>{
+    let ctl='';
+    if(S.method==='standard'){const used=Object.values(S.std);ctl=`<select data-a="${a}"><option value="">—</option>${STDARR.map(v=>`<option value="${v}" ${S.std[a]===v?'selected':''} ${used.includes(v)&&S.std[a]!==v?'disabled':''}>${v}</option>`).join('')}</select>`}
+    else if(S.method==='points'){ctl=`<select data-a="${a}">${Object.keys(PB).map(v=>`<option value="${v}" ${S.base[a]==+v?'selected':''}>${v} (${PB[v]} pt${PB[v]>1?'s':''})</option>`).join('')}</select>`}
+    else ctl=`<input type="number" min="1" max="30" data-a="${a}" value="${S.base[a]}">`;
+    const base=baseOf(a), bonus=bonusOf(a), tot=base+bonus;
+    return `<div class="ab"><b>${ABL[i]}</b>${ctl}<div class="bonus">${bonus?`+${bonus} (historique)`:''}</div><div class="tot">${tot}</div><div class="mod">${sg(mod(tot))}</div></div>`;
+  }).join('');
+  box.querySelectorAll('select,input').forEach(el=>el.onchange=()=>{const a=el.dataset.a;if(S.method==='standard'){S.std[a]=el.value?+el.value:undefined;if(!el.value)delete S.std[a]}else S.base[a]=Math.max(1,Math.min(30,+el.value||8));update()});
+  let msg='';
+  if(S.method==='standard'){const n=Object.keys(S.std).length;msg=n===6?'<span class="ok">Les six valeurs sont attribuées.</span>':`<span class="warn">${6-n} valeur${6-n>1?'s':''} à attribuer.</span>`}
+  if(S.method==='points'){const spent=AB.reduce((t,a)=>t+(PB[S.base[a]]??0),0);msg=spent===27?'<span class="ok">27 points dépensés.</span>':spent>27?`<span class="warn">${spent} points dépensés, c'est ${spent-27} de trop.</span>`:`<span class="ok">${spent} points dépensés, il en reste ${27-spent}.</span>`}
+  $('abil-msg').innerHTML=msg;
+  const bb=$('bg-bonus');
+  if(!h){bb.hidden=true}else{bb.hidden=false;bb.innerHTML=`<div class="eyebrow" style="margin-bottom:8px">Bonus de l'historique ${esc(h.nom)} : ${h.caracs.map(a=>ABL[AB.indexOf(a)]).join(', ')}</div>
+   <div class="checks"><label><input type="radio" name="bmode" value="21" ${!S.trois?'checked':''}>+2 et +1</label><label><input type="radio" name="bmode" value="111" ${S.trois?'checked':''}>+1 aux trois</label></div>
+   ${S.trois?'':`<div class="grid2" style="margin-top:10px"><label class="f">+2 sur<select id="plus2"><option value="">—</option>${h.caracs.map(a=>`<option value="${a}" ${S.plus2===a?'selected':''}>${ABL[AB.indexOf(a)]}</option>`).join('')}</select></label><label class="f">+1 sur<select id="plus1"><option value="">—</option>${h.caracs.map(a=>`<option value="${a}" ${S.plus1===a?'selected':''} ${S.plus2===a?'disabled':''}>${ABL[AB.indexOf(a)]}</option>`).join('')}</select></label></div>`}`;
+   bb.querySelectorAll('input[name=bmode]').forEach(r=>r.onchange=()=>{S.trois=r.value==='111';update()});
+   const p2=$('plus2'),p1=$('plus1'); if(p2)p2.onchange=()=>{S.plus2=p2.value||null;if(S.plus1===S.plus2)S.plus1=null;update()}; if(p1)p1.onchange=()=>{S.plus1=p1.value||null;update()};
+  }
+}
+function baseOf(a){return S.method==='standard'?(S.std[a]||8):S.base[a]}
+function bonusOf(a){const h=H.find(x=>x.id===S.bg);if(!h||!h.caracs.includes(a))return 0;if(S.trois)return 1;return (S.plus2===a?2:0)+(S.plus1===a?1:0)}
+const score=a=>baseOf(a)+bonusOf(a);
+// ---- détails
+$('align').innerHTML=DATA.alignements.map(a=>`<option>${a}</option>`).join('');
+const LANGS=[...DATA.langues.courantes.filter(l=>l!=='Commun'),...DATA.langues.rares];
+for(const id of ['lang1','lang2'])$(id).innerHTML='<option value="">—</option>'+LANGS.map(l=>`<option>${esc(l)}</option>`).join('');
+$('armor').innerHTML='<option value="">Aucune armure</option>'+DATA.armures.filter(a=>a.nom!=='Bouclier').map(a=>`<option value="${esc(a.nom)}">${esc(a.nom)} (${esc(a.ca)})</option>`).join('');
+// ---- calculs
+function calc(){
+  const c=C[S.cls], e=ESPECES.find(x=>x.id===S.sp), h=H.find(x=>x.id===S.bg);
+  const sc={};AB.forEach(a=>sc[a]=score(a)); const m={};AB.forEach(a=>m[a]=mod(sc[a]));
+  const row=c?c.prog[S.lvl-1]:null; const bm=row?row.bm:2;
+  let pv=null; if(c){pv=c.de+m.Con+(S.lvl-1)*(c.de/2+1+m.Con)}
+  let ca=10+m.Dex, caNote='sans armure';
+  const arm=DATA.armures.find(a=>a.nom===S.armor);
+  if(arm){const mm=arm.ca.match(/^(\d+)(?:\s*\+\s*modificateur de Dex(?:\s*\(max (\d+)\))?)?/);if(mm){ca=+mm[1]+(mm[0].includes('Dex')?(mm[2]?Math.min(m.Dex,+mm[2]):m.Dex):0);caNote=arm.nom}}
+  else if(c&&c.id==='barbare'){ca=10+m.Dex+m.Con;caNote='Défense sans armure (Con)'}
+  else if(c&&c.id==='moine'&&!+S.shield){ca=10+m.Dex+m.Sag;caNote='Défense sans armure (Sag)'}
+  if(+S.shield){ca+=2;caNote+=' + bouclier'}
+  const clsSk=c?S.skills.filter(s=>c.comp.includes(s)):[]; const bgSk=h?h.competences:[];
+  const prof=new Set([...clsSk,...bgSk]);
+  const skills=SK.map(s=>({nom:s.nom,carac:s.carac,p:prof.has(s.nom),v:m[s.carac]+(prof.has(s.nom)?bm:0)}));
+  const percep=skills.find(s=>s.nom==='Perception');
+  const spell=c&&c.carac_sort?{carac:c.carac_sort,dd:8+bm+m[c.carac_sort],att:bm+m[c.carac_sort],mineurs:row.mineurs,prep:row.prep,empl:row.empl}:null;
+  return {c,e,h,sc,m,bm,pv,ca,caNote,skills,passive:10+percep.v,spell,row};
+}
+function summary(){
+  const r=calc(); const name=S.nom||'Personnage sans nom';
+  $('summ').innerHTML=`<h3>${esc(name)}</h3><div class="sub2">${r.c?esc(r.c.nom)+' niveau '+S.lvl:'Classe à choisir'}${r.e?' · '+esc(r.e.nom):''}${r.h?' · '+esc(r.h.nom):''}</div>
+  <div class="big"><div><b>${r.pv??'—'}</b><span>PV</span></div><div><b>${r.ca}</b><span>CA</span></div><div><b>+${r.bm}</b><span>Maîtrise</span></div></div>
+  <div class="mini">${AB.map(a=>`<div>${a}<b>${r.sc[a]}</b>${sg(r.m[a])}</div>`).join('')}</div>`;
+}
+function fiche(){
+  const r=calc(); const c=r.c,e=r.e,h=r.h;
+  const feats=c?c.prog.slice(0,S.lvl).map(x=>`<li><b>Niveau ${x.niv}.</b> ${esc(x.apt)}</li>`).join(''):'';
+  const site=c?(CLASSES.find(x=>x.id===c.id)||{}):{};
+  const keyFeats=(site.feats||[]).filter(f=>f[0]<=S.lvl).map(f=>`<li><b>${esc(f[1])}</b> <span style="color:var(--ink-3)">(niv. ${f[0]})</span>. ${esc(f[2])}</li>`).join('');
+  $('fiche').innerHTML=`<div class="eyebrow">${c?esc(c.nom)+' de niveau '+S.lvl:'Classe à choisir'}${e?' · '+esc(e.nom)+(S.spvar?' ('+esc(S.spvar)+')':''):''}${h?' · '+esc(h.nom):''} · ${esc(S.align)}</div>
+  <h2>${esc(S.nom||'Personnage sans nom')}</h2>
+  <div class="abil">${AB.map((a,i)=>`<div class="ab"><b>${ABL[i]}</b><div class="tot">${r.sc[a]}</div><div class="mod">${sg(r.m[a])}</div></div>`).join('')}</div>
+  <dl class="stats fit"><div class="stat"><dt>Points de vie</dt><dd>${r.pv??'—'} <span style="color:var(--ink-3);font-weight:500">(d${c?c.de:'?'}, moyenne fixe)</span></dd></div><div class="stat"><dt>Classe d'armure</dt><dd>${r.ca} <span style="color:var(--ink-3);font-weight:500">(${esc(r.caNote)})</span></dd></div><div class="stat"><dt>Initiative</dt><dd>${sg(r.m.Dex)}</dd></div><div class="stat"><dt>Vitesse</dt><dd>${e?esc(e.vitesse):'—'}</dd></div><div class="stat"><dt>Bonus de maîtrise</dt><dd>+${r.bm}</dd></div><div class="stat"><dt>Perception passive</dt><dd>${r.passive}</dd></div><div class="stat"><dt>Dés de vie</dt><dd>${c?S.lvl+'d'+c.de:'—'}</dd></div><div class="stat"><dt>Taille · Vision</dt><dd>${e?(e.taille==='P'?'Petite':e.taille==='M'?'Moyenne':'M ou P')+' · '+(e.vision==='—'?'pas de vision dans le noir':e.vision==='?'?'vision n.c.':'vision dans le noir '+esc(e.vision)):'—'}</dd></div></dl>
+  <h4>Jets de sauvegarde</h4><div class="skl">${AB.map((a,i)=>{const p=c&&c.js.includes(a);return `<div><span>${p?'<span class="p">●</span> ':'○ '}${ABL[i]}</span><span class="m">${sg(r.m[a]+(p?r.bm:0))}</span></div>`}).join('')}</div>
+  <h4>Compétences</h4><div class="skl">${r.skills.map(s=>`<div><span>${s.p?'<span class="p">●</span> ':'○ '}${esc(s.nom)} <span style="color:var(--ink-3)">(${s.carac})</span></span><span class="m">${sg(s.v)}</span></div>`).join('')}</div>
+  ${r.spell?`<h4>Incantation</h4><dl class="stats fit"><div class="stat"><dt>Caractéristique</dt><dd>${ABL[AB.indexOf(r.spell.carac)]}</dd></div><div class="stat"><dt>DD de sauvegarde</dt><dd>${r.spell.dd}</dd></div><div class="stat"><dt>Bonus d'attaque</dt><dd>${sg(r.spell.att)}</dd></div>${r.spell.mineurs?`<div class="stat"><dt>Sorts mineurs connus</dt><dd>${r.spell.mineurs}</dd></div>`:''}<div class="stat"><dt>Sorts préparés</dt><dd>${r.spell.prep??'—'}</dd></div></dl>
+   <p style="margin:10px 0 6px;font:700 11px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)">Emplacements de sort</p><div class="slots">${r.spell.empl?r.spell.empl.map((n,i)=>n?`<span>${n} <small>× niv. ${i+1}</small></span>`:'').join(''):'—'}</div>
+   <p class="help" style="margin-top:10px">Choisis tes sorts dans la page <a href="sorts.html?classe=${c.nom}">Sorts</a> (filtre par classe).</p>`:''}
+  ${c?`<h4>Aptitudes de classe</h4><ul>${feats}</ul>${keyFeats?`<p class="help" style="margin:10px 0 6px">Résumé des aptitudes clés :</p><ul>${keyFeats}</ul>`:''}`:''}
+  ${e?`<h4>Traits d'espèce</h4><ul>${e.traits.map(t=>`<li><b>${esc(t[0])}.</b> ${esc(t[1])}</li>`).join('')}</ul>`:''}
+  ${h?`<h4>Historique : ${esc(h.nom)}</h4><ul><li><b>Don d'origine.</b> ${esc(h.don)}</li><li><b>Compétences.</b> ${h.competences.join(' et ')}</li><li><b>Outil.</b> ${esc(h.outil)}</li></ul>`:''}
+  <h4>Langues</h4><p style="margin:0;color:var(--ink-2)">Commun${S.lang1?', '+esc(S.lang1):''}${S.lang2?', '+esc(S.lang2):''}</p>
+  ${S.equip?`<h4>Équipement</h4><p style="margin:0;color:var(--ink-2);white-space:pre-line">${esc(S.equip)}</p>`:''}
+  ${S.notes?`<h4>Notes</h4><p style="margin:0;color:var(--ink-2);white-space:pre-line">${esc(S.notes)}</p>`:''}`;
+}
+// ---- mise à jour globale
+function update(){
+  $('lvl').value=S.lvl;
+  document.querySelectorAll('#classes .pick').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cls===S.cls));
+  document.querySelectorAll('#bgs .pick').forEach(b=>b.setAttribute('aria-pressed',b.dataset.bg===S.bg));
+  $('sp').value=S.sp||''; $('sp-var').value=S.spvar; document.querySelector(`#methods input[value="${S.method}"]`).checked=true;
+  $('nom').value=S.nom; $('align').value=S.align; $('lang1').value=S.lang1; $('lang2').value=S.lang2; $('armor').value=S.armor; $('shield').value=S.shield; $('equip').value=S.equip; $('notes').value=S.notes;
+  clsDetail(); bgDetail(); spDetail(); abilUI(); summary(); fiche(); save();
+}
+$('lvl').onchange=()=>{S.lvl=+$('lvl').value;update()};
+$('classes').addEventListener('click',e=>{const b=e.target.closest('.pick');if(!b)return;S.cls=b.dataset.cls;S.skills=[];if(!S.equip)S.equip=C[S.cls].equipement;update()});
+$('bgs').addEventListener('click',e=>{const b=e.target.closest('.pick');if(!b)return;S.bg=b.dataset.bg;S.plus2=null;S.plus1=null;update()});
+$('sp').onchange=()=>{S.sp=$('sp').value||null;update()}; $('sp-var').oninput=()=>{S.spvar=$('sp-var').value;save();fiche()};
+document.querySelectorAll('#methods input').forEach(r=>r.onchange=()=>{S.method=r.value;update()});
+$('b-std').onclick=()=>{if(!S.cls)return alert('Choisis d\'abord une classe.');const v=C[S.cls].std;S.method='standard';S.std={};AB.forEach((a,i)=>S.std[a]=v[i]);update()};
+$('b-roll').onclick=()=>{S.method='manuel';AB.forEach(a=>{const d=[0,0,0,0].map(()=>1+Math.floor(Math.random()*6)).sort((x,y)=>y-x);S.base[a]=d[0]+d[1]+d[2]});update()};
+for(const [id,key] of [['nom','nom'],['align','align'],['lang1','lang1'],['lang2','lang2'],['armor','armor'],['shield','shield'],['equip','equip'],['notes','notes']]){$(id).addEventListener('input',()=>{S[key]=$(id).value;save();summary();fiche()})}
+const doPrint=()=>window.print(); $('b-print').onclick=doPrint; $('b-print2').onclick=doPrint;
+const doSave=()=>{const blob=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(S.nom||'personnage').replace(/[^\w-]+/g,'_')+'.json';a.click()};
+$('b-save').onclick=doSave; $('b-save2').onclick=doSave;
+$('b-load').onclick=()=>$('file').click();
+$('file').onchange=()=>{const f=$('file').files[0];if(!f)return;f.text().then(t=>{try{const s=JSON.parse(t);if(s&&s.base){S={...DEF(),...s};update()}else alert('Fichier non reconnu.')}catch(e){alert('Fichier non reconnu.')}})};
+$('b-reset').onclick=()=>{if(confirm('Effacer ce personnage ?')){S=DEF();update()}};
+const DEMO=()=>{S={...DEF(),cls:'guerrier',lvl:1,bg:'soldat',sp:'humain',method:'standard',std:{For:15,Dex:14,Con:13,Int:8,Sag:10,Cha:12},plus2:'For',plus1:'Con',skills:['Athlétisme','Perception'],nom:'Brennan Oakshield',align:'Loyal Bon',lang1:'Nain',lang2:'Orc',armor:'Cotte de mailles',shield:0,equip:C.guerrier.equipement,notes:'Ancien sergent de la garde de Sombreval, parti chercher le frère disparu.'};update()};
+$('b-demo').onclick=()=>{DEMO();location.hash='#s6'};
+// thème
+const root=document.documentElement;
+try{const th=localStorage.getItem('gda-theme');if(th==='light'||th==='dark')root.dataset.theme=th}catch(e){}
+$('theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');const next=cur==='light'?'dark':'light';root.dataset.theme=next;try{localStorage.setItem('gda-theme',next)}catch(e){}};
+const PARAMS=new URLSearchParams(location.search);if(PARAMS.has('print'))document.body.dataset.print='1';if(PARAMS.has('demo'))DEMO();else update();
+</script>
+</body>
+</html>

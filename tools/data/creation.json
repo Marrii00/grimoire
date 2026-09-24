@@ -1,0 +1,5738 @@
+{
+"classes": {
+"barbare": {
+"id": "barbare",
+"nom": "Barbare",
+"en": "Barbarian",
+"de": 12,
+"carac": "Force",
+"js": [
+"For",
+"Con"
+],
+"js_txt": "Force et Constitution",
+"comp_n": 2,
+"comp": [
+"Athlétisme",
+"Dressage",
+"Intimidation",
+"Nature",
+"Perception",
+"Survie"
+],
+"armes": "Armes courantes et armes de guerre",
+"armures": "Armures légères, intermédiaires et boucliers",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) Hache à deux mains, 4 hachettes, paquetage d’explorateur et 15 po ; ou (B) 75 po",
+"carac_sort": null,
+"std": [
+15,
+13,
+14,
+10,
+12,
+8
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Rage, Bottes d’arme, Défense sans armure",
+"extra": {
+"Rages": "2",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "2"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Sens du danger, Témérité",
+"extra": {
+"Rages": "2",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "2"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Savoir primal, Sous-classe de Barbare",
+"extra": {
+"Rages": "3",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "2"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Rages": "3",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Attaque supplémentaire, Déplacement rapide",
+"extra": {
+"Rages": "3",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Bond agressif, Instinct sauvage",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Coup brutal",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Rage implacable",
+"extra": {
+"Rages": "4",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Rages": "5",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Coup brutal amélioré",
+"extra": {
+"Rages": "5",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Rages": "5",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Rage persistante",
+"extra": {
+"Rages": "5",
+"Dégâts de Rage": "+3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Rages": "5",
+"Dégâts de Rage": "+4",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Coup brutal amélioré",
+"extra": {
+"Rages": "6",
+"Dégâts de Rage": "+4",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Puissance indomptable",
+"extra": {
+"Rages": "6",
+"Dégâts de Rage": "+4",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Rages": "6",
+"Dégâts de Rage": "+4",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Champion primitif",
+"extra": {
+"Rages": "6",
+"Dégâts de Rage": "+4",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+}
+]
+},
+"barde": {
+"id": "barde",
+"nom": "Barde",
+"en": "Bard",
+"de": 8,
+"carac": "Charisme",
+"js": [
+"Dex",
+"Cha"
+],
+"js_txt": "Dextérité et Charisme",
+"comp_n": 3,
+"comp": [
+"Acrobaties",
+"Arcanes",
+"Athlétisme",
+"Discrétion",
+"Dressage",
+"Escamotage",
+"Histoire",
+"Intimidation",
+"Intuition",
+"Investigation",
+"Médecine",
+"Nature",
+"Perception",
+"Persuasion",
+"Religion",
+"Représentation",
+"Survie",
+"Tromperie"
+],
+"armes": "Armes courantes",
+"armures": "Armures légères",
+"outils": "3 instruments de musique au choix (cf. « Équipement »)",
+"equipement": "Choisissez A ou B : (A) Armure de cuir, 2 dagues, instrument de musique de votre choix, paquetage d’artiste et 19 po ; ou (B) 90 po",
+"carac_sort": "Cha",
+"std": [
+8,
+14,
+12,
+13,
+10,
+15
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Inspiration bardique, Sorts",
+"extra": {
+"Dé bardique": "d6",
+"Sorts mineurs": "2",
+"Sorts préparés": "4"
+},
+"mineurs": 2,
+"prep": 4,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Expertise, Touche-à-tout",
+"extra": {
+"Dé bardique": "d6",
+"Sorts mineurs": "2",
+"Sorts préparés": "5"
+},
+"mineurs": 2,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Barde",
+"extra": {
+"Dé bardique": "d6",
+"Sorts mineurs": "2",
+"Sorts préparés": "6"
+},
+"mineurs": 2,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Dé bardique": "d6",
+"Sorts mineurs": "3",
+"Sorts préparés": "7"
+},
+"mineurs": 3,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Source d’inspiration",
+"extra": {
+"Dé bardique": "d8",
+"Sorts mineurs": "3",
+"Sorts préparés": "9"
+},
+"mineurs": 3,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Dé bardique": "d8",
+"Sorts mineurs": "3",
+"Sorts préparés": "10"
+},
+"mineurs": 3,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Contre-charme",
+"extra": {
+"Dé bardique": "d8",
+"Sorts mineurs": "3",
+"Sorts préparés": "11"
+},
+"mineurs": 3,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Dé bardique": "d8",
+"Sorts mineurs": "3",
+"Sorts préparés": "12"
+},
+"mineurs": 3,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Expertise",
+"extra": {
+"Dé bardique": "d8",
+"Sorts mineurs": "3",
+"Sorts préparés": "14"
+},
+"mineurs": 3,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Secrets magiques",
+"extra": {
+"Dé bardique": "d10",
+"Sorts mineurs": "4",
+"Sorts préparés": "15"
+},
+"mineurs": 4,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Dé bardique": "d10",
+"Sorts mineurs": "4",
+"Sorts préparés": "16"
+},
+"mineurs": 4,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Dé bardique": "d10",
+"Sorts mineurs": "4",
+"Sorts préparés": "16"
+},
+"mineurs": 4,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Dé bardique": "d10",
+"Sorts mineurs": "4",
+"Sorts préparés": "17"
+},
+"mineurs": 4,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Dé bardique": "d10",
+"Sorts mineurs": "4",
+"Sorts préparés": "17"
+},
+"mineurs": 4,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "18"
+},
+"mineurs": 4,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "18"
+},
+"mineurs": 4,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "19"
+},
+"mineurs": 4,
+"prep": 19,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Inspiration supérieure",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "20"
+},
+"mineurs": 4,
+"prep": 20,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "21"
+},
+"mineurs": 4,
+"prep": 21,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+1,
+1,
+1
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Verbe de la création",
+"extra": {
+"Dé bardique": "d12",
+"Sorts mineurs": "4",
+"Sorts préparés": "22"
+},
+"mineurs": 4,
+"prep": 22,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+2,
+1,
+1
+]
+}
+]
+},
+"clerc": {
+"id": "clerc",
+"nom": "Clerc",
+"en": "Cleric",
+"de": 8,
+"carac": "Sagesse",
+"js": [
+"Sag",
+"Cha"
+],
+"js_txt": "Sagesse et Charisme",
+"comp_n": 2,
+"comp": [
+"Histoire",
+"Intuition",
+"Médecine",
+"Persuasion",
+"Religion"
+],
+"armes": "Armes courantes",
+"armures": "Armures légères, intermédiaires et boucliers",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) Chemise de mailles, bouclier, masse d’armes, symbole sacré, paquetage d’ecclésiastique et 7 po ; ou (B) 110 po",
+"carac_sort": "Sag",
+"std": [
+14,
+8,
+13,
+10,
+15,
+12
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Sorts, Ordre divin",
+"extra": {
+"Conduit divin": "—",
+"Sorts mineurs": "3",
+"Sorts préparés": "4"
+},
+"mineurs": 3,
+"prep": 4,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Conduit divin",
+"extra": {
+"Conduit divin": "2",
+"Sorts mineurs": "3",
+"Sorts préparés": "5"
+},
+"mineurs": 3,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Clerc",
+"extra": {
+"Conduit divin": "2",
+"Sorts mineurs": "3",
+"Sorts préparés": "6"
+},
+"mineurs": 3,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "2",
+"Sorts mineurs": "4",
+"Sorts préparés": "7"
+},
+"mineurs": 4,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Calcination de Mort-vivant",
+"extra": {
+"Conduit divin": "2",
+"Sorts mineurs": "4",
+"Sorts préparés": "9"
+},
+"mineurs": 4,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "10"
+},
+"mineurs": 4,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Impacts bénis",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "11"
+},
+"mineurs": 4,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "12"
+},
+"mineurs": 4,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "14"
+},
+"mineurs": 4,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Intervention divine",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "15"
+},
+"mineurs": 5,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "16"
+},
+"mineurs": 5,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "16"
+},
+"mineurs": 5,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "17"
+},
+"mineurs": 5,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Impacts bénis améliorés",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "17"
+},
+"mineurs": 5,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "18"
+},
+"mineurs": 5,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "18"
+},
+"mineurs": 5,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Conduit divin": "3",
+"Sorts mineurs": "5",
+"Sorts préparés": "19"
+},
+"mineurs": 5,
+"prep": 19,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Conduit divin": "4",
+"Sorts mineurs": "5",
+"Sorts préparés": "20"
+},
+"mineurs": 5,
+"prep": 20,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Conduit divin": "4",
+"Sorts mineurs": "5",
+"Sorts préparés": "21"
+},
+"mineurs": 5,
+"prep": 21,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+1,
+1,
+1
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Intervention divine suprême",
+"extra": {
+"Conduit divin": "4",
+"Sorts mineurs": "5",
+"Sorts préparés": "22"
+},
+"mineurs": 5,
+"prep": 22,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+2,
+1,
+1
+]
+}
+]
+},
+"druide": {
+"id": "druide",
+"nom": "Druide",
+"en": "Druid",
+"de": 8,
+"carac": "Sagesse",
+"js": [
+"Int",
+"Sag"
+],
+"js_txt": "Intelligence et Sagesse",
+"comp_n": 2,
+"comp": [
+"Arcanes",
+"Dressage",
+"Intuition",
+"Médecine",
+"Nature",
+"Perception",
+"Religion",
+"Survie"
+],
+"armes": "Armes courantes",
+"armures": "Armures légères et boucliers",
+"outils": "Matériel d’herboriste",
+"equipement": "Choisissez A ou B : (A) Armure de cuir, bouclier, serpe, focaliseur druidique (bâton de combat), paquetage d’explorateur, matériel d’herboriste et 9 po ; ou (B) 50 po",
+"carac_sort": "Sag",
+"std": [
+8,
+12,
+14,
+13,
+15,
+10
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Sorts, Druidique, Ordre primitif",
+"extra": {
+"Forme sauvage": "—",
+"Sorts mineurs": "2",
+"Sorts préparés": "4"
+},
+"mineurs": 2,
+"prep": 4,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Compagnon sauvage, Forme sauvage",
+"extra": {
+"Forme sauvage": "2",
+"Sorts mineurs": "2",
+"Sorts préparés": "5"
+},
+"mineurs": 2,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Druide",
+"extra": {
+"Forme sauvage": "2",
+"Sorts mineurs": "2",
+"Sorts préparés": "6"
+},
+"mineurs": 2,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Forme sauvage": "2",
+"Sorts mineurs": "3",
+"Sorts préparés": "7"
+},
+"mineurs": 3,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Regain sauvage",
+"extra": {
+"Forme sauvage": "2",
+"Sorts mineurs": "3",
+"Sorts préparés": "9"
+},
+"mineurs": 3,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "3",
+"Sorts préparés": "10"
+},
+"mineurs": 3,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Fureur élémentaire",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "3",
+"Sorts préparés": "11"
+},
+"mineurs": 4,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "3",
+"Sorts préparés": "12"
+},
+"mineurs": 3,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "3",
+"Sorts préparés": "14"
+},
+"mineurs": 3,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "15"
+},
+"mineurs": 4,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "16"
+},
+"mineurs": 4,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "16"
+},
+"mineurs": 4,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "17"
+},
+"mineurs": 4,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "17"
+},
+"mineurs": 4,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Fureur élémentaire améliorée",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "18"
+},
+"mineurs": 4,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Forme sauvage": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "18"
+},
+"mineurs": 5,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Forme sauvage": "4",
+"Sorts mineurs": "4",
+"Sorts préparés": "19"
+},
+"mineurs": 4,
+"prep": 19,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Incantation animale",
+"extra": {
+"Forme sauvage": "4",
+"Sorts mineurs": "4",
+"Sorts préparés": "20"
+},
+"mineurs": 4,
+"prep": 20,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Forme sauvage": "4",
+"Sorts mineurs": "4",
+"Sorts préparés": "21"
+},
+"mineurs": 4,
+"prep": 21,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+1,
+1,
+1
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Archidruide",
+"extra": {
+"Forme sauvage": "4",
+"Sorts mineurs": "4",
+"Sorts préparés": "22"
+},
+"mineurs": 4,
+"prep": 22,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+2,
+1,
+1
+]
+}
+]
+},
+"ensorceleur": {
+"id": "ensorceleur",
+"nom": "Ensorceleur",
+"en": "Sorcerer",
+"de": 6,
+"carac": "Charisme",
+"js": [
+"Con",
+"Cha"
+],
+"js_txt": "Constitution et Charisme",
+"comp_n": 2,
+"comp": [
+"Arcanes",
+"Intimidation",
+"Intuition",
+"Persuasion",
+"Religion",
+"Tromperie"
+],
+"armes": "Armes courantes",
+"armures": "Aucune",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) lance, 2 dagues, focaliseur arcanique (cristal), paquetage d’exploration souterraine et 28 po ; ou (B) 50 po",
+"carac_sort": "Cha",
+"std": [
+10,
+13,
+14,
+8,
+12,
+15
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Sorts, Sorcellerie innée",
+"extra": {
+"Points de Sorcellerie": "—",
+"Sorts mineurs": "4",
+"Sorts préparés": "2"
+},
+"mineurs": 4,
+"prep": 2,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Réserve arcanique, Métamagie",
+"extra": {
+"Points de Sorcellerie": "2",
+"Sorts mineurs": "4",
+"Sorts préparés": "4"
+},
+"mineurs": 4,
+"prep": 4,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe d’Ensorceleur",
+"extra": {
+"Points de Sorcellerie": "3",
+"Sorts mineurs": "4",
+"Sorts préparés": "6"
+},
+"mineurs": 4,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Points de Sorcellerie": "4",
+"Sorts mineurs": "5",
+"Sorts préparés": "7"
+},
+"mineurs": 5,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Restauration ensorcelée",
+"extra": {
+"Points de Sorcellerie": "5",
+"Sorts mineurs": "5",
+"Sorts préparés": "9"
+},
+"mineurs": 5,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Points de Sorcellerie": "6",
+"Sorts mineurs": "5",
+"Sorts préparés": "10"
+},
+"mineurs": 5,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Sorcellerie incarnée",
+"extra": {
+"Points de Sorcellerie": "7",
+"Sorts mineurs": "5",
+"Sorts préparés": "11"
+},
+"mineurs": 5,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Points de Sorcellerie": "8",
+"Sorts mineurs": "5",
+"Sorts préparés": "12"
+},
+"mineurs": 5,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Points de Sorcellerie": "9",
+"Sorts mineurs": "5",
+"Sorts préparés": "14"
+},
+"mineurs": 5,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Métamagie",
+"extra": {
+"Points de Sorcellerie": "10",
+"Sorts mineurs": "6",
+"Sorts préparés": "15"
+},
+"mineurs": 6,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Points de Sorcellerie": "11",
+"Sorts mineurs": "6",
+"Sorts préparés": "16"
+},
+"mineurs": 6,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Points de Sorcellerie": "12",
+"Sorts mineurs": "6",
+"Sorts préparés": "16"
+},
+"mineurs": 6,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Points de Sorcellerie": "13",
+"Sorts mineurs": "6",
+"Sorts préparés": "17"
+},
+"mineurs": 6,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Points de Sorcellerie": "14",
+"Sorts mineurs": "6",
+"Sorts préparés": "17"
+},
+"mineurs": 6,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Points de Sorcellerie": "15",
+"Sorts mineurs": "6",
+"Sorts préparés": "18"
+},
+"mineurs": 6,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Points de Sorcellerie": "16",
+"Sorts mineurs": "6",
+"Sorts préparés": "18"
+},
+"mineurs": 6,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Métamagie",
+"extra": {
+"Points de Sorcellerie": "17",
+"Sorts mineurs": "6",
+"Sorts préparés": "19"
+},
+"mineurs": 6,
+"prep": 19,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Points de Sorcellerie": "18",
+"Sorts mineurs": "6",
+"Sorts préparés": "20"
+},
+"mineurs": 6,
+"prep": 20,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Points de Sorcellerie": "19",
+"Sorts mineurs": "6",
+"Sorts préparés": "21"
+},
+"mineurs": 6,
+"prep": 21,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+1,
+1,
+1
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Apothéose arcanique",
+"extra": {
+"Points de Sorcellerie": "20",
+"Sorts mineurs": "6",
+"Sorts préparés": "22"
+},
+"mineurs": 6,
+"prep": 22,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+2,
+1,
+1
+]
+}
+]
+},
+"guerrier": {
+"id": "guerrier",
+"nom": "Guerrier",
+"en": "Fighter",
+"de": 10,
+"carac": "Force ou Dextérité",
+"js": [
+"For",
+"Con"
+],
+"js_txt": "Force et Constitution",
+"comp_n": 2,
+"comp": [
+"Acrobaties",
+"Athlétisme",
+"Dressage",
+"Histoire",
+"Intuition",
+"Intimidation",
+"Perception",
+"Persuasion",
+"Survie"
+],
+"armes": "Armes courantes et armes de guerre",
+"armures": "Armures légères, intermédiaires et lourdes, boucliers",
+"outils": "",
+"equipement": "Choisissez entre A, B et C : (A) Cotte de mailles, épée à deux mains, fléau d’armes, 8 javelines, paquetage d’exploration souterraine et 4 po ; (B) Armure de cuir clouté, cimeterre, épée courte, arc long, 20 flèches, carquois, paquetage d’exploration souterraine et 11 po ; ou (C) 155 po",
+"carac_sort": null,
+"std": [
+15,
+14,
+13,
+8,
+10,
+12
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Bottes d’arme, Second souffle, Style de combat",
+"extra": {
+"Second souffle": "2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Fougue (une utilisation), Sens tactique",
+"extra": {
+"Second souffle": "2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Guerrier",
+"extra": {
+"Second souffle": "2",
+"Bottes d’arme": "3"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Attaque supplémentaire, Décalage tactique",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Botte tactique, Inflexible (une utilisation)",
+"extra": {
+"Second souffle": "3",
+"Bottes d’arme": "4"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Double attaque supplémentaire",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Attaques avisées, Inflexible (deux utilisations)",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "5"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Fougue (deux utilisations), Inflexible (trois utilisations)",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Triple attaque supplémentaire",
+"extra": {
+"Second souffle": "4",
+"Bottes d’arme": "6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+}
+]
+},
+"magicien": {
+"id": "magicien",
+"nom": "Magicien",
+"en": "Wizard",
+"de": 6,
+"carac": "Intelligence",
+"js": [
+"Int",
+"Sag"
+],
+"js_txt": "Intelligence et Sagesse",
+"comp_n": 2,
+"comp": [
+"Arcanes",
+"Histoire",
+"Intuition",
+"Investigation",
+"Médecine",
+"Nature",
+"Religion"
+],
+"armes": "Armes courantes",
+"armures": "Aucune",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) 2 dagues, focaliseur arcanique (bâton de combat), robe, grimoire, paquetage d’érudit et 5 po ; ou (B) 55 po",
+"carac_sort": "Int",
+"std": [
+8,
+12,
+13,
+15,
+14,
+10
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Sorts, Savoir rituel, Restauration magique",
+"extra": {
+"Sorts mineurs": "3",
+"Sorts préparés": "4"
+},
+"mineurs": 3,
+"prep": 4,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Érudition",
+"extra": {
+"Sorts mineurs": "3",
+"Sorts préparés": "5"
+},
+"mineurs": 3,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Magicien",
+"extra": {
+"Sorts mineurs": "3",
+"Sorts préparés": "6"
+},
+"mineurs": 3,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "7"
+},
+"mineurs": 4,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Mémorisation de sort",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "9"
+},
+"mineurs": 4,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "10"
+},
+"mineurs": 4,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "11"
+},
+"mineurs": 4,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "12"
+},
+"mineurs": 4,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "4",
+"Sorts préparés": "14"
+},
+"mineurs": 4,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "15"
+},
+"mineurs": 5,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "16"
+},
+"mineurs": 5,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "16"
+},
+"mineurs": 5,
+"prep": 16,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "17"
+},
+"mineurs": 5,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "18"
+},
+"mineurs": 5,
+"prep": 17,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "19"
+},
+"mineurs": 5,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "21"
+},
+"mineurs": 5,
+"prep": 18,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "22"
+},
+"mineurs": 5,
+"prep": 19,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Maîtrise des sorts",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "23"
+},
+"mineurs": 5,
+"prep": 20,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+1,
+1,
+1,
+1
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "24"
+},
+"mineurs": 5,
+"prep": 21,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+1,
+1,
+1
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Sorts de prédilection",
+"extra": {
+"Sorts mineurs": "5",
+"Sorts préparés": "25"
+},
+"mineurs": 5,
+"prep": 22,
+"empl": [
+4,
+3,
+3,
+3,
+3,
+2,
+2,
+1,
+1
+]
+}
+]
+},
+"moine": {
+"id": "moine",
+"nom": "Moine",
+"en": "Monk",
+"de": 8,
+"carac": "Dextérité et Sagesse",
+"js": [
+"For",
+"Dex"
+],
+"js_txt": "Force et Dextérité",
+"comp_n": 2,
+"comp": [
+"Acrobaties",
+"Athlétisme",
+"Discrétion",
+"Histoire",
+"Intuition",
+"Religion"
+],
+"armes": "Armes courantes ; et armes de guerre dotées de la propriété Légère",
+"armures": "Aucune",
+"outils": "Choisissez un type d’outils d’artisan ou d’instrument de musique (cf. « Équipement »)",
+"equipement": "Choisissez A ou B : (A) Lance, 5 dagues, outils d’artisan ou instrument de musique choisis pour la maîtrise d’outils ci-dessus, paquetage d’explorateur et 11 po ; ou (B) 50 po",
+"carac_sort": null,
+"std": [
+12,
+15,
+13,
+10,
+14,
+8
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Arts martiaux, Défense sans armure",
+"extra": {
+"Arts martiaux": "1d6",
+"Points de Credo": "—",
+"Déplacement sans armure": "—"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Déplacement sans armure, Credo du Moine, Métabolisme surnaturel",
+"extra": {
+"Arts martiaux": "1d6",
+"Points de Credo": "2",
+"Déplacement sans armure": "+3 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Déviation d’assaut, Sous-classe de Moine",
+"extra": {
+"Arts martiaux": "1d6",
+"Points de Credo": "3",
+"Déplacement sans armure": "+3 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique, Chute ralentie",
+"extra": {
+"Arts martiaux": "1d6",
+"Points de Credo": "4",
+"Déplacement sans armure": "+3 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Attaque supplémentaire, Frappe étourdissante",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "5",
+"Déplacement sans armure": "+3 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe, Frappes renforcées",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "6",
+"Déplacement sans armure": "+4,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Esquive totale",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "7",
+"Déplacement sans armure": "+4,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "8",
+"Déplacement sans armure": "+4,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Mouvement acrobatique",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "9",
+"Déplacement sans armure": "+4,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Autosubsistance, Credo accru",
+"extra": {
+"Arts martiaux": "1d8",
+"Points de Credo": "10",
+"Déplacement sans armure": "+6 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "11",
+"Déplacement sans armure": "+6 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "12",
+"Déplacement sans armure": "+6 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Parade énergétique",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "13",
+"Déplacement sans armure": "+6 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Survivant discipliné",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "14",
+"Déplacement sans armure": "+7,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Credo parachevé",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "15",
+"Déplacement sans armure": "+7,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Arts martiaux": "1d10",
+"Points de Credo": "16",
+"Déplacement sans armure": "+7,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Arts martiaux": "1d12",
+"Points de Credo": "17",
+"Déplacement sans armure": "+7,50 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Défense supérieure",
+"extra": {
+"Arts martiaux": "1d12",
+"Points de Credo": "18",
+"Déplacement sans armure": "+9 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Arts martiaux": "1d12",
+"Points de Credo": "19",
+"Déplacement sans armure": "+9 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Esprit et corps",
+"extra": {
+"Arts martiaux": "1d12",
+"Points de Credo": "20",
+"Déplacement sans armure": "+9 m"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+}
+]
+},
+"occultiste": {
+"id": "occultiste",
+"nom": "Occultiste",
+"en": "Warlock",
+"de": 8,
+"carac": "Charisme",
+"js": [
+"Sag",
+"Cha"
+],
+"js_txt": "Sagesse et Charisme",
+"comp_n": 2,
+"comp": [
+"Arcanes",
+"Histoire",
+"Intimidation",
+"Investigation",
+"Nature",
+"Religion",
+"Tromperie"
+],
+"armes": "Armes courantes",
+"armures": "Armures légères",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) Armure de cuir, serpe, 2 dagues, focaliseur arcanique (orbe), livre (savoir occulte), paquetage d’érudit et 15 po ; ou (B) 100 po",
+"carac_sort": "Cha",
+"std": [
+8,
+14,
+13,
+12,
+10,
+15
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Manifestations occultes, Magie de pacte",
+"extra": {
+"Manifestations occultes": "1",
+"Sorts mineurs": "2",
+"Sorts préparés": "2",
+"Emplacements de sort": "1",
+"Niveau des emplacements": "1"
+},
+"mineurs": 2,
+"prep": 2,
+"empl": [
+1,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Rouerie magique",
+"extra": {
+"Manifestations occultes": "3",
+"Sorts mineurs": "2",
+"Sorts préparés": "3",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "1"
+},
+"mineurs": 2,
+"prep": 3,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe d’Occultiste",
+"extra": {
+"Manifestations occultes": "3",
+"Sorts mineurs": "2",
+"Sorts préparés": "4",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "2"
+},
+"mineurs": 2,
+"prep": 4,
+"empl": [
+0,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Manifestations occultes": "3",
+"Sorts mineurs": "3",
+"Sorts préparés": "5",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "2"
+},
+"mineurs": 3,
+"prep": 5,
+"empl": [
+0,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "—",
+"extra": {
+"Manifestations occultes": "5",
+"Sorts mineurs": "3",
+"Sorts préparés": "6",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "3"
+},
+"mineurs": 3,
+"prep": 6,
+"empl": [
+0,
+0,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Manifestations occultes": "5",
+"Sorts mineurs": "3",
+"Sorts préparés": "7",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "3"
+},
+"mineurs": 3,
+"prep": 7,
+"empl": [
+0,
+0,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "—",
+"extra": {
+"Manifestations occultes": "6",
+"Sorts mineurs": "3",
+"Sorts préparés": "8",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "4"
+},
+"mineurs": 3,
+"prep": 8,
+"empl": [
+0,
+0,
+0,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Manifestations occultes": "6",
+"Sorts mineurs": "3",
+"Sorts préparés": "9",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "4"
+},
+"mineurs": 3,
+"prep": 9,
+"empl": [
+0,
+0,
+0,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Communication avec le protecteur",
+"extra": {
+"Manifestations occultes": "7",
+"Sorts mineurs": "3",
+"Sorts préparés": "10",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "5"
+},
+"mineurs": 3,
+"prep": 10,
+"empl": [
+0,
+0,
+0,
+0,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Manifestations occultes": "7",
+"Sorts mineurs": "4",
+"Sorts préparés": "10",
+"Emplacements de sort": "2",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 10,
+"empl": [
+0,
+0,
+0,
+0,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Arcanum mystique (sort du 6",
+"extra": {
+"Manifestations occultes": "niveau) 7",
+"Sorts mineurs": "4",
+"Sorts préparés": "11",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 11,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Manifestations occultes": "8",
+"Sorts mineurs": "4",
+"Sorts préparés": "11",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 11,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Arcanum mystique (sort du 7",
+"extra": {
+"Manifestations occultes": "niveau) 8",
+"Sorts mineurs": "4",
+"Sorts préparés": "12",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 12,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Manifestations occultes": "8",
+"Sorts mineurs": "4",
+"Sorts préparés": "12",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 12,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Arcanum mystique (sort du 8",
+"extra": {
+"Manifestations occultes": "niveau) 9",
+"Sorts mineurs": "4",
+"Sorts préparés": "13",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 13,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Manifestations occultes": "9",
+"Sorts mineurs": "4",
+"Sorts préparés": "13",
+"Emplacements de sort": "3",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 13,
+"empl": [
+0,
+0,
+0,
+0,
+3,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Arcanum mystique (sort du 9",
+"extra": {
+"Manifestations occultes": "niveau) 9",
+"Sorts mineurs": "4",
+"Sorts préparés": "14",
+"Emplacements de sort": "4",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 14,
+"empl": [
+0,
+0,
+0,
+0,
+4,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Manifestations occultes": "10",
+"Sorts mineurs": "4",
+"Sorts préparés": "14",
+"Emplacements de sort": "4",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 14,
+"empl": [
+0,
+0,
+0,
+0,
+4,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Manifestations occultes": "10",
+"Sorts mineurs": "4",
+"Sorts préparés": "15",
+"Emplacements de sort": "4",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 15,
+"empl": [
+0,
+0,
+0,
+0,
+4,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Maître de l’occulte",
+"extra": {
+"Manifestations occultes": "10",
+"Sorts mineurs": "4",
+"Sorts préparés": "15",
+"Emplacements de sort": "4",
+"Niveau des emplacements": "5"
+},
+"mineurs": 4,
+"prep": 15,
+"empl": [
+0,
+0,
+0,
+0,
+4,
+0,
+0,
+0,
+0
+]
+}
+]
+},
+"paladin": {
+"id": "paladin",
+"nom": "Paladin",
+"en": "Paladin",
+"de": 10,
+"carac": "Force et Charisme",
+"js": [
+"Sag",
+"Cha"
+],
+"js_txt": "Sagesse et Charisme",
+"comp_n": 2,
+"comp": [
+"Athlétisme",
+"Intimidation",
+"Intuition",
+"Médecine",
+"Persuasion",
+"Religion"
+],
+"armes": "Armes courantes et armes de guerre",
+"armures": "Armures légères, intermédiaires et lourdes, boucliers",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) Cotte de mailles, bouclier, épée longue, 6 javelines, symbole sacré, paquetage d’ecclésiastique et 9 po ; ou (B) 150 po",
+"carac_sort": "Cha",
+"std": [
+15,
+10,
+13,
+8,
+12,
+14
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Bottes d’arme, Imposition des mains, Sorts",
+"extra": {
+"Conduit divin": "—",
+"Sorts préparés": "2"
+},
+"mineurs": 0,
+"prep": 2,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Châtiment de paladin, Style de combat",
+"extra": {
+"Conduit divin": "—",
+"Sorts préparés": "3"
+},
+"mineurs": 0,
+"prep": 3,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Conduit divin, Sous-classe de Paladin",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "4"
+},
+"mineurs": 0,
+"prep": 4,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "5"
+},
+"mineurs": 0,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Attaque supplémentaire, Fidèle destrier",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "6"
+},
+"mineurs": 0,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Aura de protection",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "6"
+},
+"mineurs": 0,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "7"
+},
+"mineurs": 0,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "7"
+},
+"mineurs": 0,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Abjuration d’ennemis",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "9"
+},
+"mineurs": 0,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Aura de courage",
+"extra": {
+"Conduit divin": "2",
+"Sorts préparés": "9"
+},
+"mineurs": 0,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Frappes radiantes",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "10"
+},
+"mineurs": 0,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "10"
+},
+"mineurs": 0,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "11"
+},
+"mineurs": 0,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Toucher réparateur",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "11"
+},
+"mineurs": 0,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "12"
+},
+"mineurs": 0,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "12"
+},
+"mineurs": 0,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "—",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "14"
+},
+"mineurs": 0,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Aura étendue",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "14"
+},
+"mineurs": 0,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "15"
+},
+"mineurs": 0,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Conduit divin": "3",
+"Sorts préparés": "15"
+},
+"mineurs": 0,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+}
+]
+},
+"rodeur": {
+"id": "rodeur",
+"nom": "Rôdeur",
+"en": "Ranger",
+"de": 10,
+"carac": "Dextérité et Sagesse",
+"js": [
+"For",
+"Dex"
+],
+"js_txt": "Force et Dextérité",
+"comp_n": 3,
+"comp": [
+"Athlétisme",
+"Discrétion",
+"Dressage",
+"Intuition",
+"Investigation",
+"Nature",
+"Perception",
+"Survie"
+],
+"armes": "Armes courantes et armes de guerre",
+"armures": "Armures légères, intermédiaires et boucliers",
+"outils": "",
+"equipement": "Choisissez A ou B : (A) Armure de cuir clouté, cimeterre, épée courte, arc long, 20 flèches, carquois, focaliseur druidique (branche de gui), paquetage d’explorateur et 7 po ; ou (B) 150 po",
+"carac_sort": "Sag",
+"std": [
+12,
+15,
+13,
+8,
+14,
+10
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Sorts, Ennemi juré, Bottes d’arme",
+"extra": {
+"Ennemi juré": "2",
+"Sorts préparés": "2"
+},
+"mineurs": 0,
+"prep": 2,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Fin explorateur, Style de combat",
+"extra": {
+"Ennemi juré": "2",
+"Sorts préparés": "3"
+},
+"mineurs": 0,
+"prep": 3,
+"empl": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Rôdeur",
+"extra": {
+"Ennemi juré": "2",
+"Sorts préparés": "4"
+},
+"mineurs": 0,
+"prep": 4,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Ennemi juré": "2",
+"Sorts préparés": "5"
+},
+"mineurs": 0,
+"prep": 5,
+"empl": [
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Attaque supplémentaire",
+"extra": {
+"Ennemi juré": "3",
+"Sorts préparés": "6"
+},
+"mineurs": 0,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Arpenteur",
+"extra": {
+"Ennemi juré": "3",
+"Sorts préparés": "6"
+},
+"mineurs": 0,
+"prep": 6,
+"empl": [
+4,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Ennemi juré": "3",
+"Sorts préparés": "7"
+},
+"mineurs": 0,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Ennemi juré": "3",
+"Sorts préparés": "7"
+},
+"mineurs": 0,
+"prep": 7,
+"empl": [
+4,
+3,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Expertise",
+"extra": {
+"Ennemi juré": "4",
+"Sorts préparés": "9"
+},
+"mineurs": 0,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Infatigable",
+"extra": {
+"Ennemi juré": "4",
+"Sorts préparés": "9"
+},
+"mineurs": 0,
+"prep": 9,
+"empl": [
+4,
+3,
+2,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Ennemi juré": "4",
+"Sorts préparés": "10"
+},
+"mineurs": 0,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Ennemi juré": "4",
+"Sorts préparés": "10"
+},
+"mineurs": 0,
+"prep": 10,
+"empl": [
+4,
+3,
+3,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Chasseur implacable",
+"extra": {
+"Ennemi juré": "5",
+"Sorts préparés": "11"
+},
+"mineurs": 0,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Voile de la nature",
+"extra": {
+"Ennemi juré": "5",
+"Sorts préparés": "11"
+},
+"mineurs": 0,
+"prep": 11,
+"empl": [
+4,
+3,
+3,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Ennemi juré": "5",
+"Sorts préparés": "12"
+},
+"mineurs": 0,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Ennemi juré": "5",
+"Sorts préparés": "12"
+},
+"mineurs": 0,
+"prep": 12,
+"empl": [
+4,
+3,
+3,
+2,
+0,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Chasseur précis",
+"extra": {
+"Ennemi juré": "6",
+"Sorts préparés": "14"
+},
+"mineurs": 0,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Sens sauvages",
+"extra": {
+"Ennemi juré": "6",
+"Sorts préparés": "14"
+},
+"mineurs": 0,
+"prep": 14,
+"empl": [
+4,
+3,
+3,
+3,
+1,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Ennemi juré": "6",
+"Sorts préparés": "15"
+},
+"mineurs": 0,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Tueur implacable",
+"extra": {
+"Ennemi juré": "6",
+"Sorts préparés": "15"
+},
+"mineurs": 0,
+"prep": 15,
+"empl": [
+4,
+3,
+3,
+3,
+2,
+0,
+0,
+0,
+0
+]
+}
+]
+},
+"roublard": {
+"id": "roublard",
+"nom": "Roublard",
+"en": "Rogue",
+"de": 8,
+"carac": "Dextérité",
+"js": [
+"Dex",
+"Int"
+],
+"js_txt": "Dextérité et Intelligence",
+"comp_n": 4,
+"comp": [
+"Acrobaties",
+"Athlétisme",
+"Discrétion",
+"Escamotage",
+"Intimidation",
+"Intuition",
+"Investigation",
+"Perception",
+"Persuasion",
+"Tromperie"
+],
+"armes": "Armes courantes et armes de guerre dotées de la propriété Finesse ou Légère",
+"armures": "Armures légères",
+"outils": "Outils de voleur",
+"equipement": "Choisissez A ou B : (A) Armure de cuir, 2 dagues, épée courte, arc court, 20 flèches, carquois, outils de voleur, paquetage de cambrioleur et 8 po ; ou (B) 100 po",
+"carac_sort": null,
+"std": [
+12,
+15,
+13,
+14,
+10,
+8
+],
+"prog": [
+{
+"niv": 1,
+"bm": 2,
+"apt": "Argot des voleurs, Attaque sournoise, Bottes d’arme, Expertise",
+"extra": {
+"Attaque sournoise": "1d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 2,
+"bm": 2,
+"apt": "Ruse",
+"extra": {
+"Attaque sournoise": "1d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 3,
+"bm": 2,
+"apt": "Sous-classe de Roublard, Visée appliquée",
+"extra": {
+"Attaque sournoise": "2d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 4,
+"bm": 2,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Attaque sournoise": "2d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 5,
+"bm": 3,
+"apt": "Frappe malicieuse, Esquive instinctive",
+"extra": {
+"Attaque sournoise": "3d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 6,
+"bm": 3,
+"apt": "Expertise",
+"extra": {
+"Attaque sournoise": "3d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 7,
+"bm": 3,
+"apt": "Esquive totale, Savoir-faire",
+"extra": {
+"Attaque sournoise": "4d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 8,
+"bm": 3,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Attaque sournoise": "4d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 9,
+"bm": 4,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Attaque sournoise": "5d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 10,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Attaque sournoise": "5d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 11,
+"bm": 4,
+"apt": "Frappe malicieuse améliorée",
+"extra": {
+"Attaque sournoise": "6d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 12,
+"bm": 4,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Attaque sournoise": "6d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 13,
+"bm": 5,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Attaque sournoise": "7d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 14,
+"bm": 5,
+"apt": "Coups vicieux",
+"extra": {
+"Attaque sournoise": "7d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 15,
+"bm": 5,
+"apt": "Esprit fuyant",
+"extra": {
+"Attaque sournoise": "8d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 16,
+"bm": 5,
+"apt": "Amélioration de caractéristique",
+"extra": {
+"Attaque sournoise": "8d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 17,
+"bm": 6,
+"apt": "Aptitude de sous-classe",
+"extra": {
+"Attaque sournoise": "9d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 18,
+"bm": 6,
+"apt": "Insaisissable",
+"extra": {
+"Attaque sournoise": "9d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 19,
+"bm": 6,
+"apt": "Faveur épique",
+"extra": {
+"Attaque sournoise": "10d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+},
+{
+"niv": 20,
+"bm": 6,
+"apt": "Coup de chance",
+"extra": {
+"Attaque sournoise": "10d6"
+},
+"mineurs": null,
+"prep": null,
+"empl": null
+}
+]
+}
+},
+"historiques": [
+{
+"id": "acolyte",
+"nom": "Acolyte",
+"en": "Acolyte",
+"srd": true,
+"caracs": [
+"Int",
+"Sag",
+"Cha"
+],
+"don": "Initié à la magie (Clerc)",
+"competences": [
+"Intuition",
+"Religion"
+],
+"outil": "matériel de calligraphe",
+"equipement": "Choisissez A ou B : (A) Matériel de calligraphe, livre (de prières), symbole sacré, parchemin (10 feuilles), robe, 8 po ; ou (B) 50 po"
+},
+{
+"id": "artisan",
+"nom": "Artisan",
+"en": "Artisan",
+"srd": false,
+"caracs": [
+"For",
+"Dex",
+"Int"
+],
+"don": "Artisan (Crafter)",
+"competences": [
+"Investigation",
+"Persuasion"
+],
+"outil": "outils d'artisan (un type au choix)",
+"equipement": "(A) Outils d'artisan choisis, 2 sacoches, tenue de voyage, 32 po ; ou (B) 50 po"
+},
+{
+"id": "artiste",
+"nom": "Artiste",
+"en": "Entertainer",
+"srd": false,
+"caracs": [
+"For",
+"Dex",
+"Cha"
+],
+"don": "Musicien (Musician)",
+"competences": [
+"Acrobaties",
+"Représentation"
+],
+"outil": "instrument de musique (un au choix)",
+"equipement": "(A) Instrument de musique choisi, 2 costumes, miroir, parfum, tenue de voyage, 11 po ; ou (B) 50 po"
+},
+{
+"id": "charlatan",
+"nom": "Charlatan",
+"en": "Charlatan",
+"srd": false,
+"caracs": [
+"Dex",
+"Con",
+"Cha"
+],
+"don": "Doué",
+"competences": [
+"Escamotage",
+"Tromperie"
+],
+"outil": "matériel de contrefaçon",
+"equipement": "(A) Matériel de contrefaçon, costume, beaux habits, 15 po ; ou (B) 50 po"
+},
+{
+"id": "criminel",
+"nom": "Criminel",
+"en": "Criminal",
+"srd": true,
+"caracs": [
+"Dex",
+"Con",
+"Int"
+],
+"don": "Vigilant",
+"competences": [
+"Discrétion",
+"Escamotage"
+],
+"outil": "outils de voleur",
+"equipement": "Choisissez A ou B : (A) 2 dagues, outils de voleur, 2 bourses, pied-de-biche, tenue de voyage, 16 po ; ou (B) 50 po"
+},
+{
+"id": "ermite",
+"nom": "Ermite",
+"en": "Hermit",
+"srd": false,
+"caracs": [
+"Con",
+"Sag",
+"Cha"
+],
+"don": "Guérisseur (Healer)",
+"competences": [
+"Médecine",
+"Religion"
+],
+"outil": "matériel d'herboriste",
+"equipement": "(A) Bâton de combat, matériel d'herboriste, sac de couchage, livre (philosophie), lampe, 3 flasques d'huile, tenue de voyage, 16 po ; ou (B) 50 po"
+},
+{
+"id": "fermier",
+"nom": "Fermier",
+"en": "Farmer",
+"srd": false,
+"caracs": [
+"For",
+"Con",
+"Sag"
+],
+"don": "Robuste (Tough)",
+"competences": [
+"Dressage",
+"Nature"
+],
+"outil": "outils de charpentier",
+"equipement": "(A) Serpe, outils de charpentier, trousse de soins, pot en fer, pelle, tenue de voyage, 30 po ; ou (B) 50 po"
+},
+{
+"id": "garde",
+"nom": "Garde",
+"en": "Guard",
+"srd": false,
+"caracs": [
+"For",
+"Int",
+"Sag"
+],
+"don": "Vigilant",
+"competences": [
+"Athlétisme",
+"Perception"
+],
+"outil": "jeu (un au choix)",
+"equipement": "(A) Lance, arbalète légère, 20 carreaux, jeu choisi, lanterne à capote, menottes, carquois, tenue de voyage, 12 po ; ou (B) 50 po"
+},
+{
+"id": "guide",
+"nom": "Guide",
+"en": "Guide",
+"srd": false,
+"caracs": [
+"Dex",
+"Con",
+"Sag"
+],
+"don": "Initié à la magie (Druide)",
+"competences": [
+"Discrétion",
+"Survie"
+],
+"outil": "outils de cartographe",
+"equipement": "(A) Arc court, 20 flèches, outils de cartographe, sac de couchage, carquois, tente, tenue de voyage, 3 po ; ou (B) 50 po"
+},
+{
+"id": "marchand",
+"nom": "Marchand",
+"en": "Merchant",
+"srd": false,
+"caracs": [
+"Con",
+"Int",
+"Cha"
+],
+"don": "Chanceux (Lucky)",
+"competences": [
+"Dressage",
+"Persuasion"
+],
+"outil": "instruments de navigateur",
+"equipement": "(A) Instruments de navigateur, 2 sacoches, tenue de voyage, 22 po ; ou (B) 50 po"
+},
+{
+"id": "marin",
+"nom": "Marin",
+"en": "Sailor",
+"srd": false,
+"caracs": [
+"For",
+"Dex",
+"Sag"
+],
+"don": "Bagarreur de taverne (Tavern Brawler)",
+"competences": [
+"Acrobaties",
+"Perception"
+],
+"outil": "instruments de navigateur",
+"equipement": "(A) Dague, instruments de navigateur, corde, tenue de voyage, 20 po ; ou (B) 50 po"
+},
+{
+"id": "noble",
+"nom": "Noble",
+"en": "Noble",
+"srd": false,
+"caracs": [
+"For",
+"Int",
+"Cha"
+],
+"don": "Doué",
+"competences": [
+"Histoire",
+"Persuasion"
+],
+"outil": "jeu (un au choix)",
+"equipement": "(A) Jeu choisi, beaux habits, parfum, 29 po ; ou (B) 50 po"
+},
+{
+"id": "sage",
+"nom": "Sage",
+"en": "Sage",
+"srd": true,
+"caracs": [
+"Con",
+"Int",
+"Sag"
+],
+"don": "Initié à la magie (Magicien)",
+"competences": [
+"Arcanes",
+"Histoire"
+],
+"outil": "matériel de calligraphe",
+"equipement": "Choisissez A ou B : (A) Bâton de combat, matériel de calligraphe, livre (d’histoire), parchemin (8 feuilles), robe, 8 po ; ou (B) 50 po"
+},
+{
+"id": "scribe",
+"nom": "Scribe",
+"en": "Scribe",
+"srd": false,
+"caracs": [
+"Dex",
+"Int",
+"Sag"
+],
+"don": "Doué",
+"competences": [
+"Investigation",
+"Perception"
+],
+"outil": "matériel de calligraphe",
+"equipement": "(A) Matériel de calligraphe, beaux habits, lampe, 3 flasques d'huile, 12 feuilles de parchemin, 23 po ; ou (B) 50 po"
+},
+{
+"id": "soldat",
+"nom": "Soldat",
+"en": "Soldier",
+"srd": true,
+"caracs": [
+"For",
+"Dex",
+"Con"
+],
+"don": "Sauvagerie martiale",
+"competences": [
+"Athlétisme",
+"Intimidation"
+],
+"outil": "Choisissez un type de boîte de jeux (cf. « Équipement »)",
+"equipement": "Choisissez A ou B : (A) Arc court + 20 flèches, carquois, lance, boîte de jeux (du même type que ci-dessus), trousse de soins, tenue de voyage, 14 po ; ou (B) 50 po"
+},
+{
+"id": "voyageur",
+"nom": "Voyageur",
+"en": "Wayfarer",
+"srd": false,
+"caracs": [
+"Dex",
+"Sag",
+"Cha"
+],
+"don": "Chanceux (Lucky)",
+"competences": [
+"Discrétion",
+"Intuition"
+],
+"outil": "outils de voleur",
+"equipement": "(A) 2 dagues, outils de voleur, jeu (un au choix), sac de couchage, 2 sacoches, tenue de voyage, 16 po ; ou (B) 50 po"
+}
+],
+"dons_origine": [
+{
+"nom": "Doué",
+"en": "Skilled",
+"srd": true,
+"desc": [
+"Vous recevez la maîtrise d’une combinaison au choix de trois compétences ou outils.",
+"**Répétable.** Vous pouvez sélectionner ce don plus d’une fois."
+]
+},
+{
+"nom": "Initié à la magie",
+"en": "Magic Initiate",
+"srd": true,
+"desc": [
+"Vous recevez les bénéfices suivants.",
+"**Deux sorts mineurs.** Vous apprenez deux sorts mineurs de votre choix issus de la liste de sorts du Clerc, du Druide ou du Magicien. L’Intelligence, la Sagesse ou le Charisme est votre caractéristique d’incantation pour les sorts de ce don (décidez laquelle à l’acquisition du don).",
+"**Sort du 1** er niveau. Choisissez un sort du 1er niveau dans la même liste de sorts où vous avez choisi les sorts mineurs de ce don. Ce sort est toujours considéré comme préparé pour vous. Vous pouvez le lancer une fois sans dépenser d’emplacement de sort et récupérez cette aptitude en terminant un Repos long. Vous pouvez aussi lancer ce même sort avec vos éventuels emplacements de sort.",
+"**Changement de sort.** Chaque fois que vous gagnez un niveau, vous pouvez remplacer l’un des sorts choisis dans le cadre de ce don par un autre sort du même niveau figurant dans la liste de sorts choisie.",
+"**Répétable.** Vous pouvez sélectionner ce don plus d’une fois, mais devez choisir une liste de sorts différente à chaque fois."
+]
+},
+{
+"nom": "Sauvagerie martiale",
+"en": "Savage Attacker",
+"srd": true,
+"desc": [
+"Vous êtes formé à porter des coups dévastateurs. Une fois par tour, lorsque vous touchez une cible avec une arme, vous pouvez lancer deux fois les dés de dégâts de l’arme et utiliser l’un ou l’autre résultat contre la cible."
+]
+},
+{
+"nom": "Vigilant",
+"en": "Alert",
+"srd": true,
+"desc": [
+"Vous recevez les bénéfices suivants.",
+"**Maîtrise de l’Initiative.** Lorsque vous jouez l’Initiative, ajoutez votre bonus de maîtrise au jet.",
+"**Échange d’Initiative.** Aussitôt après avoir joué l’Initiative, vous pouvez échanger votre Initiative avec celle d’un allié volontaire pour le combat à venir. Un tel échange est impossible si vous-même ou l’allié désigné subissez l’état Neutralisé."
+]
+},
+{
+"nom": "Artisan",
+"en": "Crafter",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Tu gagnes la maîtrise de trois types d'outils d'artisan au choix. Tu bénéficies d'une réduction de 20 % sur les objets non magiques que tu achètes. Après un Repos long, tu peux fabriquer un objet simple de la liste du don avec un de tes outils d'artisan, sans dépenser de matériaux ; il disparaît au Repos long suivant si tu en fabriques un autre."
+]
+},
+{
+"nom": "Bagarreur de taverne",
+"en": "Tavern Brawler",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Tes Frappes à mains nues infligent 1d4 + Force dégâts contondants. Tu peux relancer un 1 sur les dés de dégâts à mains nues. Tu es formé aux armes improvisées. Une fois par tour, quand tu touches une créature avec une Frappe à mains nues, tu peux la Pousser de 1,50 m."
+]
+},
+{
+"nom": "Chanceux",
+"en": "Lucky",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Tu as un nombre de points de Chance égal à ton bonus de maîtrise, récupérés au Repos long. Dépense 1 point pour avoir l'Avantage à un Test d20, ou pour imposer le Désavantage à un jet d'attaque qui te vise."
+]
+},
+{
+"nom": "Guérisseur",
+"en": "Healer",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Avec une trousse de soins, tu peux, par l'action Utilisation, soigner une créature à 1,50 m : elle dépense un dé de vie, tu le lances et elle récupère le résultat + ton bonus de maîtrise en points de vie. Quand tu lances un dé de soins (sort ou ce don), tu peux relancer un 1."
+]
+},
+{
+"nom": "Musicien",
+"en": "Musician",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Tu gagnes la maîtrise de trois instruments de musique au choix. À la fin d'un Repos court ou long, tu peux jouer pour donner l'Inspiration héroïque à un nombre d'alliés égal à ton bonus de maîtrise."
+]
+},
+{
+"nom": "Robuste",
+"en": "Tough",
+"srd": false,
+"desc": [
+"Résumé (Manuel des Joueurs 2024). Ton maximum de points de vie augmente de 2 par niveau."
+]
+}
+],
+"langues": {
+"courantes": [
+"Commun",
+"Langue des signes commune",
+"Draconique",
+"Elfique",
+"Géant",
+"Gnome",
+"Gobelin",
+"Halfelin",
+"Nain",
+"Orc"
+],
+"rares": [
+"Abyssal",
+"Céleste",
+"Druidique",
+"Infernal",
+"Profond",
+"Primordial (aérien, aquatique, igné, terreux)",
+"Sylvestre",
+"Commun des profondeurs",
+"Argot des voleurs"
+]
+},
+"point_buy": {
+"8": 0,
+"9": 1,
+"10": 2,
+"11": 3,
+"12": 4,
+"13": 5,
+"14": 7,
+"15": 9
+},
+"tableau_standard": [
+15,
+14,
+13,
+12,
+10,
+8
+],
+"alignements": [
+"Loyal Bon",
+"Neutre Bon",
+"Chaotique Bon",
+"Loyal Neutre",
+"Neutre",
+"Chaotique Neutre",
+"Loyal Mauvais",
+"Neutre Mauvais",
+"Chaotique Mauvais"
+],
+"competences": [
+{
+"nom": "Acrobaties",
+"carac": "Dex"
+},
+{
+"nom": "Arcanes",
+"carac": "Int"
+},
+{
+"nom": "Athlétisme",
+"carac": "For"
+},
+{
+"nom": "Discrétion",
+"carac": "Dex"
+},
+{
+"nom": "Dressage",
+"carac": "Sag"
+},
+{
+"nom": "Escamotage",
+"carac": "Dex"
+},
+{
+"nom": "Histoire",
+"carac": "Int"
+},
+{
+"nom": "Intimidation",
+"carac": "Cha"
+},
+{
+"nom": "Intuition",
+"carac": "Sag"
+},
+{
+"nom": "Investigation",
+"carac": "Int"
+},
+{
+"nom": "Médecine",
+"carac": "Sag"
+},
+{
+"nom": "Nature",
+"carac": "Int"
+},
+{
+"nom": "Perception",
+"carac": "Sag"
+},
+{
+"nom": "Persuasion",
+"carac": "Cha"
+},
+{
+"nom": "Religion",
+"carac": "Int"
+},
+{
+"nom": "Représentation",
+"carac": "Cha"
+},
+{
+"nom": "Survie",
+"carac": "Sag"
+},
+{
+"nom": "Tromperie",
+"carac": "Cha"
+}
+],
+"caracs": [
+"For",
+"Dex",
+"Con",
+"Int",
+"Sag",
+"Cha"
+],
+"caracs_long": [
+"Force",
+"Dextérité",
+"Constitution",
+"Intelligence",
+"Sagesse",
+"Charisme"
+],
+"armures": [
+{
+"cat": "Armures légères (s’enfile ou se retire en 1 minute)",
+"nom": "Armure matelassée",
+"ca": "11 + modificateur de Dex",
+"force": "—",
+"discretion": "Désavantage",
+"poids": "4 kg",
+"prix": "5 po"
+},
+{
+"cat": "Armures légères (s’enfile ou se retire en 1 minute)",
+"nom": "Armure de cuir",
+"ca": "11 + modificateur de Dex",
+"force": "—",
+"discretion": "—",
+"poids": "5 kg",
+"prix": "10 po"
+},
+{
+"cat": "Armures légères (s’enfile ou se retire en 1 minute)",
+"nom": "Armure de cuir clouté",
+"ca": "12 + modificateur de Dex",
+"force": "—",
+"discretion": "—",
+"poids": "6,5 kg",
+"prix": "45 po"
+},
+{
+"cat": "Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)",
+"nom": "Armure de peaux",
+"ca": "12 + modificateur de Dex (max 2)",
+"force": "—",
+"discretion": "—",
+"poids": "6 kg",
+"prix": "10 po"
+},
+{
+"cat": "Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)",
+"nom": "Chemise de mailles",
+"ca": "13 + modificateur de Dex (max 2)",
+"force": "—",
+"discretion": "—",
+"poids": "10 kg",
+"prix": "50 po"
+},
+{
+"cat": "Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)",
+"nom": "Armure d’écailles",
+"ca": "14 + modificateur de Dex (max 2)",
+"force": "—",
+"discretion": "Désavantage",
+"poids": "22,5 kg",
+"prix": "50 po"
+},
+{
+"cat": "Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)",
+"nom": "Cuirasse",
+"ca": "14 + modificateur de Dex (max 2)",
+"force": "—",
+"discretion": "—",
+"poids": "10 kg 400 po"
+},
+{
+"cat": "Armures intermédiaires (s’enfile en 5 minutes, se retire en 1 minute)",
+"nom": "Demi-plate",
+"ca": "15 + modificateur de Dex (max 2)",
+"force": "—",
+"discretion": "Désavantage",
+"poids": "20 kg 750 po"
+},
+{
+"cat": "Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)",
+"nom": "Broigne",
+"ca": "14",
+"force": "—",
+"discretion": "Désavantage",
+"poids": "20 kg",
+"prix": "30 po"
+},
+{
+"cat": "Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)",
+"nom": "Cotte de mailles",
+"ca": "16",
+"force": "For 13",
+"discretion": "Désavantage",
+"poids": "27,5 kg",
+"prix": "75 po"
+},
+{
+"cat": "Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)",
+"nom": "Clibanion",
+"ca": "17",
+"force": "For 15",
+"discretion": "Désavantage",
+"poids": "30 kg 200 po"
+},
+{
+"cat": "Armures lourdes (s’enfile en 10 minutes, se retire en 5 minutes)",
+"nom": "Harnois",
+"ca": "18",
+"force": "For 15",
+"discretion": "Désavantage",
+"poids": "32,5 kg 1 500 po"
+},
+{
+"cat": "Bouclier (s’enfile ou se retire au prix de l’action Utilisation)",
+"nom": "Bouclier",
+"ca": "+2",
+"force": "—",
+"discretion": "—",
+"poids": "3 kg",
+"prix": "10 po"
+}
+]
+}

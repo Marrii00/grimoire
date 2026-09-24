@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Équipement · Grimoire de l'aventurier</title>
+<meta name="description" content="L'équipement du SRD 5.2.1 de D&D 2024 en français : armes et bottes d'arme, propriétés, armures, outils, matériel d'aventurier, montures et véhicules, avec prix, poids et règles.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 58 18v28L32 60 6 46V18z' fill='%23d4af37'/%3E%3Cpath d='M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14' stroke='%231a1424' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+h2.sec{scroll-margin-top:0}
+a.chip{text-decoration:none}
+.chip[aria-current="true"]{background:var(--gold);border-color:var(--gold);color:#1a1424;box-shadow:0 0 16px rgba(212,175,55,.25)}
+.tbwrap.wide table{min-width:680px}
+table.tb td.nw{white-space:nowrap}
+table.tb tr.cat td i{text-transform:none;letter-spacing:0;font:italic 500 14px/1.3 var(--body);color:var(--ink-2);margin-left:6px}
+.plink{text-decoration-style:dotted;text-decoration-thickness:1px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:16px}
+.cards.tools{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.pcard{all:unset;box-sizing:border-box;display:block;min-width:0;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.pcard:hover,.pcard:focus-visible{border-color:var(--gold-3);transform:translateY(-1px);box-shadow:var(--shadow)}
+.pcard:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.pcard h3,.tcard h3{font:700 17px/1.2 var(--display);margin:0;color:var(--ink)}
+.pcard p{margin:6px 0 0;font-size:15.5px;line-height:1.4;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tcard{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.tcard p{margin:0;font-size:15.5px;line-height:1.45;color:var(--ink-2);overflow-wrap:anywhere}
+.tcard p b{color:var(--gold);font:700 10.5px var(--display);letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
+.tcard p.var{font-style:italic;color:var(--ink-3)}
+#l-mat .row{grid-template-columns:minmax(0,1fr) auto}
+#l-mat .row h3{overflow-wrap:anywhere}
+.mark.p{border-color:var(--gold-3);color:var(--gold)}
+.grp{margin-top:24px}
+.grp .cards,.grp .tbwrap{margin-top:14px}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:0 24px;align-items:start}
+.sheet .cls{display:flex;flex-wrap:wrap;gap:6px}
+.bloc:first-of-type h2.sec{margin-top:36px}
+@media (max-width:640px){.bar-in .theme{order:1}.bar-in .chips{order:2;width:100%}}
+@media (max-width:480px){#l-mat .row{grid-template-columns:1fr;gap:8px}#l-mat .row .marks{justify-content:flex-start}}
+</style>
+</head>
+<body data-page="equipement">
+<nav class="site" aria-label="Sections du site">
+  <div class="wrap site-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 58 18v28L32 60 6 46V18z" fill="currentColor"/><path d="M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14" stroke="var(--bg)" stroke-width="3" fill="none"/></svg>Grimoire</a>
+    <a href="index.html" data-page="index">Espèces &amp; classes</a>
+    <a href="sorts.html" data-page="sorts">Sorts</a>
+    <a href="equipement.html" data-page="equipement">Équipement</a>
+    <a href="objets.html" data-page="objets">Objets magiques</a>
+    <a href="creation.html" data-page="creation">Créer un personnage</a>
+  </div>
+</nav>
+<header class="hero small">
+  <div class="hero-art" aria-hidden="true"><img src="img/guerrier.jpg" alt="" style="object-position:50% 22%"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">D&amp;D 5e · règles 2024 · SRD 5.2.1 en français</div>
+    <h1>L'équipement</h1>
+    <svg class="flourish" viewBox="0 0 400 24" aria-hidden="true"><path d="M8 12h150M242 12h150" stroke="currentColor" stroke-width="1.2"/><path d="M200 3l9 9-9 9-9-9z" fill="currentColor"/><path d="M178 12l6-4 6 4-6 4zM210 12l6-4 6 4-6 4z" fill="currentColor" opacity=".7"/><circle cx="8" cy="12" r="2" fill="currentColor"/><circle cx="392" cy="12" r="2" fill="currentColor"/></svg>
+    <p class="lede">Armes et bottes d'arme, armures, outils, matériel d'aventurier, montures et véhicules du Document de référence 5.2.1, avec leurs prix, leurs poids et le texte des règles.</p>
+  </div>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Recherche et sections">
+  <div class="wrap bar-in">
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="Chercher une arme, un objet, une propriété…" aria-label="Chercher dans l'équipement"></label>
+    <nav class="chips" aria-label="Aller à la section">
+      <a class="chip" href="#armes">Armes</a>
+      <a class="chip" href="#proprietes">Propriétés</a>
+      <a class="chip" href="#bottes">Bottes d'arme</a>
+      <a class="chip" href="#armures">Armures</a>
+      <a class="chip" href="#outils">Outils</a>
+      <a class="chip" href="#materiel">Matériel</a>
+      <a class="chip" href="#montures">Montures</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="note">
+    <b>2024</b>
+    <p>Le SRD 5.2.1 reprend l'équipement du <strong>Manuel des Joueurs 2024</strong>. Les prix sont en pièces de cuivre (pc), d'argent (pa) et d'or (po) : 1 po = 10 pa = 100 pc. Les poids sont en kilogrammes. Chaque arme est associée à une <strong>botte d'arme</strong>, que seuls les personnages dotés de l'aptitude Maîtrise des armes (barbare, guerrier, paladin, rôdeur, roublard) peuvent utiliser.</p>
+  </div>
+  <p class="count" id="count"></p>
+  <p class="empty" id="empty" hidden>Aucun équipement ne correspond à cette recherche.</p>
+  <main id="main">
+    <section class="bloc">
+      <h2 class="sec" id="armes">Armes</h2>
+      <p class="lede">Clique sur une propriété ou une botte pour lire sa règle complète.</p>
+      <div class="tbwrap wide" id="t-armes"></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="proprietes">Propriétés des armes</h2>
+      <p class="lede">Chaque propriété modifie la façon dont l'arme s'utilise. Clique sur une carte pour ouvrir sa fiche.</p>
+      <div class="cards" id="g-prop"></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="bottes">Bottes d'arme</h2>
+      <p class="lede">Nouveauté des règles 2024 : avec l'aptitude Maîtrise des armes, chaque arme maîtrisée débloque un effet spécial.</p>
+      <div class="cards" id="g-botte"></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="armures">Armures</h2>
+      <p class="lede">La classe d'armure (CA), la Force requise et l'effet sur les tests de Dextérité (Discrétion).</p>
+      <div class="tbwrap wide" id="t-armures"></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="outils">Outils</h2>
+      <p class="lede">La caractéristique associée, des exemples d'utilisation avec leur DD et ce que l'on peut fabriquer avec.</p>
+      <div class="grp" id="grp-artisan"><h3 class="gh">Outils d'artisan<span></span></h3><div class="cards tools"></div></div>
+      <div class="grp" id="grp-autres"><h3 class="gh">Autres outils<span></span></h3><div class="cards tools"></div></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="materiel">Matériel d'aventurier</h2>
+      <p class="lede">Clique sur un objet pour lire sa description.</p>
+      <div class="list" id="l-mat"></div>
+    </section>
+    <section class="bloc">
+      <h2 class="sec" id="montures">Montures et véhicules</h2>
+      <p class="lede">Une monture peut porter jusqu'à sa capacité de charge ; l'équipement de selle et les véhicules s'achètent à part.</p>
+      <div class="twocol">
+        <div class="grp" id="grp-montures"><h3 class="gh">Montures<span></span></h3><div class="tbwrap" id="t-montures"></div></div>
+        <div class="grp" id="grp-harn"><h3 class="gh">Harnachement et véhicules<span></span></h3><div class="tbwrap" id="t-harn"></div></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Cette œuvre inclut du matériel issu du System Reference Document 5.2.1 (« SRD 5.2.1 ») de Wizards of the Coast LLC, disponible à l'adresse <a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener">https://www.dndbeyond.com/srd</a>. Le SRD 5.2.1 est régi par la Licence Creative Commons Attribution 4.0 International, disponible à l'adresse <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0/legalcode</a>.</p>
+    <p>Site non officiel, sans lien avec Wizards of the Coast. Illustration de bannière : <i>Le Chevalier, la Mort et le Diable</i>, Albrecht Dürer (1513), domaine public.</p>
+  </footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
+
+<script>
+/*__DATA:armes,armures,outils,materiel,proprietes,bottes,montures,harnachement__*/
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
+const dh=s=>String(s??'').replace(/([a-zà-ÿ])- ([a-zà-ÿ])/g,'$1$2'); // césures héritées de la mise en page du PDF
+const byNom=(a,b)=>a.nom.localeCompare(b.nom,'fr');
+
+// ---- données (avec quelques corrections d'affichage d'anomalies d'extraction)
+const A=DATA.armes;
+const AR=DATA.armures.map(a=>{if(!a.prix){const m=/^(.*?\bk?g)\s+(\d.*)$/.exec(a.poids||'');if(m)return{...a,poids:m[1],prix:m[2]}}return a});
+const P=DATA.proprietes, B=DATA.bottes;
+const O=DATA.outils.map(o=>{const t={...o,utilisation:dh(o.utilisation),artisanat:dh(o.artisanat||''),desc:(o.desc||[]).map(dh)};
+  if(t.artisanat.endsWith(',')&&t.desc.length){t.artisanat=t.artisanat+' '+t.desc.join(' ');t.desc=[]}
+  else if(t.desc.length){t.desc=[t.desc.join(' ')]}
+  return t});
+const ARTISAN=new Set(['Matériel d’alchimiste','Matériel de brasseur','Matériel de calligraphe','Matériel de peintre','Outils de bricoleur','Outils de cartographe','Outils de charpentier','Outils de cordonnier','Outils de forgeron','Outils de joaillier','Outils de maçon','Outils de menuisier','Outils de potier','Outils de souffleur de verre','Outils de tanneur','Outils de tisserand','Ustensiles de cuisinier']);
+const M=DATA.materiel.map(m=>({...m,desc:m.desc||[],poids:/^variable/i.test(m.poids||'')?'variable':(m.poids||'—')})).sort(byNom);
+const MO=DATA.montures.slice().sort(byNom);
+const H=DATA.harnachement.map(h=>(h.cat&&/^Selle/.test(h.cat)&&/^[a-zà-ÿ]/.test(h.nom))?{...h,nom:'Selle '+h.nom}:h).sort(byNom);
+
+// ---- registre des fiches et index de recherche
+const ITEMS=new Map(); // id -> {kind,obj}
+P.forEach(p=>ITEMS.set('prop-'+slug(p.nom),{kind:'prop',obj:p}));
+B.forEach(b=>ITEMS.set('botte-'+slug(b.nom),{kind:'botte',obj:b}));
+M.forEach(m=>ITEMS.set('mat-'+slug(m.nom),{kind:'mat',obj:m}));
+const FILT=[]; // {el,k,boxes:[éléments à masquer si vides]}
+const escRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const PROP_ID={}; P.forEach(p=>PROP_ID[p.nom]='prop-'+slug(p.nom)); PROP_ID['portée']=PROP_ID['Portée'];
+const PROP_RE=new RegExp('(?<!\\p{L})('+Object.keys(PROP_ID).sort((a,b)=>b.length-a.length).map(escRe).join('|')+')(?!\\p{L})','gu');
+const linkProps=s=>esc(s).replace(PROP_RE,m=>`<a class="plink" href="#${PROP_ID[m]}" data-open="${PROP_ID[m]}">${m}</a>`);
+const hasWord=(s,w)=>new RegExp('(?<!\\p{L})'+escRe(w)+'(?!\\p{L})','iu').test(s||'');
+const catHtml=c=>{const m=/^(.*?)\s*\((.*)\)\s*$/.exec(c);return m?esc(m[1])+`<i>(${esc(m[2])})</i>`:esc(c)};
+
+// ---- rendu
+function tableau(hostId,heads,rows,cats,mkRow,keys,boxes){
+  const host=document.getElementById(hostId);
+  let html='<table class="tb"><thead><tr>'+heads.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>',cur=null;
+  rows.forEach(r=>{if(cats&&r.cat!==cur){cur=r.cat;html+=`<tr class="cat"><td colspan="${heads.length}">${catHtml(cur)}</td></tr>`}html+='<tr>'+mkRow(r)+'</tr>'});
+  host.innerHTML=html+'</tbody></table>';
+  [...host.querySelectorAll('tbody tr:not(.cat)')].forEach((tr,i)=>FILT.push({el:tr,k:norm(keys(rows[i]).join(' ')),boxes}));
+}
+const secOf=id=>document.getElementById(id).closest('.bloc');
+tableau('t-armes',['Arme','Dégâts','Propriétés','Botte','Poids','Prix'],A,true,
+  a=>`<td>${esc(a.nom)}</td><td class="nw">${esc(a.degats)}</td><td>${a.proprietes&&a.proprietes!=='—'?linkProps(a.proprietes):'—'}</td><td class="nw">${a.botte?`<a class="plink" href="#botte-${slug(a.botte)}" data-open="botte-${slug(a.botte)}">${esc(a.botte)}</a>`:'—'}</td><td class="nw">${esc(a.poids)}</td><td class="nw">${esc(a.prix)}</td>`,
+  a=>[a.nom,a.cat,a.degats,a.proprietes,a.botte],[secOf('armes')]);
+tableau('t-armures',['Armure','CA','Force','Discrétion','Poids','Prix'],AR,true,
+  a=>`<td>${esc(a.nom)}</td><td>${esc(a.ca)}</td><td class="nw">${esc(a.force)}</td><td class="nw">${esc(a.discretion)}</td><td class="nw">${esc(a.poids)}</td><td class="nw">${esc(a.prix)}</td>`,
+  a=>[a.nom,a.cat,a.ca,a.force,a.discretion],[secOf('armures')]);
+tableau('t-montures',['Monture','Capacité de charge','Prix'],MO,false,
+  m=>`<td>${esc(m.nom)}</td><td class="nw">${esc(m.charge)}</td><td class="nw">${esc(m.prix)}</td>`,
+  m=>[m.nom,m.charge],[secOf('montures'),document.getElementById('grp-montures')]);
+tableau('t-harn',['Objet','Poids','Prix'],H,false,
+  h=>`<td>${esc(h.nom)}</td><td class="nw">${esc(h.poids)}</td><td class="nw">${esc(h.prix)}</td>`,
+  h=>[h.nom],[secOf('montures'),document.getElementById('grp-harn')]);
+document.querySelector('#grp-montures .gh span').textContent=MO.length;
+document.querySelector('#grp-harn .gh span').textContent=H.length;
+
+function cartes(hostId,items,prefix){
+  const host=document.getElementById(hostId);
+  host.innerHTML=items.map(p=>`<button class="pcard" data-open="${prefix}-${slug(p.nom)}"><h3>${esc(p.nom)}</h3><p>${esc(p.desc[0]||'')}</p></button>`).join('');
+  [...host.children].forEach((el,i)=>FILT.push({el,k:norm(items[i].nom+' '+items[i].desc.join(' ')),boxes:[host.closest('.bloc')]}));
+}
+cartes('g-prop',P,'prop'); cartes('g-botte',B,'botte');
+
+function outils(grpId,items){
+  const grp=document.getElementById(grpId),host=grp.querySelector('.cards');
+  grp.querySelector('.gh span').textContent=items.length;
+  host.innerHTML=items.map(o=>`<article class="tcard"><h3>${esc(o.nom)}</h3>
+    <div class="meta"><span class="tag a">${esc(o.carac)}</span><span class="tag">${esc(o.prix)}</span><span class="tag">${esc(o.poids)}</span></div>
+    <p><b>Utilisation</b>${esc(cap(o.utilisation))}</p>
+    ${o.artisanat?`<p><b>Artisanat</b>${esc(cap(o.artisanat))}</p>`:''}
+    ${o.desc.length?`<p class="var">${esc(o.desc.join(' '))}</p>`:''}</article>`).join('');
+  [...host.children].forEach((el,i)=>{const o=items[i];FILT.push({el,k:norm([o.nom,o.carac,o.utilisation,o.artisanat,o.desc.join(' ')].join(' ')),boxes:[grp.closest('.bloc'),grp]})});
+}
+outils('grp-artisan',O.filter(o=>ARTISAN.has(o.nom))); outils('grp-autres',O.filter(o=>!ARTISAN.has(o.nom)));
+
+const resume=d=>{if(!d.length)return '';let s=d[0].replace(/\*\*/g,'');const m=/^.*?[.!?](?=\s|$)/.exec(s);s=m?m[0]:s;return s.length>130?s.slice(0,118).replace(/\s\S*$/,'')+'…':s};
+(function(){
+  const host=document.getElementById('l-mat');
+  host.innerHTML=M.map(m=>`<button class="row" data-open="mat-${slug(m.nom)}"><span><h3>${esc(m.nom)}</h3><div class="det">${esc(resume(m.desc)||`${m.prix} · ${m.poids}`)}</div></span><span class="marks"><span class="mark p">${esc(m.prix)}</span>${m.poids!=='—'?`<span class="mark">${esc(m.poids)}</span>`:''}</span></button>`).join('');
+  [...host.children].forEach((el,i)=>FILT.push({el,k:norm(M[i].nom+' '+M[i].desc.join(' ')),boxes:[host.closest('.bloc')]}));
+})();
+
+// ---- recherche
+const q=document.getElementById('q'),count=document.getElementById('count'),empty=document.getElementById('empty');
+const TOTAL=`${A.length} armes · ${P.length} propriétés · ${B.length} bottes · ${AR.length} armures · ${O.length} outils · ${M.length} objets · ${MO.length} montures · ${H.length} véhicules et harnachements`;
+function render(){
+  const t=norm(q.value.trim());const seen=new Map();let n=0;
+  for(const f of FILT){const show=!t||f.k.includes(t);f.el.hidden=!show;if(show)n++;for(const b of f.boxes)seen.set(b,(seen.get(b)||0)+(show?1:0))}
+  seen.forEach((c,el)=>el.hidden=c===0);
+  document.querySelectorAll('table.tb tbody').forEach(tb=>{let cat=null,any=false;for(const tr of tb.rows){if(tr.classList.contains('cat')){if(cat)cat.hidden=!any;cat=tr;any=false}else if(!tr.hidden)any=true}if(cat)cat.hidden=!any});
+  count.textContent=t?`${n} résultat${n>1?'s':''} pour « ${q.value.trim()} »`:TOTAL;
+  empty.hidden=!(t&&n===0);
+  spy();
+}
+q.addEventListener('input',render);
+
+// ---- fiches
+const HEADS=/^([A-ZÉÈÀ][^.:!?]{1,50}[.:])\s/;
+const rich=p=>esc(p).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+function para(p){if(/^\*\*/.test(p))return `<p>${rich(p)}</p>`;const m=p.match(HEADS);if(m&&m[1].split(' ').length<=7)return `<p><b>${esc(m[1])}</b> ${esc(p.slice(m[1].length).trim())}</p>`;return `<p>${esc(p)}</p>`}
+const flourish='<svg class="flourish small" viewBox="0 0 160 16" aria-hidden="true"><path d="M0 8h60M100 8h60" stroke="currentColor" stroke-width="1"/><path d="M80 2l6 6-6 6-6-6z" fill="currentColor"/></svg>';
+const dlg=document.getElementById('dlg'),body=document.getElementById('dlg-body');
+function openItem(id){
+  const it=ITEMS.get(id);if(!it)return;const o=it.obj;let inner='';
+  if(it.kind==='mat'){
+    inner=`<header class="sheet-h"><div class="eyebrow">Matériel d'aventurier</div><h2 id="dlg-title">${esc(o.nom)}</h2>${flourish}</header>
+      <dl class="stats fit"><div class="stat"><dt>Prix</dt><dd>${esc(cap(o.prix))}</dd></div><div class="stat"><dt>Poids</dt><dd>${esc(cap(o.poids))}</dd></div></dl>
+      ${o.desc.length?`<section class="prose">${o.desc.map(para).join('')}</section>`:''}`;
+  }else{
+    const prop=it.kind==='prop';
+    const armes=A.filter(a=>prop?hasWord(a.proprietes,o.nom):a.botte===o.nom);
+    inner=`<header class="sheet-h"><div class="eyebrow">${prop?"Propriété d'arme":"Botte d'arme · Maîtrise des armes"}</div><h2 id="dlg-title">${esc(o.nom)}</h2>${flourish}</header>
+      <section class="prose">${o.desc.map(para).join('')}</section>
+      ${armes.length?`<section><h4>${prop?'Armes dotées de cette propriété':'Armes dotées de cette botte'}</h4><div class="cls">${armes.map(a=>`<span class="tag a">${esc(a.nom)}</span>`).join('')}</div></section>`:''}`;
+  }
+  body.innerHTML=`<article class="sheet one"><button class="close" aria-label="Fermer">×</button><div class="sheet-body">${inner}</div></article>`;
+  body.querySelector('.close').onclick=()=>dlg.close();
+  if(!dlg.open)dlg.showModal();dlg.scrollTop=0;
+  history.replaceState(null,'','#'+id);
+}
+dlg.addEventListener('close',()=>{if(ITEMS.has(location.hash.slice(1)))history.replaceState(null,'',location.pathname)});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-open]');if(el){e.preventDefault();openItem(el.dataset.open)}});
+addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(ITEMS.has(h))openItem(h)});
+
+// ---- barre collante : décalage des ancres et section courante
+const bar=document.querySelector('.bar'),SECS=[...document.querySelectorAll('h2.sec')],CHIPS=[...document.querySelectorAll('a.chip')];
+function pad(){document.documentElement.style.scrollPaddingTop=(bar.offsetHeight+14)+'px'}
+function spy(){const y=bar.getBoundingClientRect().bottom+40;let cur=null;for(const h of SECS){if(h.closest('.bloc').hidden)continue;if(h.getBoundingClientRect().top<=y)cur=h.id}CHIPS.forEach(c=>{if(c.getAttribute('href')==='#'+cur)c.setAttribute('aria-current','true');else c.removeAttribute('aria-current')})}
+let tick=false;addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(()=>{tick=false;spy()})}},{passive:true});
+addEventListener('resize',()=>{pad();spy()});
+
+// ---- thème
+const root=document.documentElement;
+try{const th=localStorage.getItem('gda-theme');if(th==='light'||th==='dark')root.dataset.theme=th}catch(e){}
+document.getElementById('theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');const next=cur==='light'?'dark':'light';root.dataset.theme=next;try{localStorage.setItem('gda-theme',next)}catch(e){}};
+
+render();pad();
+// lien profond : le navigateur a sauté vers l'ancre avant le rendu des données, on recale après coup
+const h0=location.hash.slice(1);
+if(ITEMS.has(h0))openItem(h0);
+else if(h0&&document.getElementById(h0)){const go=()=>document.getElementById(h0).scrollIntoView({behavior:'instant',block:'start'});go();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{pad();go()})}
+</script>
+</body>
+</html>

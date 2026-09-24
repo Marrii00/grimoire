@@ -1,0 +1,310 @@
+{
+"aasimar": {
+"t": "Angel",
+"a": "Abbott Handerson Thayer",
+"y": "1887",
+"pos": "50% 12%"
+},
+"drakeide": {
+"t": "Dragon",
+"a": "Katsushika Hokusai"
+},
+"elfe": {
+"t": "Ängsälvor (Elfes des prés)",
+"a": "Nils Blommér",
+"y": "1850",
+"pos": "50% 55%"
+},
+"goliath": {
+"t": "David et Goliath",
+"a": "Osmar Schindler",
+"y": "1888",
+"pos": "50% 20%"
+},
+"humain": {
+"t": "Le Chevalier à la croisée des chemins",
+"a": "Viktor Vasnetsov",
+"y": "1882"
+},
+"tieffelin": {
+"t": "Méphistophélès dans les airs",
+"a": "Eugène Delacroix",
+"y": "1828",
+"pos": "50% 20%"
+},
+"kalashtar": {
+"t": "L'Âme planant au-dessus du corps",
+"a": "William Blake",
+"y": "1808"
+},
+"khoravar": {
+"t": "Älvalek (Danse des elfes)",
+"a": "August Malmström",
+"y": "1866",
+"pos": "50% 45%"
+},
+"changeforme": {
+"t": "Le Loup-garou",
+"a": "Lucas Cranach l'Ancien",
+"y": "v. 1512",
+"pos": "50% 60%"
+},
+"dhampir": {
+"t": "The Vampire",
+"a": "Philip Burne-Jones",
+"y": "1897",
+"pos": "50% 20%"
+},
+"hexblood": {
+"t": "Le Cercle magique",
+"a": "John William Waterhouse",
+"y": "1886",
+"pos": "50% 25%"
+},
+"aarakocra": {
+"t": "Sirin et Alkonost",
+"a": "Viktor Vasnetsov",
+"y": "1896",
+"pos": "50% 20%"
+},
+"gobelours": {
+"a": "John Bauer"
+},
+"centaure": {
+"t": "Le Centaure chez le forgeron",
+"a": "Arnold Böcklin",
+"y": "1888",
+"pos": "50% 35%"
+},
+"eladrin": {
+"t": "Les Cavaliers des Sidhe",
+"a": "John Duncan",
+"y": "1911",
+"pos": "50% 40%"
+},
+"fee": {
+"t": "Take the Fair Face of Woman",
+"a": "Sophie Gengembre Anderson",
+"y": "v. 1869",
+"pos": "50% 20%"
+},
+"firbolg": {
+"t": "Skogtroll (Troll des forêts)",
+"a": "Theodor Kittelsen",
+"y": "1906"
+},
+"genasi": {
+"a": "Edmund Dulac",
+"y": "1907",
+"pos": "50% 20%"
+},
+"githyanki": {
+"a": "Utagawa Kuniyoshi",
+"pos": "50% 25%"
+},
+"githzerai": {
+"t": "Daruma (Bodhidharma)",
+"a": "Hakuin Ekaku",
+"pos": "50% 25%"
+},
+"lievrin": {
+"t": "Le Lapin blanc",
+"a": "John Tenniel",
+"y": "1865",
+"pos": "50% 20%"
+},
+"kenku": {
+"t": "Tengu",
+"a": "Katsushika Hokusai"
+},
+"minotaure": {
+"t": "Le Minotaure",
+"a": "George Frederic Watts",
+"y": "1885",
+"pos": "50% 20%"
+},
+"satyre": {
+"t": "Pan",
+"a": "Mikhaïl Vroubel",
+"y": "1899",
+"pos": "50% 20%"
+},
+"elfe-de-mer": {
+"a": "Herbert James Draper",
+"pos": "50% 40%"
+},
+"tabaxi": {
+"t": "Chats",
+"a": "Utagawa Kuniyoshi"
+},
+"tortue": {
+"t": "Kappa",
+"a": "Toriyama Sekien",
+"y": "1776"
+},
+"triton": {
+"t": "Triton et Néréide",
+"a": "Arnold Böcklin",
+"y": "1877",
+"pos": "50% 30%"
+},
+"yuan-ti": {
+"t": "Lamia",
+"a": "John William Waterhouse",
+"y": "1905",
+"pos": "50% 20%"
+},
+"demi-orc": {
+"t": "Grendel",
+"a": "J. R. Skelton",
+"y": "1908",
+"pos": "50% 20%"
+},
+"barbare": {
+"t": "Vercingétorix jette ses armes aux pieds de César",
+"a": "Lionel Royer",
+"y": "1899",
+"pos": "50% 30%"
+},
+"barde": {
+"t": "The Bard",
+"a": "John Martin",
+"y": "1817",
+"pos": "50% 35%"
+},
+"druide": {
+"t": "Un archidruide en habit de justice",
+"a": "S. R. Meyrick et C. H. Smith",
+"y": "1815",
+"pos": "50% 20%"
+},
+"guerrier": {
+"t": "Le Chevalier, la Mort et le Diable",
+"a": "Albrecht Dürer",
+"y": "1513",
+"pos": "50% 30%"
+},
+"moine": {
+"t": "Bodhidharma (Daruma)",
+"a": "Tsukioka Yoshitoshi",
+"y": "1887",
+"pos": "50% 25%"
+},
+"rodeur": {
+"t": "Robin Hood",
+"a": "N. C. Wyeth",
+"y": "1917",
+"pos": "50% 25%"
+},
+"ensorceleur": {
+"t": "The Sorceress",
+"a": "John William Waterhouse",
+"y": "v. 1913",
+"pos": "50% 20%"
+},
+"occultiste": {
+"t": "Faust",
+"a": "Rembrandt",
+"y": "v. 1652"
+},
+"magicien": {
+"t": "L'Ensorcellement de Merlin",
+"a": "Edward Burne-Jones",
+"y": "1874",
+"pos": "50% 25%"
+},
+"reborn": {
+"t": "Takiyasha la sorcière et le spectre squelette",
+"a": "Utagawa Kuniyoshi",
+"y": "v. 1844",
+"pos": "62% 45%"
+},
+"roublard": {
+"t": "The Buccaneer was a Picturesque Fellow",
+"a": "Howard Pyle",
+"y": "1905",
+"pos": "50% 25%"
+},
+"paladin": {
+"t": "Sir Galahad, la quête du Graal",
+"a": "Arthur Hughes",
+"y": "1870",
+"pos": "35% 50%"
+},
+"shadar-kai": {
+"t": "Le Corbeau",
+"a": "Gustave Doré",
+"y": "1884",
+"pos": "50% 70%"
+},
+"hero": {
+"t": "The Bard",
+"a": "John Martin",
+"y": "1817"
+},
+"nain": {
+"t": "L'Or du Rhin (Alberich)",
+"a": "Arthur Rackham",
+"y": "1910",
+"pos": "50% 60%"
+},
+"orc": {
+"t": "Kidōmaru",
+"a": "Utagawa Kuniyoshi",
+"y": "v. 1850",
+"pos": "50% 20%"
+},
+"changelin": {
+"t": "Le Changelin (Der Wechselbalg)",
+"a": "Henry Fuseli",
+"y": "1780",
+"pos": "50% 40%"
+},
+"kobold": {
+"t": "Aardige sprookjes (contes illustrés)",
+"a": "",
+"y": "XIXe siècle",
+"pos": "50% 40%"
+},
+"homme-lezard": {
+"t": "Sobek et Amenhotep III (statue, musée de Louxor)",
+"a": "photographie Marsupium",
+"pos": "50% 18%"
+},
+"halfelin": {
+"t": "Le Petit Poucet",
+"a": "Gustave Doré",
+"y": "1862",
+"pos": "50% 40%"
+},
+"forgelier": {
+"t": "Le Golem",
+"a": "Hugo Steiner-Prag",
+"y": "1915",
+"pos": "50% 20%"
+},
+"lupin": {
+"t": "La Bête du Gévaudan",
+"a": "gravure, The London Magazine",
+"y": "1765",
+"pos": "50% 50%"
+},
+"gobelin": {
+"t": "Peter Pan dans les jardins de Kensington",
+"a": "Arthur Rackham",
+"y": "1906",
+"pos": "50% 30%"
+},
+"hobgobelin": {
+"t": "Puck (Le Songe d'une nuit d'été)",
+"a": "Arthur Rackham",
+"y": "1908",
+"pos": "50% 30%"
+},
+"demi-elfe": {
+"t": "La Dame de Shalott",
+"a": "John William Waterhouse",
+"y": "1888",
+"pos": "45% 40%"
+}
+}

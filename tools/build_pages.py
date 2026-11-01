@@ -7,7 +7,8 @@ import json, os, re, sys
 HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
 data=json.load(open(os.path.join(HERE,"data","srd_norm.json")))
 extra={}
-if os.path.exists(os.path.join(HERE,"data","creation.json")): extra=json.load(open(os.path.join(HERE,"data","creation.json")))
+for _f in sorted(os.listdir(os.path.join(HERE,"data"))):  # creation.json, personnages.json, ...
+    if _f.endswith(".json") and _f!="srd_norm.json": extra.update(json.load(open(os.path.join(HERE,"data",_f))))
 pages=sys.argv[1:] or [f for f in os.listdir(os.path.join(HERE,"pages")) if f.endswith(".html")]
 for f in pages:
     src=open(os.path.join(HERE,"pages",f)).read()

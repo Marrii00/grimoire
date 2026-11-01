@@ -29,3 +29,10 @@ Pour les retrouver, utiliser le lien `desc` de `candidates.json` (page Commons d
   `data/srd_norm.json` et `data/creation.json` ; ces deux fichiers sont la source des pages.
 - `build_pages.py` : injecte `data/*.json` dans `pages/*.html` (marqueurs `/*__DATA:clé,clé__*/`, `/*__FILE:nom__*/`)
   et écrit `docs/*.html`. Lancer `python3 tools/build_pages.py` après toute modification d'un gabarit ou des données.
+
+## La table (personnages)
+
+- `data/personnages.json` : un objet par personnage (identité, caractéristiques, compétences, attaques, capacités,
+  incantation, aide-mémoire de combat, histoire). Les champs facultatifs (`incantation`, `ordre`, `perso`…) peuvent être omis.
+- `pages/personnages.html` : le gabarit, qui reçoit `/*__DATA:personnages__*/`.
+- `build_pages.py` charge tous les `data/*.json` sauf `srd_norm.json` comme données annexes.

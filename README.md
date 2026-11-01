@@ -1,12 +1,24 @@
 # Grimoire de l'aventurier
 
-Site D&D 5e (règles 2024) en français. Cinq pages dans `docs/` :
+Site D&D 5e (règles 2024) en français, en deux parties.
+
+**Les règles** (cinq pages dans `docs/`) :
 
 - `index.html` : les espèces et les 12 classes (fiches résumées, illustrations).
 - `sorts.html` : les 339 sorts du SRD 5.2.1 avec filtres et texte complet.
 - `equipement.html` : armes, propriétés et bottes d'arme, armures, outils, matériel, montures.
 - `objets.html` : les 258 objets magiques du SRD 5.2.1.
 - `creation.html` : guide de création et créateur de personnage (fiche calculée, impression, sauvegarde JSON).
+
+**La table** (ce qui est à nous, pas aux règles) :
+
+- `personnages.html` : les personnages de la campagne, un onglet par héros (fiche complète, sorts, aide-mémoire
+  de combat, histoire). Les données sont dans `tools/data/personnages.json`, un objet par personnage ; la fiche PDF
+  d'origine est déposée dans `docs/fiches/`. Pour ajouter un personnage : ajouter son objet au JSON, déposer son PDF,
+  relancer `python3 tools/build_pages.py personnages.html`.
+- En tête de cette page, « Outils de la table » : liens vers le *Grimoire de campagne* (application de suivi de partie
+  hébergée sur claude.ai, qui refuse l'affichage en iframe, d'où des liens). La liste est la clé `outils_table` de
+  `tools/data/personnages.json`.
 
 Les pages partagent `docs/style.css`. Les illustrations sont dans `docs/img/`.
 

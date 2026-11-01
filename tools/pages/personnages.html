@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Personnages · Grimoire de l'aventurier</title>
+<meta name="description" content="Les personnages de notre table de D&D 5e : fiches complètes, sorts, aide-mémoire de combat et histoire de chaque héros.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 58 18v28L32 60 6 46V18z' fill='%23d4af37'/%3E%3Cpath d='M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14' stroke='%231a1424' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* styles propres à la page Personnages */
+.outils{margin-top:26px}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.tool{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s,box-shadow .2s}
+.tool:hover{transform:translateY(-3px);border-color:var(--gold-3);box-shadow:var(--glow)}
+.tool .ico{width:52px;height:52px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;color:var(--gold);box-shadow:0 0 0 1px var(--gold-3)}
+.tool .ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tool b{display:block;font:700 18px/1.2 var(--display);color:var(--ink)}
+.tool b small{font-size:13px;color:var(--gold)}
+.tool i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 6px}
+.tool p{margin:0;font-size:16px;color:var(--ink-2)}
+.outils .maj{margin:10px 0 0}
+.head .pic.fit{display:grid;place-items:center;padding:14px}
+.head .pic.fit::before{content:"";position:absolute;inset:-30px;background:var(--bg-img) center/cover no-repeat;filter:blur(24px) saturate(.7) brightness(.45);z-index:0}
+.head .pic.fit a{position:relative;z-index:1;display:block;width:100%;border-radius:8px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.head .pic.fit img{height:auto;object-fit:contain;display:block}
+.head .pic.fit .credit{z-index:1}
+
+.hero.small .hero-art img{object-position:50% 20%}
+.bar-in .tabs{flex-wrap:wrap}
+.anchors{display:flex;flex-wrap:wrap;gap:6px}
+.anchors a{font:700 11.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--ink-2);padding:8px 12px;border-radius:999px;text-decoration:none;transition:all .15s}
+.anchors a:hover{border-color:var(--gold-3);color:var(--ink)}
+.perso{margin-top:26px;display:grid;gap:26px}
+.head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);background:var(--surface);border:1px solid var(--gold-3);border-radius:18px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold-3),var(--shadow);overflow:hidden}
+.head .pic{position:relative;min-height:320px;background:var(--surface-2);overflow:hidden}
+.head .pic img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 30%);display:block}
+.head .pic::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(212,175,55,.35),inset 0 0 60px rgba(0,0,0,.35);pointer-events:none}
+.head .pic .credit{position:absolute;left:0;right:0;bottom:0;margin:0;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);color:#cfc7b6}
+.head .pic .credit b{color:#efe6d2}
+.head .txt{padding:26px clamp(18px,3.5vw,36px) 30px;display:grid;gap:16px;align-content:start;min-width:0}
+.head h2{font:900 clamp(30px,4.5vw,46px)/1.05 var(--fancy);margin:4px 0 0;color:var(--ink);text-wrap:balance}
+.head .sub{font:700 13px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:8px}
+.head .sub b{color:var(--gold)}
+.head .player{font:italic 600 16px var(--body);color:var(--ink-3)}
+.head .intro{font-size:20px}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;padding:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0}
+.kv div{background:var(--surface-2);padding:9px 12px;box-shadow:0 0 0 1px var(--line)}
+.kv dt{font:700 10.5px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.kv dd{margin:3px 0 0;font-size:16px;color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:700 12px var(--display);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold-3);background:var(--surface);color:var(--gold);padding:10px 14px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:var(--gold);color:#1a1424}
+.btn.primary{background:var(--gold);color:#1a1424}
+.btn.primary:hover{background:var(--gold-2)}
+.btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,3vw,30px) 26px;box-shadow:var(--shadow);scroll-margin-top:96px}
+.block h3{font:700 clamp(20px,2.6vw,26px)/1.15 var(--display);margin:0 0 16px;display:flex;align-items:center;gap:14px;color:var(--ink);letter-spacing:.02em}
+.block h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-3),transparent)}
+.block h4{font:700 14px var(--display);letter-spacing:.14em;text-transform:uppercase;margin:22px 0 10px;color:var(--gold);display:flex;align-items:center;gap:12px}
+.block h4:first-of-type{margin-top:0}
+.block h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-3),transparent)}
+.abil{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.ab{border:1px solid var(--line);border-radius:12px;padding:12px 10px 10px;background:var(--surface-2);text-align:center;display:grid;gap:2px}
+.ab b{font:700 11.5px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.ab .mod{font:900 34px/1 var(--fancy);color:var(--ink);margin-top:4px}
+.ab .tot{font:700 14px var(--display);color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:3px 10px;justify-self:center;margin-top:4px}
+.stats{margin-top:16px}
+.stat dd small{display:block;font:italic 500 14px var(--body);color:var(--ink-3);margin-top:2px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 32px}
+.skl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 20px;font-size:16.5px}
+.skl div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding:4px 0}
+.skl .p{color:var(--gold);font-weight:700}
+.skl .o{color:var(--ink-3)}
+.skl small{color:var(--ink-3);font-size:13px;margin-left:4px}
+.skl .m{font:700 15.5px var(--display);color:var(--ink)}
+.skl .pro .m{color:var(--gold-2)}
+.subs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.sub{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:12px 14px;background:var(--surface-2)}
+.sub b{display:block;font:700 17px/1.2 var(--display);color:var(--ink)}
+.sub i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 6px}
+.sub p{margin:0;font-size:16.5px;color:var(--ink-2)}
+.sub.teal{border-left-color:var(--teal)} .sub.teal i{color:var(--teal)}
+.sub.crimson{border-left-color:var(--crimson)} .sub.crimson i{color:var(--crimson)}
+.sub.violet{border-left-color:var(--violet)} .sub.violet i{color:var(--violet)}
+.res{display:flex;flex-wrap:wrap;gap:8px}
+.res span{border:1px solid var(--gold-3);border-radius:8px;padding:7px 11px;font:700 13px var(--display);color:var(--ink);background:var(--surface-2)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps .n{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1424;font:900 18px var(--display);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.steps b{display:block;font:700 18px/1.2 var(--display);color:var(--ink)}
+.steps i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:3px 0 5px}
+.steps p{margin:0;color:var(--ink-2);font-size:16.5px}
+.prose p{margin:0 0 12px;color:var(--ink-2);font-size:17.5px;line-height:1.55}
+.prose p:last-child{margin-bottom:0}
+.prose p b{color:var(--ink)}
+.quote{margin:0;padding:14px 18px;border-left:3px solid var(--gold);background:linear-gradient(90deg,var(--gold-soft),transparent 80%);border-radius:0 12px 12px 0;font:italic 600 18px/1.5 var(--body);color:var(--ink-2)}
+.quote b{display:block;font:700 11px var(--display);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pieces{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pieces span{border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;font:700 13px var(--display);color:var(--ink-2)}
+.pieces span b{color:var(--gold)}
+.empty{color:var(--ink-2);padding:60px 0;text-align:center;font-style:italic;font-size:20px}
+.maj{font:italic 500 14px var(--body);color:var(--ink-3)}
+@media (max-width:760px){
+  .head{grid-template-columns:1fr}
+  .head .pic{min-height:0;aspect-ratio:16/10}
+  .head .txt{padding:20px 16px 24px}
+}
+@media print{
+  nav.site,.hero,.bar,footer,.btns,.anchors,.theme{display:none!important}
+  body{background:#fff;color:#111;font-size:12.5px}
+  body::before,body::after{display:none}
+  .head,.block{box-shadow:none;border:1px solid #999;break-inside:avoid;background:#fff;color:#111}
+  .head h2,.block h3,.ab .mod,.skl .m,.sub b,.steps b,.stat dd,.kv dd{color:#111}
+  .ab,.sub,.kv div,.stat{background:#fff}
+}
+</style>
+</head>
+<body data-page="personnages">
+<nav class="site" aria-label="Sections du site">
+  <div class="wrap site-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 58 18v28L32 60 6 46V18z" fill="currentColor"/><path d="M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14" stroke="var(--bg)" stroke-width="3" fill="none"/></svg>Grimoire</a>
+    <span class="nav-group" aria-label="Les règles"><span class="nav-label">Règles</span>
+      <a href="index.html" data-page="index">Espèces &amp; classes</a>
+      <a href="sorts.html" data-page="sorts">Sorts</a>
+      <a href="equipement.html" data-page="equipement">Équipement</a>
+      <a href="objets.html" data-page="objets">Objets magiques</a>
+      <a href="creation.html" data-page="creation">Créer un personnage</a>
+      <a class="ext" href="https://www.aidedd.org/" target="_blank" rel="noopener" title="AideDD, le site de référence (règles, sorts, monstres)">AideDD ↗</a>
+    </span>
+    <span class="nav-group table" aria-label="Notre table"><span class="nav-label">La table</span>
+      <a href="personnages.html" data-page="personnages">Personnages</a>
+      <a class="ext" href="https://claude.ai/artifact/JBnTUgHS7cgmXj76AXV2MT" target="_blank" rel="noopener" title="Suivi de partie du groupe (s'ouvre sur claude.ai)">Grimoire de campagne ↗</a>
+    </span>
+  </div>
+</nav>
+<header class="hero small">
+  <div class="hero-art" aria-hidden="true"><img src="img/hero.jpg" alt=""></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">La table · nos personnages</div>
+    <h1>Personnages</h1>
+    <svg class="flourish" viewBox="0 0 400 24" aria-hidden="true"><path d="M8 12h150M242 12h150" stroke="currentColor" stroke-width="1.2"/><path d="M200 3l9 9-9 9-9-9z" fill="currentColor"/><path d="M178 12l6-4 6 4-6 4zM210 12l6-4 6 4-6 4z" fill="currentColor" opacity=".7"/><circle cx="8" cy="12" r="2" fill="currentColor"/><circle cx="392" cy="12" r="2" fill="currentColor"/></svg>
+    <p class="lede">Les héros de notre campagne, tels qu'ils sont à la dernière séance : fiche complète, sorts, aide-mémoire de combat et histoire. Cette partie du site est la nôtre ; les règles sont dans les autres pages.</p>
+  </div>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Personnages et sections">
+  <div class="wrap bar-in">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="anchors" id="anchors">
+      <a href="#stats">Caractéristiques</a><a href="#capacites">Capacités</a><a href="#sorts">Sorts</a><a href="#combat">Combat</a><a href="#ordre">Ordre de combat</a><a href="#histoire">Histoire</a>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="outils" id="outils" aria-label="Outils de la table"></section>
+  <main id="perso" class="perso" aria-live="polite"></main>
+
+  <footer>
+    <p>Les fiches de cette page sont celles de nos personnages de campagne, mises à jour après chaque séance. Elles reprennent les règles de D&amp;D 5e (révision 2024) ; en cas de doute sur une capacité, la version des pages de règles et le MJ font foi.</p>
+    <p>Illustrations : peintures du domaine public issues de Wikimedia Commons, choisies pour évoquer chaque personnage. Site non officiel, sans lien avec Wizards of the Coast.</p>
+  </footer>
+</div>
+
+<script>
+/*__DATA:personnages,outils_table__*/
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const AB=['for','dex','con','int','sag','cha'],ABL={for:'Force',dex:'Dextérité',con:'Constitution',int:'Intelligence',sag:'Sagesse',cha:'Charisme'};
+const mod=v=>{const m=Math.floor((v-10)/2);return (m>=0?'+':'')+m};
+const P=DATA.personnages||[];
+const OUT=DATA.outils_table||[];
+document.getElementById('outils').innerHTML=OUT.length?`<h2 class="gh">Outils de la table <span>${OUT.length}</span></h2><div class="tools">${OUT.map(o=>`<a class="tool" href="${esc(o.url)}" target="_blank" rel="noopener"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12v-4"/><path d="M9 7h6M9 11h4"/></svg></span><span class="tx"><b>${esc(o.nom)} <small>↗</small></b>${o.par?`<i>${esc(o.par)}</i>`:''}<p>${esc(o.desc||'')}</p></span></a>`).join('')}</div><p class="maj">Ces outils s'ouvrent sur claude.ai dans un nouvel onglet ; ils ne peuvent pas être affichés dans cette page.</p>`:'';
+const $=id=>document.getElementById(id);
+
+const sub=(x,cls='')=>`<div class="sub ${cls}"><b>${esc(x.nom)}</b>${x.tag?`<i>${esc(x.tag)}</i>`:''}<p>${esc(x.txt)}</p></div>`;
+
+function render(p){
+  if(!p){$('perso').innerHTML='<p class="empty">Aucun personnage pour l’instant.</p>';return}
+  const img=p.img||{};
+  const h=[];
+  h.push(`<section class="head" id="fiche">
+    <div class="pic ${img.fit?'fit':''}" style="--pos:${esc(img.pos||'50% 30%')};${img.fit&&img.f?`--bg-img:url('img/${esc(img.f)}')`:''}">${img.f?(img.fit?`<a href="img/${esc(img.f)}" target="_blank" rel="noopener" title="Voir la planche en grand">`:'')+`<img src="img/${esc(img.f)}" alt="${esc(img.t||'')}" ${img.fallback?`onerror="this.onerror=null;this.src='img/${esc(img.fallback)}';const c=this.closest('.pic');c.classList.remove('fit');c.querySelector('.credit').innerHTML='<b>${esc(img.fallback_t||'')}</b>, ${esc(img.fallback_a||'')}${img.fallback_y?` (${esc(img.fallback_y)})`:''}'"`:''}>`+(img.fit?'</a>':''):''}
+      <p class="credit">${img.t?`<b>${esc(img.t)}</b>, ${esc(img.a||'')}${img.y?` (${esc(img.y)})`:''}`:''}</p></div>
+    <div class="txt">
+      <div><div class="eyebrow">${esc(p.espece)} · ${esc(p.classe)}${p.sousclasse?` · ${esc(p.sousclasse)}`:''}</div>
+        <h2>${esc(p.nom)}</h2>
+        <div class="sub"><b>Niveau ${p.niveau}</b> · ${esc(p.historique||'')}${p.alignement?` · ${esc(p.alignement)}`:''}</div>
+        ${p.joueur?`<div class="player">Personnage de ${esc(p.joueur)}${p.maj?` · fiche du ${esc(fmtDate(p.maj))}`:''}</div>`:''}</div>
+      ${p.accroche?`<p class="intro">${esc(p.accroche)}</p>`:''}
+      ${p.identite?`<dl class="kv">${p.identite.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:''}
+      <div class="btns">${p.pdf?`<a class="btn primary" href="${esc(p.pdf)}" download><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>Fiche PDF</a>`:''}<button class="btn" type="button" onclick="window.print()"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>Imprimer</button></div>
+    </div></section>`);
+
+  // Caractéristiques, combat, sauvegardes, compétences, maîtrises
+  const c=p.combat||{},sv=p.sauvegardes||{};
+  h.push(`<section class="block" id="stats"><h3>Caractéristiques</h3>
+    <div class="abil">${AB.map(a=>`<div class="ab"><b>${ABL[a]}</b><span class="mod">${mod(p.caracs[a])}</span><span class="tot">${p.caracs[a]}</span></div>`).join('')}</div>
+    <dl class="stats fit">
+      <div class="stat"><dt>Classe d'armure</dt><dd>${esc(c.ca)}${c.ca_note?`<small>${esc(c.ca_note)}</small>`:''}</dd></div>
+      <div class="stat"><dt>Initiative</dt><dd>${esc(c.init)}</dd></div>
+      <div class="stat"><dt>Vitesse</dt><dd>${esc(c.vitesse)}${c.vitesse_note?`<small>${esc(c.vitesse_note)}</small>`:''}</dd></div>
+      <div class="stat"><dt>PV maximum</dt><dd>${esc(c.pv)}</dd></div>
+      <div class="stat"><dt>Dés de vie</dt><dd>${esc(c.dv)}</dd></div>
+      <div class="stat"><dt>Bonus de maîtrise</dt><dd>${esc(c.bm)}</dd></div>
+      <div class="stat"><dt>Perception passive</dt><dd>${esc(c.percep)}</dd></div>
+    </dl>
+    <div class="cols" style="margin-top:22px">
+      <div><h4>Jets de sauvegarde</h4><div class="skl">${AB.map(a=>{const s=sv[a]||['—',false];return `<div class="${s[1]?'pro':''}"><span>${s[1]?'<span class="p">●</span>':'<span class="o">○</span>'} ${ABL[a]}</span><span class="m">${esc(s[0])}</span></div>`}).join('')}</div>
+        <h4>Maîtrises &amp; langues</h4><dl class="kv">${(p.maitrises||[]).map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div>
+      <div><h4>Compétences</h4><div class="skl">${(p.competences||[]).map(([n,a,m,pr])=>`<div class="${pr?'pro':''}"><span>${pr?'<span class="p">●</span>':'<span class="o">○</span>'} ${esc(n)}<small>${esc(a)}</small></span><span class="m">${esc(m)}</span></div>`).join('')}</div>
+        <p class="maj" style="margin:8px 0 0">● compétence ou sauvegarde maîtrisée</p></div>
+    </div></section>`);
+
+  // Attaques & équipement
+  const eq=p.equipement||{};
+  h.push(`<section class="block" id="equipement"><h3>Attaques &amp; équipement</h3>
+    <div class="tbwrap" style="margin-top:0"><table class="tb"><thead><tr><th>Arme</th><th>Attaque</th><th>Dégâts</th><th>Propriétés</th></tr></thead><tbody>
+    ${(p.attaques||[]).map(a=>`<tr><td>${esc(a.nom)}</td><td>${esc(a.att)}</td><td>${esc(a.degats)}</td><td>${esc(a.props)}</td></tr>`).join('')}</tbody></table></div>
+    <h4 style="margin-top:22px">Équipement</h4><div class="prose"><p>${esc(eq.liste||'')}</p>${eq.poids||eq.cout?`<p><b>Poids</b> ${esc(eq.poids||'')}${eq.cout?` · <b>Coût</b> ${esc(eq.cout)}`:''}</p>`:''}</div>
+    ${eq.pieces?`<div class="pieces">${eq.pieces.map(([k,v])=>`<span><b>${esc(k)}</b> ${esc(v)}</span>`).join('')}</div>`:''}</section>`);
+
+  // Capacités
+  h.push(`<section class="block" id="capacites"><h3>Capacités &amp; traits</h3>
+    <h4>À utiliser en combat</h4><div class="subs">${(p.capacites||[]).map(x=>sub(x,'crimson')).join('')}</div>
+    <h4>Passifs</h4><div class="subs">${(p.passifs||[]).map(x=>sub(x)).join('')}</div></section>`);
+
+  // Sorts
+  const inc=p.incantation;
+  if(inc){h.push(`<section class="block" id="sorts"><h3>Incantation</h3>
+    <dl class="stats fit" style="margin-top:0"><div class="stat"><dt>Caractéristique</dt><dd>${esc(inc.carac)}</dd></div><div class="stat"><dt>DD de sauvegarde</dt><dd>${esc(inc.dd)}</dd></div><div class="stat"><dt>Bonus d'attaque</dt><dd>${esc(inc.att)}</dd></div><div class="stat"><dt>Emplacements</dt><dd>${esc(inc.emplacements)}</dd></div></dl>
+    ${(inc.groupes||[]).map(g=>`<h4 style="margin-top:22px">${esc(g.titre)}</h4>${g.intro?`<p class="quote" style="margin-bottom:12px">${esc(g.intro)}</p>`:''}<div class="subs">${g.sorts.map(x=>sub(x,'violet')).join('')}</div>`).join('')}</section>`)}
+
+  // Combat
+  const ac=p.actions;
+  if(ac||p.ressources){h.push(`<section class="block" id="combat"><h3>Combat : tout ce que je peux faire</h3>
+    ${ac&&ac.note?`<p class="quote" style="margin-bottom:16px">${esc(ac.note)}</p>`:''}
+    ${p.ressources?`<h4>Ressources à cocher</h4><div class="res">${p.ressources.map(r=>`<span>${esc(r)}</span>`).join('')}</div>`:''}
+    ${ac?ac.groupes.map(g=>`<h4 style="margin-top:22px">${esc(g.titre)}</h4><div class="subs">${g.items.map(x=>sub(x,'teal')).join('')}</div>`).join(''):''}</section>`)}
+
+  // Ordre de combat
+  const o=p.ordre;
+  if(o){h.push(`<section class="block" id="ordre"><h3>Ordre de combat</h3>
+    <ol class="steps">${o.tours.map(t=>`<li><span class="n">${esc(t.n)}</span><div><b>${esc(t.titre)}</b><i>${esc(t.tag)}</i><p>${esc(t.txt)}</p></div></li>`).join('')}</ol>
+    ${o.situations?`<h4 style="margin-top:26px">Selon la situation</h4><div class="subs">${o.situations.map(x=>sub(x,'teal')).join('')}</div>`:''}
+    ${o.gestion?`<h4 style="margin-top:22px">Gestion des emplacements</h4><div class="prose"><p>${esc(o.gestion)}</p></div>`:''}</section>`)}
+
+  // Histoire
+  const pe=p.perso;
+  if(pe){h.push(`<section class="block" id="histoire"><h3>Histoire &amp; personnalité</h3>
+    <div class="cols">
+      <div class="prose">${pe.apparence?`<h4>Apparence</h4><p>${esc(pe.apparence)}</p>`:''}${pe.histoire?`<h4 style="margin-top:22px">Histoire</h4><p>${esc(pe.histoire)}</p>`:''}
+        ${pe.allies?`<h4 style="margin-top:22px">Alliés &amp; organisations</h4>${pe.allies.map(([k,v])=>`<p><b>${esc(k)}</b> — ${esc(v)}</p>`).join('')}`:''}</div>
+      <div style="display:grid;gap:12px;align-content:start">
+        ${pe.traits?`<p class="quote"><b>Traits de personnalité</b>${esc(pe.traits)}</p>`:''}
+        ${pe.ideaux?`<p class="quote"><b>Idéaux</b>${esc(pe.ideaux)}</p>`:''}
+        ${pe.liens?`<p class="quote"><b>Liens</b>${esc(pe.liens)}</p>`:''}
+        ${pe.defauts?`<p class="quote"><b>Défauts</b>${esc(pe.defauts)}</p>`:''}
+      </div></div></section>`)}
+
+  $('perso').innerHTML=h.join('');
+  $('anchors').hidden=false;
+  document.title=`${p.nom} · Personnages · Grimoire de l'aventurier`;
+}
+function fmtDate(s){const d=new Date(s+'T12:00:00');return isNaN(d)?s:d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}
+
+// onglets : un par personnage
+function pick(id,push=true){
+  const p=P.find(x=>x.id===id)||P[0];
+  document.querySelectorAll('#tabs .tab').forEach(t=>t.setAttribute('aria-selected',String(p&&t.dataset.id===p.id)));
+  render(p);
+  if(push&&p&&location.hash!=='#'+p.id)history.replaceState(null,'',(location.pathname+location.search)+'#'+p.id);
+}
+$('tabs').innerHTML=P.map(p=>`<button class="tab" role="tab" data-id="${esc(p.id)}" aria-selected="false">${esc(p.nom.split(' ')[0])}<span class="n">niv. ${p.niveau}</span></button>`).join('');
+$('tabs').onclick=e=>{const t=e.target.closest('.tab');if(t)pick(t.dataset.id)};
+$('anchors').onclick=e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)el.scrollIntoView({behavior:'smooth',block:'start'})};
+if(P.length<2)$('tabs').hidden=true;
+pick(location.hash.slice(1),false);
+addEventListener('hashchange',()=>{if(P.some(p=>'#'+p.id===location.hash))pick(location.hash.slice(1),false)});
+
+// thème
+const root=document.documentElement;
+try{const th=localStorage.getItem('gda-theme');if(th==='light'||th==='dark')root.dataset.theme=th}catch(e){}
+$('theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');const next=cur==='light'?'dark':'light';root.dataset.theme=next;try{localStorage.setItem('gda-theme',next)}catch(e){}};
+</script>
+</body>
+</html>

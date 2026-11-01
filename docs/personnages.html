@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Personnages · Grimoire de l'aventurier</title>
+<meta name="description" content="Les personnages de notre table de D&D 5e : fiches complètes, sorts, aide-mémoire de combat et histoire de chaque héros.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 58 18v28L32 60 6 46V18z' fill='%23d4af37'/%3E%3Cpath d='M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14' stroke='%231a1424' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* styles propres à la page Personnages */
+.outils{margin-top:26px}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.tool{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s,box-shadow .2s}
+.tool:hover{transform:translateY(-3px);border-color:var(--gold-3);box-shadow:var(--glow)}
+.tool .ico{width:52px;height:52px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;color:var(--gold);box-shadow:0 0 0 1px var(--gold-3)}
+.tool .ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tool b{display:block;font:700 18px/1.2 var(--display);color:var(--ink)}
+.tool b small{font-size:13px;color:var(--gold)}
+.tool i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 6px}
+.tool p{margin:0;font-size:16px;color:var(--ink-2)}
+.outils .maj{margin:10px 0 0}
+.head .pic.fit{display:grid;place-items:center;padding:14px}
+.head .pic.fit::before{content:"";position:absolute;inset:-30px;background:var(--bg-img) center/cover no-repeat;filter:blur(24px) saturate(.7) brightness(.45);z-index:0}
+.head .pic.fit a{position:relative;z-index:1;display:block;width:100%;border-radius:8px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.head .pic.fit img{height:auto;object-fit:contain;display:block}
+.head .pic.fit .credit{z-index:1}
+
+.hero.small .hero-art img{object-position:50% 20%}
+.bar-in .tabs{flex-wrap:wrap}
+.anchors{display:flex;flex-wrap:wrap;gap:6px}
+.anchors a{font:700 11.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--ink-2);padding:8px 12px;border-radius:999px;text-decoration:none;transition:all .15s}
+.anchors a:hover{border-color:var(--gold-3);color:var(--ink)}
+.perso{margin-top:26px;display:grid;gap:26px}
+.head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);background:var(--surface);border:1px solid var(--gold-3);border-radius:18px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold-3),var(--shadow);overflow:hidden}
+.head .pic{position:relative;min-height:320px;background:var(--surface-2);overflow:hidden}
+.head .pic img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 30%);display:block}
+.head .pic::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(212,175,55,.35),inset 0 0 60px rgba(0,0,0,.35);pointer-events:none}
+.head .pic .credit{position:absolute;left:0;right:0;bottom:0;margin:0;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);color:#cfc7b6}
+.head .pic .credit b{color:#efe6d2}
+.head .txt{padding:26px clamp(18px,3.5vw,36px) 30px;display:grid;gap:16px;align-content:start;min-width:0}
+.head h2{font:900 clamp(30px,4.5vw,46px)/1.05 var(--fancy);margin:4px 0 0;color:var(--ink);text-wrap:balance}
+.head .sub{font:700 13px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:8px}
+.head .sub b{color:var(--gold)}
+.head .player{font:italic 600 16px var(--body);color:var(--ink-3)}
+.head .intro{font-size:20px}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;padding:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0}
+.kv div{background:var(--surface-2);padding:9px 12px;box-shadow:0 0 0 1px var(--line)}
+.kv dt{font:700 10.5px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.kv dd{margin:3px 0 0;font-size:16px;color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:700 12px var(--display);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold-3);background:var(--surface);color:var(--gold);padding:10px 14px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:var(--gold);color:#1a1424}
+.btn.primary{background:var(--gold);color:#1a1424}
+.btn.primary:hover{background:var(--gold-2)}
+.btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,3vw,30px) 26px;box-shadow:var(--shadow);scroll-margin-top:96px}
+.block h3{font:700 clamp(20px,2.6vw,26px)/1.15 var(--display);margin:0 0 16px;display:flex;align-items:center;gap:14px;color:var(--ink);letter-spacing:.02em}
+.block h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-3),transparent)}
+.block h4{font:700 14px var(--display);letter-spacing:.14em;text-transform:uppercase;margin:22px 0 10px;color:var(--gold);display:flex;align-items:center;gap:12px}
+.block h4:first-of-type{margin-top:0}
+.block h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-3),transparent)}
+.abil{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.ab{border:1px solid var(--line);border-radius:12px;padding:12px 10px 10px;background:var(--surface-2);text-align:center;display:grid;gap:2px}
+.ab b{font:700 11.5px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.ab .mod{font:900 34px/1 var(--fancy);color:var(--ink);margin-top:4px}
+.ab .tot{font:700 14px var(--display);color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:3px 10px;justify-self:center;margin-top:4px}
+.stats{margin-top:16px}
+.stat dd small{display:block;font:italic 500 14px var(--body);color:var(--ink-3);margin-top:2px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 32px}
+.skl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 20px;font-size:16.5px}
+.skl div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding:4px 0}
+.skl .p{color:var(--gold);font-weight:700}
+.skl .o{color:var(--ink-3)}
+.skl small{color:var(--ink-3);font-size:13px;margin-left:4px}
+.skl .m{font:700 15.5px var(--display);color:var(--ink)}
+.skl .pro .m{color:var(--gold-2)}
+.subs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.sub{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:12px 14px;background:var(--surface-2)}
+.sub b{display:block;font:700 17px/1.2 var(--display);color:var(--ink)}
+.sub i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:4px 0 6px}
+.sub p{margin:0;font-size:16.5px;color:var(--ink-2)}
+.sub.teal{border-left-color:var(--teal)} .sub.teal i{color:var(--teal)}
+.sub.crimson{border-left-color:var(--crimson)} .sub.crimson i{color:var(--crimson)}
+.sub.violet{border-left-color:var(--violet)} .sub.violet i{color:var(--violet)}
+.res{display:flex;flex-wrap:wrap;gap:8px}
+.res span{border:1px solid var(--gold-3);border-radius:8px;padding:7px 11px;font:700 13px var(--display);color:var(--ink);background:var(--surface-2)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps .n{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1424;font:900 18px var(--display);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.steps b{display:block;font:700 18px/1.2 var(--display);color:var(--ink)}
+.steps i{display:block;font:700 10.5px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:3px 0 5px}
+.steps p{margin:0;color:var(--ink-2);font-size:16.5px}
+.prose p{margin:0 0 12px;color:var(--ink-2);font-size:17.5px;line-height:1.55}
+.prose p:last-child{margin-bottom:0}
+.prose p b{color:var(--ink)}
+.quote{margin:0;padding:14px 18px;border-left:3px solid var(--gold);background:linear-gradient(90deg,var(--gold-soft),transparent 80%);border-radius:0 12px 12px 0;font:italic 600 18px/1.5 var(--body);color:var(--ink-2)}
+.quote b{display:block;font:700 11px var(--display);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pieces{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pieces span{border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;font:700 13px var(--display);color:var(--ink-2)}
+.pieces span b{color:var(--gold)}
+.empty{color:var(--ink-2);padding:60px 0;text-align:center;font-style:italic;font-size:20px}
+.maj{font:italic 500 14px var(--body);color:var(--ink-3)}
+@media (max-width:760px){
+  .head{grid-template-columns:1fr}
+  .head .pic{min-height:0;aspect-ratio:16/10}
+  .head .txt{padding:20px 16px 24px}
+}
+@media print{
+  nav.site,.hero,.bar,footer,.btns,.anchors,.theme{display:none!important}
+  body{background:#fff;color:#111;font-size:12.5px}
+  body::before,body::after{display:none}
+  .head,.block{box-shadow:none;border:1px solid #999;break-inside:avoid;background:#fff;color:#111}
+  .head h2,.block h3,.ab .mod,.skl .m,.sub b,.steps b,.stat dd,.kv dd{color:#111}
+  .ab,.sub,.kv div,.stat{background:#fff}
+}
+</style>
+</head>
+<body data-page="personnages">
+<nav class="site" aria-label="Sections du site">
+  <div class="wrap site-in">
+    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 58 18v28L32 60 6 46V18z" fill="currentColor"/><path d="M32 4v56M6 18l26 14 26-14M6 46l26-14 26 14" stroke="var(--bg)" stroke-width="3" fill="none"/></svg>Grimoire</a>
+    <span class="nav-group" aria-label="Les règles"><span class="nav-label">Règles</span>
+      <a href="index.html" data-page="index">Espèces &amp; classes</a>
+      <a href="sorts.html" data-page="sorts">Sorts</a>
+      <a href="equipement.html" data-page="equipement">Équipement</a>
+      <a href="objets.html" data-page="objets">Objets magiques</a>
+      <a href="creation.html" data-page="creation">Créer un personnage</a>
+      <a class="ext" href="https://www.aidedd.org/" target="_blank" rel="noopener" title="AideDD, le site de référence (règles, sorts, monstres)">AideDD ↗</a>
+    </span>
+    <span class="nav-group table" aria-label="Notre table"><span class="nav-label">La table</span>
+      <a href="personnages.html" data-page="personnages">Personnages</a>
+      <a class="ext" href="https://claude.ai/artifact/JBnTUgHS7cgmXj76AXV2MT" target="_blank" rel="noopener" title="Suivi de partie du groupe (s'ouvre sur claude.ai)">Grimoire de campagne ↗</a>
+    </span>
+  </div>
+</nav>
+<header class="hero small">
+  <div class="hero-art" aria-hidden="true"><img src="img/hero.jpg" alt=""></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">La table · nos personnages</div>
+    <h1>Personnages</h1>
+    <svg class="flourish" viewBox="0 0 400 24" aria-hidden="true"><path d="M8 12h150M242 12h150" stroke="currentColor" stroke-width="1.2"/><path d="M200 3l9 9-9 9-9-9z" fill="currentColor"/><path d="M178 12l6-4 6 4-6 4zM210 12l6-4 6 4-6 4z" fill="currentColor" opacity=".7"/><circle cx="8" cy="12" r="2" fill="currentColor"/><circle cx="392" cy="12" r="2" fill="currentColor"/></svg>
+    <p class="lede">Les héros de notre campagne, tels qu'ils sont à la dernière séance : fiche complète, sorts, aide-mémoire de combat et histoire. Cette partie du site est la nôtre ; les règles sont dans les autres pages.</p>
+  </div>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Personnages et sections">
+  <div class="wrap bar-in">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="anchors" id="anchors">
+      <a href="#stats">Caractéristiques</a><a href="#capacites">Capacités</a><a href="#sorts">Sorts</a><a href="#combat">Combat</a><a href="#ordre">Ordre de combat</a><a href="#histoire">Histoire</a>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="outils" id="outils" aria-label="Outils de la table"></section>
+  <main id="perso" class="perso" aria-live="polite"></main>
+
+  <footer>
+    <p>Les fiches de cette page sont celles de nos personnages de campagne, mises à jour après chaque séance. Elles reprennent les règles de D&amp;D 5e (révision 2024) ; en cas de doute sur une capacité, la version des pages de règles et le MJ font foi.</p>
+    <p>Illustrations : peintures du domaine public issues de Wikimedia Commons, choisies pour évoquer chaque personnage. Site non officiel, sans lien avec Wizards of the Coast.</p>
+  </footer>
+</div>
+
+<script>
+const DATA={"personnages":[{"id":"kargan","nom":"Kargan Fauche-Ombre","joueur":"Flavio","espece":"Orc","classe":"Occultiste","sousclasse":"Pacte de la Lame maudite","niveau":5,"historique":"Mercenaire vétéran","alignement":"Neutre","maj":"2026-11-01","pdf":"fiches/kargan-fauche-ombre-niv5.pdf","img":{"f":"perso/kargan.jpg","fit":true,"t":"Planche de personnage de Kargan","a":"illustration du joueur","fallback":"orc.jpg","fallback_t":"Kidōmaru","fallback_a":"Utagawa Kuniyoshi","fallback_y":"v. 1850"},"accroche":"Un colosse orc qui a vendu sa lame pendant dix ans, jusqu'au contrat qui a décimé sa compagnie. Une entité d'ombre lui a offert la vie et la vengeance : il a accepté.","identite":[["Âge","20 ans"],["Taille","2,10 m"],["Poids","130 kg"],["Yeux","jaunes injectés de sang, lueur violacée"],["Peau","gris-vert, balafrée"],["Cheveux","noirs, rasés sur les côtés"],["XP","0"]],"caracs":{"for":10,"dex":14,"con":16,"int":10,"sag":8,"cha":18},"combat":{"ca":"17","ca_note":"22 avec Bouclier","init":"+2","vitesse":"9 m","vitesse_note":"18 m en fonçant","pv":39,"dv":"5d8","bm":"+3","percep":9},"sauvegardes":{"for":["+0",false],"dex":["+2",false],"con":["+3",false],"int":["+0",false],"sag":["+2",true],"cha":["+7",true]},"maitrises":[["Armes","armes courantes, armes de guerre"],["Armures","légères, intermédiaires, boucliers"],["Outils","dés, véhicules (terrestres)"],["Langues","commun, orc"]],"competences":[["Acrobaties","Dex","+2",false],["Arcanes","Int","+0",false],["Athlétisme","For","+3",true],["Discrétion","Dex","+2",false],["Escamotage","Dex","+2",false],["Histoire","Int","+3",true],["Intimidation","Cha","+7",true],["Intuition","Sag","-1",false],["Investigation","Int","+0",false],["Médecine","Sag","-1",false],["Nature","Int","+0",false],["Perception","Sag","-1",false],["Persuasion","Cha","+7",true],["Religion","Int","+0",false],["Survie","Sag","-1",false],["Tromperie","Cha","+4",false]],"attaques":[{"nom":"Lame magique (+1)","att":"+8","degats":"1d8+5 tranchant","props":"Corps à corps ; polyvalente (1d10+5) ; attaque via Charisme (Guerrier maudit) ; 2 attaques par action Attaquer (Lame assoiffée)."},{"nom":"Arbalète légère","att":"+5","degats":"1d8+2 perforant","props":"Distance 24/96 m ; chargement ; deux mains."}],"equipement":{"liste":"Épée longue (2, dont une +1), arbalète légère, chemise de mailles, bouclier, dés, jeu de cartes, 20 carreaux, sacoche à composantes, sac à dos, livre, encre et bouteille, plume d'écriture, parchemin (9), vêtements de voyage, potion de guérison (2), petit sac de sable, petit couteau, insigne de rang, bourse.","poids":"27,25 kg (+ 12,5 kg d'objets ajoutés depuis, détail à préciser)","cout":"291,62 po","pieces":[["PP","0"],["PO","303 (lecture incertaine)"],["PA","0"],["PC","0"]]},"capacites":[{"nom":"Malédiction de la lame maudite","tag":"Action bonus · 1/repos court","txt":"Maudis une cible à 9 m (1 min) : +3 dégâts contre elle, critique sur 19–20. Si elle meurt, tu regagnes 9 PV."},{"nom":"Montée d'adrénaline","tag":"Action bonus · 3×/jour","txt":"Foncer (mouvement doublé) en action bonus et tu gagnes 3 PV temporaires."},{"nom":"Endurance implacable","tag":"Auto · 1/repos long","txt":"Quand tu tombes à 0 PV sans être tué net, tu restes à 1 PV à la place."},{"nom":"Magie de pacte","tag":"Repos court","txt":"Tes 2 emplacements de niveau 3 reviennent après chaque repos court : ne les économise pas."},{"nom":"Faveur de pacte (Lame)","tag":"Action","txt":"Fais apparaître ta lame de pacte dans ta main ; elle compte comme magique. Elle disparaît si tu t'en éloignes de plus de 1,5 m pendant 1 min."}],"passifs":[{"nom":"Guerrier maudit","tag":"Passif","txt":"Tu attaques et blesses avec ton Charisme au lieu de la Force avec ta lame. Maîtrise des armes de guerre, armures intermédiaires et boucliers."},{"nom":"Manifestations occultes","tag":"Passif","txt":"Lame magique : ton épée +1 est ta lame de pacte. Décharge déchirante : +4 aux dégâts de Décharge occulte. Lame assoiffée : 2 attaques par action Attaquer."},{"nom":"Liste de sorts étendue","tag":"Passif","txt":"Sorts en plus parmi lesquels choisir : Bouclier, Châtiment courroucé (niv. 1), Flou, Châtiment révélateur (niv. 2), Clignotement, Arme élémentaire (niv. 3)."},{"nom":"Vision dans le noir","tag":"Passif · 18 m","txt":"Dans le noir, tu vois comme en lumière faible (sans couleurs) ; en lumière faible, comme en plein jour."},{"nom":"Puissamment bâti","tag":"Passif","txt":"Tu comptes comme une taille au-dessus pour la charge que tu peux porter, pousser, tirer ou soulever."},{"nom":"Vie de mercenaire","tag":"Historique","txt":"Tu reconnais les compagnies de mercenaires à leurs emblèmes et peux trouver du travail de mercenaire entre deux aventures."}],"incantation":{"carac":"Charisme","dd":15,"att":"+7","emplacements":"2 × niv. 3 (pacte, repos court)","groupes":[{"titre":"Sorts mineurs","sorts":[{"nom":"Décharge occulte","tag":"Action · 36 m · V, S","txt":"Si l'attaque avec un sort touche, inflige 1d10 + 4 dégâts de force (Décharge déchirante). 2 rayons, jet d'attaque séparé pour chacun."},{"nom":"Lame retentissante","tag":"Action · perso (rayon 1,5 m) · V, M","txt":"Si une attaque avec une arme touche, inflige +1d8 tonnerre à la cible ; si elle se déplace volontairement avant ton prochain tour, elle subit 2d8 tonnerre."},{"nom":"Lame aux flammes vertes","tag":"Action · perso (rayon 1,5 m) · S, M","txt":"Si une attaque avec une arme touche, inflige +1d8 feu à la cible, et 1d8 + 4 feu à une autre créature à 1,5 m d'elle."}]},{"titre":"Niveau 1","sorts":[{"nom":"Bouclier","tag":"Réaction · perso · V, S","txt":"+5 à la CA jusqu'au début du prochain tour (y compris contre l'attaque déclenchante) ; immunise contre Projectile magique."},{"nom":"Châtiment courroucé","tag":"Action bonus · perso · V · concentration","txt":"La prochaine attaque au corps à corps touchée inflige 1d6 dégâts psychiques en plus ; la cible rate un JdS de Sagesse ou est effrayée."},{"nom":"Maléfice","tag":"Action bonus · 27 m · V, S, M · concentration","txt":"Si une attaque touche la cible maudite, inflige 1d6 dégâts nécrotiques en plus. Désavantage aux tests d'une caractéristique choisie. Lancé avec un emplacement niv. 3 : jusqu'à 8 h."}]},{"titre":"Niveau 2 (lancés avec un emplacement niv. 3)","sorts":[{"nom":"Fracassement","tag":"Action · 18 m · V, S, M","txt":"Les créatures dans une sphère de 3 m doivent réussir un JdS de Constitution ou subir 4d8 dégâts de tonnerre (moitié si réussite)."},{"nom":"Image miroir","tag":"Action · perso · V, S","txt":"Crée 3 duplicatas illusoires, détruits s'ils sont touchés par une attaque physique. Durée 1 min (10 tours). Quand une créature t'attaque, lance 1d20 pour savoir si elle vise un duplicata : 3 duplicatas → 6+ ; 2 → 8+ ; 1 → 11+. CA d'un duplicata : 12."}]},{"titre":"Niveau 3 (2 emplacements)","sorts":[{"nom":"Contresort","tag":"Réaction · 18 m · S","txt":"Réaction quand une créature visible à 18 m ou moins lance un sort. La cible fait un JdS de Constitution (DD 15) ; en cas d'échec, son sort ne produit aucun effet et l'emplacement utilisé n'est pas dépensé."}]},{"titre":"Pouvoir de classe — Lame maudite","sorts":[{"nom":"Malédiction de la lame maudite","tag":"Action bonus · 9 m · 1/repos court ou long","txt":"Maudit une créature visible pendant 1 min (fin anticipée si elle meurt, si tu meurs ou si tu es neutralisé). Contre elle : +3 aux dégâts (bonus de maîtrise) ; coup critique sur 19–20. Si elle meurt sous la malédiction, tu regagnes 9 PV (niveau d'occultiste + mod. Charisme)."}]},{"titre":"Faveur du patron","intro":"Un rival a récemment tenté de voler l'âme de Kargan à son Patron. Furieux mais rassuré d'avoir gardé le contrôle, celui-ci a chargé Kargan de retrouver et vaincre ce voleur, et lui a accordé deux dons en échange, qui ne comptent pas dans sa limite normale de sorts connus.","sorts":[{"nom":"Invoque (nom occulte, imprononçable en commun)","tag":"Action gratuite · hors limite de sorts","txt":"Invoque une présence carnassière liée au Patron pour assister Kargan au combat. Effet exact à définir avec le MJ."},{"nom":"Immobilisation de personne","tag":"Niveau 2 · action · 18 m · V, S, M · concentration","txt":"La cible doit réussir un JdS de Sagesse ou être paralysée. Avec un emplacement niv. 3 : 2 cibles à 9 m l'une de l'autre. Durée 1 min (10 tours). Don du Patron, ne compte pas dans la limite de sorts connus."}]}]},"ressources":["Emplacements de pacte (niv. 3) · repos court","Malédiction de la lame maudite · repos court","Montée d'adrénaline · 3 par jour","Endurance implacable · repos long","Potions de guérison (2d4+2) · 2"],"actions":{"note":"À chaque tour : 1 action, 1 action bonus, 1 déplacement, et 1 réaction jusqu'à ton prochain tour. Un seul sort de concentration à la fois (Maléfice, Châtiment courroucé, Immobilisation de personne).","groupes":[{"titre":"Actions — 1 par tour","items":[{"nom":"Attaquer — Lame magique","tag":"Contact · 1,5 m","txt":"2 attaques à +8 ; 1d8+5 tranchant (1d10+5 à deux mains). +3 contre la cible maudite, +1d6 sous Maléfice."},{"nom":"Décharge occulte","tag":"Sort mineur · 36 m","txt":"2 rayons, +7 chacun ; 1d10+4 force par rayon. Le meilleur choix à distance."},{"nom":"Lame retentissante","tag":"Sort mineur · contact","txt":"1 seule attaque : +1d8 tonnerre ; 2d8 de plus si la cible se déplace volontairement."},{"nom":"Lame aux flammes vertes","tag":"Sort mineur · contact","txt":"1 seule attaque : +1d8 feu, et 1d8+4 feu à une 2e créature à 1,5 m."},{"nom":"Arbalète légère","tag":"Distance 24/96 m","txt":"+5 ; 1d8+2 perforant. Une seule attaque (Lame assoiffée ne marche qu'avec la lame)."},{"nom":"Fracassement","tag":"Emplacement · 18 m","txt":"Sphère de 3 m : JdS Con DD 15, 4d8 tonnerre (moitié si réussi)."},{"nom":"Immobilisation de personne","tag":"Emplacement · concentration","txt":"Humanoïde(s) : JdS Sag DD 15 ou paralysé, 2 cibles. Coups au contact = critiques automatiques."},{"nom":"Image miroir","tag":"Emplacement · 1 min","txt":"3 duplicatas ; d20 de l'attaquant : 6+ / 8+ / 11+ selon 3 / 2 / 1 restants."},{"nom":"Faire apparaître la lame","tag":"Action","txt":"Ta lame de pacte apparaît dans ta main (désarmé, lame perdue…)."},{"nom":"Boire une potion","tag":"Action","txt":"Regagne 2d4+2 PV."},{"nom":"Actions de base","tag":"","txt":"Foncer (+9 m) · Se désengager (pas d'attaque d'opportunité) · Esquiver (attaques contre toi avec désavantage) · Aider · Se cacher · Se tenir prêt · Bousculer ou agripper (Athlétisme +3)."}]},{"titre":"Actions bonus — 1 par tour","items":[{"nom":"Malédiction de la lame maudite","tag":"9 m · 1/repos court","txt":"+3 dégâts, critique 19–20 ; 9 PV si la cible meurt. Pas de concentration."},{"nom":"Maléfice","tag":"Emplacement · 27 m · concentration","txt":"+1d6 nécrotique par coup ; désavantage aux tests d'une carac. Cible morte → déplacer en action bonus, gratuit."},{"nom":"Montée d'adrénaline","tag":"3×/jour","txt":"Foncer (mouvement doublé) + 3 PV temporaires."},{"nom":"Châtiment courroucé","tag":"Emplacement · concentration","txt":"Prochain coup au contact : +1d6 psychique ; JdS Sag DD 15 ou effrayé."}]},{"titre":"Réactions — 1 par round","items":[{"nom":"Bouclier","tag":"Emplacement","txt":"Quand tu es touché : +5 CA (22) jusqu'à ton prochain tour, même contre cette attaque."},{"nom":"Contresort","tag":"Emplacement · 18 m","txt":"Quand un ennemi lance un sort : JdS Con DD 15 ou son sort échoue."},{"nom":"Attaque d'opportunité","tag":"Contact","txt":"1 attaque avec la lame (+8) quand un ennemi sort de ta portée."}]},{"titre":"Gratuit et automatique","items":[{"nom":"Invoque — présence carnassière","tag":"Action gratuite","txt":"Fais venir la présence carnassière pour t'assister. Effet exact avec le MJ."},{"nom":"Endurance implacable","tag":"Auto · 1/repos long","txt":"Tomber à 0 PV → tu restes à 1 PV."},{"nom":"Interagir avec un objet","tag":"Gratuit · 1/tour","txt":"Dégainer, ouvrir une porte, ramasser un objet pendant ton tour."},{"nom":"Vision dans le noir","tag":"Passif · 18 m","txt":"Le noir = lumière faible pour toi (sans couleurs)."}]}]},"ordre":{"tours":[{"n":"+","titre":"Invoque — présence carnassière","tag":"Tour 1 · action gratuite","txt":"Fais venir la présence carnassière dès le début du combat pour qu'elle t'assiste ; ça ne coûte ni action ni emplacement. (Pas le Patron lui-même.)"},{"n":"1","titre":"Malédiction de la lame maudite","tag":"Tour 1 · action bonus","txt":"Sur l'ennemi le plus dangereux. +3 dégâts par coup, critique sur 19–20, et 9 PV regagnés s'il meurt. Pas de concentration, et ça revient au repos court : à faire à chaque combat."},{"n":"2","titre":"Attaquer avec la Lame magique","tag":"Tour 1 · action","txt":"2 attaques à +8, chacune 1d8+5 +3 (malédiction). C'est plus fort que Lame retentissante ou Lame aux flammes vertes, qui ne donnent qu'une seule attaque. Ennemi trop loin ? Montée d'adrénaline (action bonus : foncer + 3 PV temporaires) pour arriver au contact ; la malédiction attend le tour 2. Toujours hors de portée : Décharge occulte (2 rayons, 1d10+4 chacun, 36 m)."},{"n":"3","titre":"Maléfice sur la même cible","tag":"Tour 2 · action bonus · emplacement · concentration","txt":"+1d6 nécrotique par coup. Si la cible meurt, déplace-le sur une autre en action bonus, sans nouvel emplacement."},{"n":"4","titre":"Attaquer à nouveau","tag":"Tour 2 · action","txt":"2 attaques ; chaque coup fait maintenant 1d8+5 +3 +1d6."},{"n":"5","titre":"Attaquer + déplacer Maléfice","tag":"Tours suivants · action + action bonus","txt":"Quand la cible maudite meurt : 9 PV regagnés, et la malédiction n'est plus disponible jusqu'au prochain repos court."}],"situations":[{"nom":"3 ennemis ou plus groupés","tag":"Action","txt":"Fracassement : sphère de 3 m, 4d8 tonnerre (JdS Con DD 15). Attention aux alliés dans la zone."},{"nom":"Gros ennemi humanoïde","tag":"Action · concentration","txt":"Immobilisation de personne : s'il est paralysé, tes coups au contact sont des critiques automatiques. Remplace Maléfice (concentration)."},{"nom":"Un ennemi lance un sort","tag":"Réaction","txt":"Contresort : garde-le pour les gros sorts (soins, contrôle, zone)."},{"nom":"Tu es touché de peu","tag":"Réaction","txt":"Bouclier : +5 CA (22), même contre l'attaque qui vient de toucher."},{"nom":"PV bas","tag":"Action","txt":"Image miroir (pas de concentration) ou une potion de guérison. Endurance implacable : ta 1re chute à 0 PV te laisse à 1 PV."},{"nom":"Fuir ou rejoindre un allié","tag":"Action bonus","txt":"Montée d'adrénaline : mouvement doublé + 3 PV temporaires (3×/jour)."}],"gestion":"Les 2 emplacements de pacte reviennent à chaque repos court. Bon réflexe : 1 emplacement pour attaquer (Maléfice, Immobilisation ou Fracassement) et 1 gardé en réserve pour Bouclier ou Contresort. Combat presque fini ? Dépense tout, puis demande un repos court."},"perso":{"apparence":"Une stature colossale, taillée pour la guerre. Sa peau vert sombre est marquée par les cicatrices de dizaines de contrats passés. Ses cheveux noirs sont rasés sur les côtés et attachés en une tresse stricte de soldat. Ses yeux, autrefois d'un jaune classique pour un orc, brillent désormais d'une lueur violacée surnaturelle, reflet de l'entité magique qui lie son arme. Il porte son équipement militaire avec le soin d'un vétéran : propre, huilé, et prêt à l'action.","histoire":"Pendant plus de dix ans, il a servi au sein des plus grandes compagnies de mercenaires, vendant sa lame au plus offrant et survivant à des batailles sanglantes. Mais lors d'un contrat qui a mal tourné dans des ruines oubliées, son unité a été décimée. Blessé à mort, rampant au milieu des cadavres de ses frères d'armes, sa main s'est posée sur une arme enfouie dans la roche noire. Une entité d'ombre lui a alors proposé un marché : la vie et la vengeance en échange de sa servitude. Il a accepté. Aujourd'hui, il arpente le monde en solitaire, payant ses dettes par le sang et honorant ses contrats tout en obéissant aux sombres murmures de sa lame.","allies":[["Ancienne Compagnie","Les rares survivants ou contacts de son ancienne unité de mercenaires (recruteurs dans les tavernes, forgerons militaires) qui le reconnaissent encore à son insigne de vétéran."],["Le Pacte de l'Ombre","L'entité mystique liée à son arme. Ce n'est pas un allié amical, mais une présence constante dans son esprit qui lui accorde sa puissance tant qu'il reste sur le chemin des combats."]],"traits":"Je ne m'émeus plus de grand-chose. J'ai vu trop de sang couler. Je compte mes pièces d'or après chaque contrat, et je ne donne ma confiance qu'à ceux qui savent tenir une arme.","ideaux":"Le contrat. Une fois que j'ai accepté une mission et qu'on m'a payé, je la mène à bien. Ma parole et mon épée sont mes seules richesses.","liens":"Je me bats pour honorer la mémoire de mon ancienne compagnie de mercenaires, qui a été décimée. Cette lame magique que je porte est le seul outil qui me permettra de me venger.","defauts":"J'ai tendance à voir le mal partout et à traiter chaque problème avec la violence d'un champ de bataille. La diplomatie, c'est pour les faibles."}}],"outils_table":[{"nom":"Grimoire de campagne","par":"créé par un ami de la table","url":"https://claude.ai/artifact/JBnTUgHS7cgmXj76AXV2MT","desc":"Le suivi de partie du groupe en direct : points de vie, emplacements de sorts, ressources, états, initiative et combat. Partagé entre tous les joueurs connectés."},{"nom":"Grimoire de campagne · Kargan","par":"version de Flavio","url":"https://claude.ai/artifact/R3fGCV4M3Soh7FR8ZSsnMp","desc":"La même application, dans la version utilisée pour Kargan."}]};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const AB=['for','dex','con','int','sag','cha'],ABL={for:'Force',dex:'Dextérité',con:'Constitution',int:'Intelligence',sag:'Sagesse',cha:'Charisme'};
+const mod=v=>{const m=Math.floor((v-10)/2);return (m>=0?'+':'')+m};
+const P=DATA.personnages||[];
+const OUT=DATA.outils_table||[];
+document.getElementById('outils').innerHTML=OUT.length?`<h2 class="gh">Outils de la table <span>${OUT.length}</span></h2><div class="tools">${OUT.map(o=>`<a class="tool" href="${esc(o.url)}" target="_blank" rel="noopener"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12v-4"/><path d="M9 7h6M9 11h4"/></svg></span><span class="tx"><b>${esc(o.nom)} <small>↗</small></b>${o.par?`<i>${esc(o.par)}</i>`:''}<p>${esc(o.desc||'')}</p></span></a>`).join('')}</div><p class="maj">Ces outils s'ouvrent sur claude.ai dans un nouvel onglet ; ils ne peuvent pas être affichés dans cette page.</p>`:'';
+const $=id=>document.getElementById(id);
+
+const sub=(x,cls='')=>`<div class="sub ${cls}"><b>${esc(x.nom)}</b>${x.tag?`<i>${esc(x.tag)}</i>`:''}<p>${esc(x.txt)}</p></div>`;
+
+function render(p){
+  if(!p){$('perso').innerHTML='<p class="empty">Aucun personnage pour l’instant.</p>';return}
+  const img=p.img||{};
+  const h=[];
+  h.push(`<section class="head" id="fiche">
+    <div class="pic ${img.fit?'fit':''}" style="--pos:${esc(img.pos||'50% 30%')};${img.fit&&img.f?`--bg-img:url('img/${esc(img.f)}')`:''}">${img.f?(img.fit?`<a href="img/${esc(img.f)}" target="_blank" rel="noopener" title="Voir la planche en grand">`:'')+`<img src="img/${esc(img.f)}" alt="${esc(img.t||'')}" ${img.fallback?`onerror="this.onerror=null;this.src='img/${esc(img.fallback)}';const c=this.closest('.pic');c.classList.remove('fit');c.querySelector('.credit').innerHTML='<b>${esc(img.fallback_t||'')}</b>, ${esc(img.fallback_a||'')}${img.fallback_y?` (${esc(img.fallback_y)})`:''}'"`:''}>`+(img.fit?'</a>':''):''}
+      <p class="credit">${img.t?`<b>${esc(img.t)}</b>, ${esc(img.a||'')}${img.y?` (${esc(img.y)})`:''}`:''}</p></div>
+    <div class="txt">
+      <div><div class="eyebrow">${esc(p.espece)} · ${esc(p.classe)}${p.sousclasse?` · ${esc(p.sousclasse)}`:''}</div>
+        <h2>${esc(p.nom)}</h2>
+        <div class="sub"><b>Niveau ${p.niveau}</b> · ${esc(p.historique||'')}${p.alignement?` · ${esc(p.alignement)}`:''}</div>
+        ${p.joueur?`<div class="player">Personnage de ${esc(p.joueur)}${p.maj?` · fiche du ${esc(fmtDate(p.maj))}`:''}</div>`:''}</div>
+      ${p.accroche?`<p class="intro">${esc(p.accroche)}</p>`:''}
+      ${p.identite?`<dl class="kv">${p.identite.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:''}
+      <div class="btns">${p.pdf?`<a class="btn primary" href="${esc(p.pdf)}" download><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>Fiche PDF</a>`:''}<button class="btn" type="button" onclick="window.print()"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>Imprimer</button></div>
+    </div></section>`);
+
+  // Caractéristiques, combat, sauvegardes, compétences, maîtrises
+  const c=p.combat||{},sv=p.sauvegardes||{};
+  h.push(`<section class="block" id="stats"><h3>Caractéristiques</h3>
+    <div class="abil">${AB.map(a=>`<div class="ab"><b>${ABL[a]}</b><span class="mod">${mod(p.caracs[a])}</span><span class="tot">${p.caracs[a]}</span></div>`).join('')}</div>
+    <dl class="stats fit">
+      <div class="stat"><dt>Classe d'armure</dt><dd>${esc(c.ca)}${c.ca_note?`<small>${esc(c.ca_note)}</small>`:''}</dd></div>
+      <div class="stat"><dt>Initiative</dt><dd>${esc(c.init)}</dd></div>
+      <div class="stat"><dt>Vitesse</dt><dd>${esc(c.vitesse)}${c.vitesse_note?`<small>${esc(c.vitesse_note)}</small>`:''}</dd></div>
+      <div class="stat"><dt>PV maximum</dt><dd>${esc(c.pv)}</dd></div>
+      <div class="stat"><dt>Dés de vie</dt><dd>${esc(c.dv)}</dd></div>
+      <div class="stat"><dt>Bonus de maîtrise</dt><dd>${esc(c.bm)}</dd></div>
+      <div class="stat"><dt>Perception passive</dt><dd>${esc(c.percep)}</dd></div>
+    </dl>
+    <div class="cols" style="margin-top:22px">
+      <div><h4>Jets de sauvegarde</h4><div class="skl">${AB.map(a=>{const s=sv[a]||['—',false];return `<div class="${s[1]?'pro':''}"><span>${s[1]?'<span class="p">●</span>':'<span class="o">○</span>'} ${ABL[a]}</span><span class="m">${esc(s[0])}</span></div>`}).join('')}</div>
+        <h4>Maîtrises &amp; langues</h4><dl class="kv">${(p.maitrises||[]).map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div>
+      <div><h4>Compétences</h4><div class="skl">${(p.competences||[]).map(([n,a,m,pr])=>`<div class="${pr?'pro':''}"><span>${pr?'<span class="p">●</span>':'<span class="o">○</span>'} ${esc(n)}<small>${esc(a)}</small></span><span class="m">${esc(m)}</span></div>`).join('')}</div>
+        <p class="maj" style="margin:8px 0 0">● compétence ou sauvegarde maîtrisée</p></div>
+    </div></section>`);
+
+  // Attaques & équipement
+  const eq=p.equipement||{};
+  h.push(`<section class="block" id="equipement"><h3>Attaques &amp; équipement</h3>
+    <div class="tbwrap" style="margin-top:0"><table class="tb"><thead><tr><th>Arme</th><th>Attaque</th><th>Dégâts</th><th>Propriétés</th></tr></thead><tbody>
+    ${(p.attaques||[]).map(a=>`<tr><td>${esc(a.nom)}</td><td>${esc(a.att)}</td><td>${esc(a.degats)}</td><td>${esc(a.props)}</td></tr>`).join('')}</tbody></table></div>
+    <h4 style="margin-top:22px">Équipement</h4><div class="prose"><p>${esc(eq.liste||'')}</p>${eq.poids||eq.cout?`<p><b>Poids</b> ${esc(eq.poids||'')}${eq.cout?` · <b>Coût</b> ${esc(eq.cout)}`:''}</p>`:''}</div>
+    ${eq.pieces?`<div class="pieces">${eq.pieces.map(([k,v])=>`<span><b>${esc(k)}</b> ${esc(v)}</span>`).join('')}</div>`:''}</section>`);
+
+  // Capacités
+  h.push(`<section class="block" id="capacites"><h3>Capacités &amp; traits</h3>
+    <h4>À utiliser en combat</h4><div class="subs">${(p.capacites||[]).map(x=>sub(x,'crimson')).join('')}</div>
+    <h4>Passifs</h4><div class="subs">${(p.passifs||[]).map(x=>sub(x)).join('')}</div></section>`);
+
+  // Sorts
+  const inc=p.incantation;
+  if(inc){h.push(`<section class="block" id="sorts"><h3>Incantation</h3>
+    <dl class="stats fit" style="margin-top:0"><div class="stat"><dt>Caractéristique</dt><dd>${esc(inc.carac)}</dd></div><div class="stat"><dt>DD de sauvegarde</dt><dd>${esc(inc.dd)}</dd></div><div class="stat"><dt>Bonus d'attaque</dt><dd>${esc(inc.att)}</dd></div><div class="stat"><dt>Emplacements</dt><dd>${esc(inc.emplacements)}</dd></div></dl>
+    ${(inc.groupes||[]).map(g=>`<h4 style="margin-top:22px">${esc(g.titre)}</h4>${g.intro?`<p class="quote" style="margin-bottom:12px">${esc(g.intro)}</p>`:''}<div class="subs">${g.sorts.map(x=>sub(x,'violet')).join('')}</div>`).join('')}</section>`)}
+
+  // Combat
+  const ac=p.actions;
+  if(ac||p.ressources){h.push(`<section class="block" id="combat"><h3>Combat : tout ce que je peux faire</h3>
+    ${ac&&ac.note?`<p class="quote" style="margin-bottom:16px">${esc(ac.note)}</p>`:''}
+    ${p.ressources?`<h4>Ressources à cocher</h4><div class="res">${p.ressources.map(r=>`<span>${esc(r)}</span>`).join('')}</div>`:''}
+    ${ac?ac.groupes.map(g=>`<h4 style="margin-top:22px">${esc(g.titre)}</h4><div class="subs">${g.items.map(x=>sub(x,'teal')).join('')}</div>`).join(''):''}</section>`)}
+
+  // Ordre de combat
+  const o=p.ordre;
+  if(o){h.push(`<section class="block" id="ordre"><h3>Ordre de combat</h3>
+    <ol class="steps">${o.tours.map(t=>`<li><span class="n">${esc(t.n)}</span><div><b>${esc(t.titre)}</b><i>${esc(t.tag)}</i><p>${esc(t.txt)}</p></div></li>`).join('')}</ol>
+    ${o.situations?`<h4 style="margin-top:26px">Selon la situation</h4><div class="subs">${o.situations.map(x=>sub(x,'teal')).join('')}</div>`:''}
+    ${o.gestion?`<h4 style="margin-top:22px">Gestion des emplacements</h4><div class="prose"><p>${esc(o.gestion)}</p></div>`:''}</section>`)}
+
+  // Histoire
+  const pe=p.perso;
+  if(pe){h.push(`<section class="block" id="histoire"><h3>Histoire &amp; personnalité</h3>
+    <div class="cols">
+      <div class="prose">${pe.apparence?`<h4>Apparence</h4><p>${esc(pe.apparence)}</p>`:''}${pe.histoire?`<h4 style="margin-top:22px">Histoire</h4><p>${esc(pe.histoire)}</p>`:''}
+        ${pe.allies?`<h4 style="margin-top:22px">Alliés &amp; organisations</h4>${pe.allies.map(([k,v])=>`<p><b>${esc(k)}</b> — ${esc(v)}</p>`).join('')}`:''}</div>
+      <div style="display:grid;gap:12px;align-content:start">
+        ${pe.traits?`<p class="quote"><b>Traits de personnalité</b>${esc(pe.traits)}</p>`:''}
+        ${pe.ideaux?`<p class="quote"><b>Idéaux</b>${esc(pe.ideaux)}</p>`:''}
+        ${pe.liens?`<p class="quote"><b>Liens</b>${esc(pe.liens)}</p>`:''}
+        ${pe.defauts?`<p class="quote"><b>Défauts</b>${esc(pe.defauts)}</p>`:''}
+      </div></div></section>`)}
+
+  $('perso').innerHTML=h.join('');
+  $('anchors').hidden=false;
+  document.title=`${p.nom} · Personnages · Grimoire de l'aventurier`;
+}
+function fmtDate(s){const d=new Date(s+'T12:00:00');return isNaN(d)?s:d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}
+
+// onglets : un par personnage
+function pick(id,push=true){
+  const p=P.find(x=>x.id===id)||P[0];
+  document.querySelectorAll('#tabs .tab').forEach(t=>t.setAttribute('aria-selected',String(p&&t.dataset.id===p.id)));
+  render(p);
+  if(push&&p&&location.hash!=='#'+p.id)history.replaceState(null,'',(location.pathname+location.search)+'#'+p.id);
+}
+$('tabs').innerHTML=P.map(p=>`<button class="tab" role="tab" data-id="${esc(p.id)}" aria-selected="false">${esc(p.nom.split(' ')[0])}<span class="n">niv. ${p.niveau}</span></button>`).join('');
+$('tabs').onclick=e=>{const t=e.target.closest('.tab');if(t)pick(t.dataset.id)};
+$('anchors').onclick=e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)el.scrollIntoView({behavior:'smooth',block:'start'})};
+if(P.length<2)$('tabs').hidden=true;
+pick(location.hash.slice(1),false);
+addEventListener('hashchange',()=>{if(P.some(p=>'#'+p.id===location.hash))pick(location.hash.slice(1),false)});
+
+// thème
+const root=document.documentElement;
+try{const th=localStorage.getItem('gda-theme');if(th==='light'||th==='dark')root.dataset.theme=th}catch(e){}
+$('theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');const next=cur==='light'?'dark':'light';root.dataset.theme=next;try{localStorage.setItem('gda-theme',next)}catch(e){}};
+</script>
+</body>
+</html>

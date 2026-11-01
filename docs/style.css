@@ -205,8 +205,18 @@ nav.site{position:relative;z-index:7;background:color-mix(in srgb,var(--bg) 70%,
 .site-in a:hover{color:var(--ink)}
 .site-in .brand{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:14px;letter-spacing:.16em;margin-right:auto}
 .site-in .brand svg{width:20px;height:20px}
-body[data-page="index"] .site-in a[data-page="index"],body[data-page="sorts"] .site-in a[data-page="sorts"],body[data-page="equipement"] .site-in a[data-page="equipement"],body[data-page="objets"] .site-in a[data-page="objets"],body[data-page="creation"] .site-in a[data-page="creation"]{color:var(--gold-2);border-bottom-color:var(--gold)}
+body[data-page="index"] .site-in a[data-page="index"],body[data-page="sorts"] .site-in a[data-page="sorts"],body[data-page="equipement"] .site-in a[data-page="equipement"],body[data-page="objets"] .site-in a[data-page="objets"],body[data-page="creation"] .site-in a[data-page="creation"],body[data-page="personnages"] .site-in a[data-page="personnages"]{color:var(--gold-2);border-bottom-color:var(--gold)}
 @media (max-width:640px){.site-in{gap:0 12px;font-size:11px}.site-in .brand{width:100%;margin-bottom:2px}}
+/* navigation : deux groupes, les règles et notre table */
+.nav-group{display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 14px}
+.nav-label{font:600 10px/1 var(--display);letter-spacing:.2em;color:var(--ink-3);padding:4px 8px;border:1px solid var(--line);border-radius:999px;margin-right:2px}
+.nav-group.table{margin-left:10px;padding-left:16px;border-left:1px solid var(--line-2)}
+.nav-group.table .nav-label{color:var(--gold);border-color:var(--gold-3);background:var(--gold-soft)}
+.nav-group.table a{color:var(--ink)}
+.site-in a.ext{color:var(--ink-3);font-size:11px}
+.nav-group.table a.ext{color:var(--ink-2)}
+.site-in a.ext:hover{color:var(--gold)}
+@media (max-width:760px){.nav-group.table{margin-left:0;padding-left:0;border-left:0;width:100%;margin-top:4px}}
 /* ---------- pages secondaires ---------- */
 .hero.small{padding-block:clamp(36px,6vw,64px) clamp(20px,3vw,32px)}
 .hero.small h1{font-size:clamp(30px,5vw,54px)}

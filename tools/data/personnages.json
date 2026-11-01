@@ -1,0 +1,661 @@
+{
+ "personnages": [
+  {
+   "id": "kargan",
+   "nom": "Kargan Fauche-Ombre",
+   "joueur": "Flavio",
+   "espece": "Orc",
+   "classe": "Occultiste",
+   "sousclasse": "Pacte de la Lame maudite",
+   "niveau": 5,
+   "historique": "Mercenaire vétéran",
+   "alignement": "Neutre",
+   "maj": "2026-11-01",
+   "pdf": "fiches/kargan-fauche-ombre-niv5.pdf",
+   "img": {
+    "f": "perso/kargan.jpg",
+    "fit": true,
+    "t": "Planche de personnage de Kargan",
+    "a": "illustration du joueur",
+    "fallback": "orc.jpg",
+    "fallback_t": "Kidōmaru",
+    "fallback_a": "Utagawa Kuniyoshi",
+    "fallback_y": "v. 1850"
+   },
+   "accroche": "Un colosse orc qui a vendu sa lame pendant dix ans, jusqu'au contrat qui a décimé sa compagnie. Une entité d'ombre lui a offert la vie et la vengeance : il a accepté.",
+   "identite": [
+    [
+     "Âge",
+     "20 ans"
+    ],
+    [
+     "Taille",
+     "2,10 m"
+    ],
+    [
+     "Poids",
+     "130 kg"
+    ],
+    [
+     "Yeux",
+     "jaunes injectés de sang, lueur violacée"
+    ],
+    [
+     "Peau",
+     "gris-vert, balafrée"
+    ],
+    [
+     "Cheveux",
+     "noirs, rasés sur les côtés"
+    ],
+    [
+     "XP",
+     "0"
+    ]
+   ],
+   "caracs": {
+    "for": 10,
+    "dex": 14,
+    "con": 16,
+    "int": 10,
+    "sag": 8,
+    "cha": 18
+   },
+   "combat": {
+    "ca": "17",
+    "ca_note": "22 avec Bouclier",
+    "init": "+2",
+    "vitesse": "9 m",
+    "vitesse_note": "18 m en fonçant",
+    "pv": 39,
+    "dv": "5d8",
+    "bm": "+3",
+    "percep": 9
+   },
+   "sauvegardes": {
+    "for": [
+     "+0",
+     false
+    ],
+    "dex": [
+     "+2",
+     false
+    ],
+    "con": [
+     "+3",
+     false
+    ],
+    "int": [
+     "+0",
+     false
+    ],
+    "sag": [
+     "+2",
+     true
+    ],
+    "cha": [
+     "+7",
+     true
+    ]
+   },
+   "maitrises": [
+    [
+     "Armes",
+     "armes courantes, armes de guerre"
+    ],
+    [
+     "Armures",
+     "légères, intermédiaires, boucliers"
+    ],
+    [
+     "Outils",
+     "dés, véhicules (terrestres)"
+    ],
+    [
+     "Langues",
+     "commun, orc"
+    ]
+   ],
+   "competences": [
+    [
+     "Acrobaties",
+     "Dex",
+     "+2",
+     false
+    ],
+    [
+     "Arcanes",
+     "Int",
+     "+0",
+     false
+    ],
+    [
+     "Athlétisme",
+     "For",
+     "+3",
+     true
+    ],
+    [
+     "Discrétion",
+     "Dex",
+     "+2",
+     false
+    ],
+    [
+     "Escamotage",
+     "Dex",
+     "+2",
+     false
+    ],
+    [
+     "Histoire",
+     "Int",
+     "+3",
+     true
+    ],
+    [
+     "Intimidation",
+     "Cha",
+     "+7",
+     true
+    ],
+    [
+     "Intuition",
+     "Sag",
+     "-1",
+     false
+    ],
+    [
+     "Investigation",
+     "Int",
+     "+0",
+     false
+    ],
+    [
+     "Médecine",
+     "Sag",
+     "-1",
+     false
+    ],
+    [
+     "Nature",
+     "Int",
+     "+0",
+     false
+    ],
+    [
+     "Perception",
+     "Sag",
+     "-1",
+     false
+    ],
+    [
+     "Persuasion",
+     "Cha",
+     "+7",
+     true
+    ],
+    [
+     "Religion",
+     "Int",
+     "+0",
+     false
+    ],
+    [
+     "Survie",
+     "Sag",
+     "-1",
+     false
+    ],
+    [
+     "Tromperie",
+     "Cha",
+     "+4",
+     false
+    ]
+   ],
+   "attaques": [
+    {
+     "nom": "Lame magique (+1)",
+     "att": "+8",
+     "degats": "1d8+5 tranchant",
+     "props": "Corps à corps ; polyvalente (1d10+5) ; attaque via Charisme (Guerrier maudit) ; 2 attaques par action Attaquer (Lame assoiffée)."
+    },
+    {
+     "nom": "Arbalète légère",
+     "att": "+5",
+     "degats": "1d8+2 perforant",
+     "props": "Distance 24/96 m ; chargement ; deux mains."
+    }
+   ],
+   "equipement": {
+    "liste": "Épée longue (2, dont une +1), arbalète légère, chemise de mailles, bouclier, dés, jeu de cartes, 20 carreaux, sacoche à composantes, sac à dos, livre, encre et bouteille, plume d'écriture, parchemin (9), vêtements de voyage, potion de guérison (2), petit sac de sable, petit couteau, insigne de rang, bourse.",
+    "poids": "27,25 kg (+ 12,5 kg d'objets ajoutés depuis, détail à préciser)",
+    "cout": "291,62 po",
+    "pieces": [
+     [
+      "PP",
+      "0"
+     ],
+     [
+      "PO",
+      "303 (lecture incertaine)"
+     ],
+     [
+      "PA",
+      "0"
+     ],
+     [
+      "PC",
+      "0"
+     ]
+    ]
+   },
+   "capacites": [
+    {
+     "nom": "Malédiction de la lame maudite",
+     "tag": "Action bonus · 1/repos court",
+     "txt": "Maudis une cible à 9 m (1 min) : +3 dégâts contre elle, critique sur 19–20. Si elle meurt, tu regagnes 9 PV."
+    },
+    {
+     "nom": "Montée d'adrénaline",
+     "tag": "Action bonus · 3×/jour",
+     "txt": "Foncer (mouvement doublé) en action bonus et tu gagnes 3 PV temporaires."
+    },
+    {
+     "nom": "Endurance implacable",
+     "tag": "Auto · 1/repos long",
+     "txt": "Quand tu tombes à 0 PV sans être tué net, tu restes à 1 PV à la place."
+    },
+    {
+     "nom": "Magie de pacte",
+     "tag": "Repos court",
+     "txt": "Tes 2 emplacements de niveau 3 reviennent après chaque repos court : ne les économise pas."
+    },
+    {
+     "nom": "Faveur de pacte (Lame)",
+     "tag": "Action",
+     "txt": "Fais apparaître ta lame de pacte dans ta main ; elle compte comme magique. Elle disparaît si tu t'en éloignes de plus de 1,5 m pendant 1 min."
+    }
+   ],
+   "passifs": [
+    {
+     "nom": "Guerrier maudit",
+     "tag": "Passif",
+     "txt": "Tu attaques et blesses avec ton Charisme au lieu de la Force avec ta lame. Maîtrise des armes de guerre, armures intermédiaires et boucliers."
+    },
+    {
+     "nom": "Manifestations occultes",
+     "tag": "Passif",
+     "txt": "Lame magique : ton épée +1 est ta lame de pacte. Décharge déchirante : +4 aux dégâts de Décharge occulte. Lame assoiffée : 2 attaques par action Attaquer."
+    },
+    {
+     "nom": "Liste de sorts étendue",
+     "tag": "Passif",
+     "txt": "Sorts en plus parmi lesquels choisir : Bouclier, Châtiment courroucé (niv. 1), Flou, Châtiment révélateur (niv. 2), Clignotement, Arme élémentaire (niv. 3)."
+    },
+    {
+     "nom": "Vision dans le noir",
+     "tag": "Passif · 18 m",
+     "txt": "Dans le noir, tu vois comme en lumière faible (sans couleurs) ; en lumière faible, comme en plein jour."
+    },
+    {
+     "nom": "Puissamment bâti",
+     "tag": "Passif",
+     "txt": "Tu comptes comme une taille au-dessus pour la charge que tu peux porter, pousser, tirer ou soulever."
+    },
+    {
+     "nom": "Vie de mercenaire",
+     "tag": "Historique",
+     "txt": "Tu reconnais les compagnies de mercenaires à leurs emblèmes et peux trouver du travail de mercenaire entre deux aventures."
+    }
+   ],
+   "incantation": {
+    "carac": "Charisme",
+    "dd": 15,
+    "att": "+7",
+    "emplacements": "2 × niv. 3 (pacte, repos court)",
+    "groupes": [
+     {
+      "titre": "Sorts mineurs",
+      "sorts": [
+       {
+        "nom": "Décharge occulte",
+        "tag": "Action · 36 m · V, S",
+        "txt": "Si l'attaque avec un sort touche, inflige 1d10 + 4 dégâts de force (Décharge déchirante). 2 rayons, jet d'attaque séparé pour chacun."
+       },
+       {
+        "nom": "Lame retentissante",
+        "tag": "Action · perso (rayon 1,5 m) · V, M",
+        "txt": "Si une attaque avec une arme touche, inflige +1d8 tonnerre à la cible ; si elle se déplace volontairement avant ton prochain tour, elle subit 2d8 tonnerre."
+       },
+       {
+        "nom": "Lame aux flammes vertes",
+        "tag": "Action · perso (rayon 1,5 m) · S, M",
+        "txt": "Si une attaque avec une arme touche, inflige +1d8 feu à la cible, et 1d8 + 4 feu à une autre créature à 1,5 m d'elle."
+       }
+      ]
+     },
+     {
+      "titre": "Niveau 1",
+      "sorts": [
+       {
+        "nom": "Bouclier",
+        "tag": "Réaction · perso · V, S",
+        "txt": "+5 à la CA jusqu'au début du prochain tour (y compris contre l'attaque déclenchante) ; immunise contre Projectile magique."
+       },
+       {
+        "nom": "Châtiment courroucé",
+        "tag": "Action bonus · perso · V · concentration",
+        "txt": "La prochaine attaque au corps à corps touchée inflige 1d6 dégâts psychiques en plus ; la cible rate un JdS de Sagesse ou est effrayée."
+       },
+       {
+        "nom": "Maléfice",
+        "tag": "Action bonus · 27 m · V, S, M · concentration",
+        "txt": "Si une attaque touche la cible maudite, inflige 1d6 dégâts nécrotiques en plus. Désavantage aux tests d'une caractéristique choisie. Lancé avec un emplacement niv. 3 : jusqu'à 8 h."
+       }
+      ]
+     },
+     {
+      "titre": "Niveau 2 (lancés avec un emplacement niv. 3)",
+      "sorts": [
+       {
+        "nom": "Fracassement",
+        "tag": "Action · 18 m · V, S, M",
+        "txt": "Les créatures dans une sphère de 3 m doivent réussir un JdS de Constitution ou subir 4d8 dégâts de tonnerre (moitié si réussite)."
+       },
+       {
+        "nom": "Image miroir",
+        "tag": "Action · perso · V, S",
+        "txt": "Crée 3 duplicatas illusoires, détruits s'ils sont touchés par une attaque physique. Durée 1 min (10 tours). Quand une créature t'attaque, lance 1d20 pour savoir si elle vise un duplicata : 3 duplicatas → 6+ ; 2 → 8+ ; 1 → 11+. CA d'un duplicata : 12."
+       }
+      ]
+     },
+     {
+      "titre": "Niveau 3 (2 emplacements)",
+      "sorts": [
+       {
+        "nom": "Contresort",
+        "tag": "Réaction · 18 m · S",
+        "txt": "Réaction quand une créature visible à 18 m ou moins lance un sort. La cible fait un JdS de Constitution (DD 15) ; en cas d'échec, son sort ne produit aucun effet et l'emplacement utilisé n'est pas dépensé."
+       }
+      ]
+     },
+     {
+      "titre": "Pouvoir de classe — Lame maudite",
+      "sorts": [
+       {
+        "nom": "Malédiction de la lame maudite",
+        "tag": "Action bonus · 9 m · 1/repos court ou long",
+        "txt": "Maudit une créature visible pendant 1 min (fin anticipée si elle meurt, si tu meurs ou si tu es neutralisé). Contre elle : +3 aux dégâts (bonus de maîtrise) ; coup critique sur 19–20. Si elle meurt sous la malédiction, tu regagnes 9 PV (niveau d'occultiste + mod. Charisme)."
+       }
+      ]
+     },
+     {
+      "titre": "Faveur du patron",
+      "intro": "Un rival a récemment tenté de voler l'âme de Kargan à son Patron. Furieux mais rassuré d'avoir gardé le contrôle, celui-ci a chargé Kargan de retrouver et vaincre ce voleur, et lui a accordé deux dons en échange, qui ne comptent pas dans sa limite normale de sorts connus.",
+      "sorts": [
+       {
+        "nom": "Invoque (nom occulte, imprononçable en commun)",
+        "tag": "Action gratuite · hors limite de sorts",
+        "txt": "Invoque une présence carnassière liée au Patron pour assister Kargan au combat. Effet exact à définir avec le MJ."
+       },
+       {
+        "nom": "Immobilisation de personne",
+        "tag": "Niveau 2 · action · 18 m · V, S, M · concentration",
+        "txt": "La cible doit réussir un JdS de Sagesse ou être paralysée. Avec un emplacement niv. 3 : 2 cibles à 9 m l'une de l'autre. Durée 1 min (10 tours). Don du Patron, ne compte pas dans la limite de sorts connus."
+       }
+      ]
+     }
+    ]
+   },
+   "ressources": [
+    "Emplacements de pacte (niv. 3) · repos court",
+    "Malédiction de la lame maudite · repos court",
+    "Montée d'adrénaline · 3 par jour",
+    "Endurance implacable · repos long",
+    "Potions de guérison (2d4+2) · 2"
+   ],
+   "actions": {
+    "note": "À chaque tour : 1 action, 1 action bonus, 1 déplacement, et 1 réaction jusqu'à ton prochain tour. Un seul sort de concentration à la fois (Maléfice, Châtiment courroucé, Immobilisation de personne).",
+    "groupes": [
+     {
+      "titre": "Actions — 1 par tour",
+      "items": [
+       {
+        "nom": "Attaquer — Lame magique",
+        "tag": "Contact · 1,5 m",
+        "txt": "2 attaques à +8 ; 1d8+5 tranchant (1d10+5 à deux mains). +3 contre la cible maudite, +1d6 sous Maléfice."
+       },
+       {
+        "nom": "Décharge occulte",
+        "tag": "Sort mineur · 36 m",
+        "txt": "2 rayons, +7 chacun ; 1d10+4 force par rayon. Le meilleur choix à distance."
+       },
+       {
+        "nom": "Lame retentissante",
+        "tag": "Sort mineur · contact",
+        "txt": "1 seule attaque : +1d8 tonnerre ; 2d8 de plus si la cible se déplace volontairement."
+       },
+       {
+        "nom": "Lame aux flammes vertes",
+        "tag": "Sort mineur · contact",
+        "txt": "1 seule attaque : +1d8 feu, et 1d8+4 feu à une 2e créature à 1,5 m."
+       },
+       {
+        "nom": "Arbalète légère",
+        "tag": "Distance 24/96 m",
+        "txt": "+5 ; 1d8+2 perforant. Une seule attaque (Lame assoiffée ne marche qu'avec la lame)."
+       },
+       {
+        "nom": "Fracassement",
+        "tag": "Emplacement · 18 m",
+        "txt": "Sphère de 3 m : JdS Con DD 15, 4d8 tonnerre (moitié si réussi)."
+       },
+       {
+        "nom": "Immobilisation de personne",
+        "tag": "Emplacement · concentration",
+        "txt": "Humanoïde(s) : JdS Sag DD 15 ou paralysé, 2 cibles. Coups au contact = critiques automatiques."
+       },
+       {
+        "nom": "Image miroir",
+        "tag": "Emplacement · 1 min",
+        "txt": "3 duplicatas ; d20 de l'attaquant : 6+ / 8+ / 11+ selon 3 / 2 / 1 restants."
+       },
+       {
+        "nom": "Faire apparaître la lame",
+        "tag": "Action",
+        "txt": "Ta lame de pacte apparaît dans ta main (désarmé, lame perdue…)."
+       },
+       {
+        "nom": "Boire une potion",
+        "tag": "Action",
+        "txt": "Regagne 2d4+2 PV."
+       },
+       {
+        "nom": "Actions de base",
+        "tag": "",
+        "txt": "Foncer (+9 m) · Se désengager (pas d'attaque d'opportunité) · Esquiver (attaques contre toi avec désavantage) · Aider · Se cacher · Se tenir prêt · Bousculer ou agripper (Athlétisme +3)."
+       }
+      ]
+     },
+     {
+      "titre": "Actions bonus — 1 par tour",
+      "items": [
+       {
+        "nom": "Malédiction de la lame maudite",
+        "tag": "9 m · 1/repos court",
+        "txt": "+3 dégâts, critique 19–20 ; 9 PV si la cible meurt. Pas de concentration."
+       },
+       {
+        "nom": "Maléfice",
+        "tag": "Emplacement · 27 m · concentration",
+        "txt": "+1d6 nécrotique par coup ; désavantage aux tests d'une carac. Cible morte → déplacer en action bonus, gratuit."
+       },
+       {
+        "nom": "Montée d'adrénaline",
+        "tag": "3×/jour",
+        "txt": "Foncer (mouvement doublé) + 3 PV temporaires."
+       },
+       {
+        "nom": "Châtiment courroucé",
+        "tag": "Emplacement · concentration",
+        "txt": "Prochain coup au contact : +1d6 psychique ; JdS Sag DD 15 ou effrayé."
+       }
+      ]
+     },
+     {
+      "titre": "Réactions — 1 par round",
+      "items": [
+       {
+        "nom": "Bouclier",
+        "tag": "Emplacement",
+        "txt": "Quand tu es touché : +5 CA (22) jusqu'à ton prochain tour, même contre cette attaque."
+       },
+       {
+        "nom": "Contresort",
+        "tag": "Emplacement · 18 m",
+        "txt": "Quand un ennemi lance un sort : JdS Con DD 15 ou son sort échoue."
+       },
+       {
+        "nom": "Attaque d'opportunité",
+        "tag": "Contact",
+        "txt": "1 attaque avec la lame (+8) quand un ennemi sort de ta portée."
+       }
+      ]
+     },
+     {
+      "titre": "Gratuit et automatique",
+      "items": [
+       {
+        "nom": "Invoque — présence carnassière",
+        "tag": "Action gratuite",
+        "txt": "Fais venir la présence carnassière pour t'assister. Effet exact avec le MJ."
+       },
+       {
+        "nom": "Endurance implacable",
+        "tag": "Auto · 1/repos long",
+        "txt": "Tomber à 0 PV → tu restes à 1 PV."
+       },
+       {
+        "nom": "Interagir avec un objet",
+        "tag": "Gratuit · 1/tour",
+        "txt": "Dégainer, ouvrir une porte, ramasser un objet pendant ton tour."
+       },
+       {
+        "nom": "Vision dans le noir",
+        "tag": "Passif · 18 m",
+        "txt": "Le noir = lumière faible pour toi (sans couleurs)."
+       }
+      ]
+     }
+    ]
+   },
+   "ordre": {
+    "tours": [
+     {
+      "n": "+",
+      "titre": "Invoque — présence carnassière",
+      "tag": "Tour 1 · action gratuite",
+      "txt": "Fais venir la présence carnassière dès le début du combat pour qu'elle t'assiste ; ça ne coûte ni action ni emplacement. (Pas le Patron lui-même.)"
+     },
+     {
+      "n": "1",
+      "titre": "Malédiction de la lame maudite",
+      "tag": "Tour 1 · action bonus",
+      "txt": "Sur l'ennemi le plus dangereux. +3 dégâts par coup, critique sur 19–20, et 9 PV regagnés s'il meurt. Pas de concentration, et ça revient au repos court : à faire à chaque combat."
+     },
+     {
+      "n": "2",
+      "titre": "Attaquer avec la Lame magique",
+      "tag": "Tour 1 · action",
+      "txt": "2 attaques à +8, chacune 1d8+5 +3 (malédiction). C'est plus fort que Lame retentissante ou Lame aux flammes vertes, qui ne donnent qu'une seule attaque. Ennemi trop loin ? Montée d'adrénaline (action bonus : foncer + 3 PV temporaires) pour arriver au contact ; la malédiction attend le tour 2. Toujours hors de portée : Décharge occulte (2 rayons, 1d10+4 chacun, 36 m)."
+     },
+     {
+      "n": "3",
+      "titre": "Maléfice sur la même cible",
+      "tag": "Tour 2 · action bonus · emplacement · concentration",
+      "txt": "+1d6 nécrotique par coup. Si la cible meurt, déplace-le sur une autre en action bonus, sans nouvel emplacement."
+     },
+     {
+      "n": "4",
+      "titre": "Attaquer à nouveau",
+      "tag": "Tour 2 · action",
+      "txt": "2 attaques ; chaque coup fait maintenant 1d8+5 +3 +1d6."
+     },
+     {
+      "n": "5",
+      "titre": "Attaquer + déplacer Maléfice",
+      "tag": "Tours suivants · action + action bonus",
+      "txt": "Quand la cible maudite meurt : 9 PV regagnés, et la malédiction n'est plus disponible jusqu'au prochain repos court."
+     }
+    ],
+    "situations": [
+     {
+      "nom": "3 ennemis ou plus groupés",
+      "tag": "Action",
+      "txt": "Fracassement : sphère de 3 m, 4d8 tonnerre (JdS Con DD 15). Attention aux alliés dans la zone."
+     },
+     {
+      "nom": "Gros ennemi humanoïde",
+      "tag": "Action · concentration",
+      "txt": "Immobilisation de personne : s'il est paralysé, tes coups au contact sont des critiques automatiques. Remplace Maléfice (concentration)."
+     },
+     {
+      "nom": "Un ennemi lance un sort",
+      "tag": "Réaction",
+      "txt": "Contresort : garde-le pour les gros sorts (soins, contrôle, zone)."
+     },
+     {
+      "nom": "Tu es touché de peu",
+      "tag": "Réaction",
+      "txt": "Bouclier : +5 CA (22), même contre l'attaque qui vient de toucher."
+     },
+     {
+      "nom": "PV bas",
+      "tag": "Action",
+      "txt": "Image miroir (pas de concentration) ou une potion de guérison. Endurance implacable : ta 1re chute à 0 PV te laisse à 1 PV."
+     },
+     {
+      "nom": "Fuir ou rejoindre un allié",
+      "tag": "Action bonus",
+      "txt": "Montée d'adrénaline : mouvement doublé + 3 PV temporaires (3×/jour)."
+     }
+    ],
+    "gestion": "Les 2 emplacements de pacte reviennent à chaque repos court. Bon réflexe : 1 emplacement pour attaquer (Maléfice, Immobilisation ou Fracassement) et 1 gardé en réserve pour Bouclier ou Contresort. Combat presque fini ? Dépense tout, puis demande un repos court."
+   },
+   "perso": {
+    "apparence": "Une stature colossale, taillée pour la guerre. Sa peau vert sombre est marquée par les cicatrices de dizaines de contrats passés. Ses cheveux noirs sont rasés sur les côtés et attachés en une tresse stricte de soldat. Ses yeux, autrefois d'un jaune classique pour un orc, brillent désormais d'une lueur violacée surnaturelle, reflet de l'entité magique qui lie son arme. Il porte son équipement militaire avec le soin d'un vétéran : propre, huilé, et prêt à l'action.",
+    "histoire": "Pendant plus de dix ans, il a servi au sein des plus grandes compagnies de mercenaires, vendant sa lame au plus offrant et survivant à des batailles sanglantes. Mais lors d'un contrat qui a mal tourné dans des ruines oubliées, son unité a été décimée. Blessé à mort, rampant au milieu des cadavres de ses frères d'armes, sa main s'est posée sur une arme enfouie dans la roche noire. Une entité d'ombre lui a alors proposé un marché : la vie et la vengeance en échange de sa servitude. Il a accepté. Aujourd'hui, il arpente le monde en solitaire, payant ses dettes par le sang et honorant ses contrats tout en obéissant aux sombres murmures de sa lame.",
+    "allies": [
+     [
+      "Ancienne Compagnie",
+      "Les rares survivants ou contacts de son ancienne unité de mercenaires (recruteurs dans les tavernes, forgerons militaires) qui le reconnaissent encore à son insigne de vétéran."
+     ],
+     [
+      "Le Pacte de l'Ombre",
+      "L'entité mystique liée à son arme. Ce n'est pas un allié amical, mais une présence constante dans son esprit qui lui accorde sa puissance tant qu'il reste sur le chemin des combats."
+     ]
+    ],
+    "traits": "Je ne m'émeus plus de grand-chose. J'ai vu trop de sang couler. Je compte mes pièces d'or après chaque contrat, et je ne donne ma confiance qu'à ceux qui savent tenir une arme.",
+    "ideaux": "Le contrat. Une fois que j'ai accepté une mission et qu'on m'a payé, je la mène à bien. Ma parole et mon épée sont mes seules richesses.",
+    "liens": "Je me bats pour honorer la mémoire de mon ancienne compagnie de mercenaires, qui a été décimée. Cette lame magique que je porte est le seul outil qui me permettra de me venger.",
+    "defauts": "J'ai tendance à voir le mal partout et à traiter chaque problème avec la violence d'un champ de bataille. La diplomatie, c'est pour les faibles."
+   }
+  }
+ ],
+ "outils_table": [
+  {
+   "nom": "Grimoire de campagne",
+   "par": "créé par un ami de la table",
+   "url": "https://claude.ai/artifact/JBnTUgHS7cgmXj76AXV2MT",
+   "desc": "Le suivi de partie du groupe en direct : points de vie, emplacements de sorts, ressources, états, initiative et combat. Partagé entre tous les joueurs connectés."
+  },
+  {
+   "nom": "Grimoire de campagne · Kargan",
+   "par": "version de Flavio",
+   "url": "https://claude.ai/artifact/R3fGCV4M3Soh7FR8ZSsnMp",
+   "desc": "La même application, dans la version utilisée pour Kargan."
+  }
+ ]
+}
